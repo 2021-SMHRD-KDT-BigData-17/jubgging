@@ -5,5 +5,6 @@ public class text {
 		
 		System.out.println("성민 씀");
 		
+		System.out.println("김주형 씀");
 	}
 }
