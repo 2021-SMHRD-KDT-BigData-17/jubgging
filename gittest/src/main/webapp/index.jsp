@@ -7,7 +7,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>::Jubging::</title>
-<link rel="stylesheet" href="./assets/css/style.css" />
+<link rel="stylesheet" href="./css/style.css" />
 <script src="https://kit.fontawesome.com/369266d994.js"
 	crossorigin="anonymous"></script>
 </head>
@@ -16,7 +16,7 @@
 		<div class="box">
 			<div class="inner-box">
 				<div class="forms-wrap">
-					<form action="../loginCon" autocomplete="off" class="sign-in-form">
+					<form action="./LoginCon" autocomplete="off" class="sign-in-form">
 						<div class="logo">
 							<a href=""><h4>Jubging</h4></a>
 						</div>
@@ -29,13 +29,13 @@
 						<div class="actual-form">
 							<div class="input-wrap">
 								<input type="text" minlength="4" class="input-field"
-									autocomplete="off" name="USER_ID" required />
+									autocomplete="off" name="user_id" required />
 								<label>아이디</label>
 							</div>
 
 							<div class="input-wrap">
 								<input type="password" minlength="4" class="input-field"
-									autocomplete="off" name="USER_PW" required />
+									autocomplete="off" name="user_pw" required />
 								<label>비밀번호</label>
 							</div>
 
@@ -60,18 +60,18 @@
 						<div class="actual-form">
 							<div class="input-wrap">
 								<input type="text" minlength="4" class="input-field"
-									autocomplete="off" name="USER_ID" required /> <label>아이디</label>
+									autocomplete="off" name="user_id" required /> <label>아이디</label>
 							</div>
 							
 							<div class="input-wrap">
 								<input type="password" minlength="4" class="input-field"
-									autocomplete="off" name="USER_PW" required />
+									autocomplete="off" name="user_pw" required />
 								<label>비밀번호</label>
 							</div>
 
 							<div class="input-wrap">
 								<input type="email" class="input-field" autocomplete="off"
-									name="USER_EMAIL" required /> <label>이메일</label>
+									name="user_email" required /> <label>이메일</label>
 							</div>
 
 							
@@ -86,11 +86,11 @@
 				<!-- 회원가입 영역 끝 -->
 				<div class="carousel">
 					<div class="images-wrapper">
-						<img src="../img/KakaoTalk_20230217_14145992911.png"
+						<img src="./img/KakaoTalk_20230217_14145992911.png"
 							class="image img-1 show" alt="" /> <img
-							src="../img/AdobeStock_318592134.png" class="image img-2" alt="" />
-						<img src="../img/129.png" class="image img-3" alt="" /> <img
-							src="../img/AdobeStock_523835731.png" class="image img-4" alt="" />
+							src="./img/AdobeStock_318592134.png" class="image img-2" alt="" />
+						<img src="./img/129.png" class="image img-3" alt="" /> <img
+							src="./img/AdobeStock_523835731.png" class="image img-4" alt="" />
 					</div>
 
 					<div class="text-slider">
@@ -134,7 +134,7 @@
 	<!-- index 페이지 끝 -->
 
 	<!-- Javascript file -->
-	<script src="./assets/js/app.js"></script>
+	<script src="./js/app.js"></script>
 </body>
 </html>
 

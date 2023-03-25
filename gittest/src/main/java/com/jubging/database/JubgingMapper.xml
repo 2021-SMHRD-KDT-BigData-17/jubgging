@@ -6,7 +6,13 @@
   		mapper의 경로를 작성 -->
 <mapper namespace="com.jubging.darabase.JubgingMapper">
 	
+	<!-- 회원가입 -->
 	<insert id ="insertjoin" parameterType = "com.jubging.domain.join">
-		insert into USERINFO(USER_ID, USER_PW, USER_EMAIL) values(#{USER_ID},#{USER_PW},#{USER_EMAIL})
+		insert into t_user(user_id, user_pw, user_email) values(#{user_id},#{user_pw},#{user_email})
 	</insert>
+	
+	<!-- 로그인 -->
+	<select id = "selectlogin" parameterType ="com.jubging.domain.join" resultType = "com.jubging.domain.join">
+		select user_id,user_pw from t_user where user_id=#{user_id} and user_pw=#{user_pw}
+	</select>
 </mapper>

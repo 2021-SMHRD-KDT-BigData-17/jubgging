@@ -10,8 +10,28 @@
   	<description></description>
   	<servlet-class>com.jubging.controller.JoinCon</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>LoginCon</servlet-name>
+  	<display-name>LoginCon</display-name>
+  	<description></description>
+  	<servlet-class>com.jubging.controller.LoginCon</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>LogoutCon</servlet-name>
+  	<display-name>LogoutCon</display-name>
+  	<description></description>
+  	<servlet-class>com.jubging.controller.LogoutCon</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>JoinCon</servlet-name>
   	<url-pattern>/JoinCon</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>LoginCon</servlet-name>
+  	<url-pattern>/LoginCon</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>LogoutCon</servlet-name>
+  	<url-pattern>/LogoutCon</url-pattern>
   </servlet-mapping>
 </web-app>
