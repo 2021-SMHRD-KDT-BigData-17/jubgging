@@ -35,10 +35,12 @@
       <i class="fa-solid fa-store"></i>
       <h2>스토어</h2>
     </div>
-    <div class="sidebarOption">
-      <i class="fa-solid fa-user"></i>
-      <h2>프로필</h2>
-    </div>
+    <a href="./profile.jsp">
+	    <div class="sidebarOption">
+	      <i class="fa-solid fa-user"></i>
+	      <h2>프로필</h2>
+	    </div>
+    </a>
     <div class="profile_btn" onclick="dropdown()">
       <div class="user_info">
         <img src="./img/129.png" class="user_profile_img" style="width: 55px; height: 55px;">

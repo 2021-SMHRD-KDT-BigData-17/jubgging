@@ -22,6 +22,12 @@
   	<description></description>
   	<servlet-class>com.jubging.controller.LogoutCon</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>productCon</servlet-name>
+  	<display-name>productCon</display-name>
+  	<description></description>
+  	<servlet-class>com.jubging.controller.productCon</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>JoinCon</servlet-name>
   	<url-pattern>/JoinCon</url-pattern>
@@ -33,5 +39,9 @@
   <servlet-mapping>
   	<servlet-name>LogoutCon</servlet-name>
   	<url-pattern>/LogoutCon</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>productCon</servlet-name>
+  	<url-pattern>/productCon</url-pattern>
   </servlet-mapping>
 </web-app>
