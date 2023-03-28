@@ -46,4 +46,19 @@ public class MemberDAO {
 		return loginMember;
 	} // selectMember 끝
 	
+	// 상테 메시지 작성
+		public Profile updatesituation(Profile profilesituation) {
+			
+			Profile situation = null;
+			try {
+				sqlSession.update("updatesituation",profilesituation);
+				situation = sqlSession.selectOne("selectsituation", profilesituation);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}finally {
+				sqlSession.close();
+			}
+			return situation;
+		} // selectsituation 끝
+	
 }

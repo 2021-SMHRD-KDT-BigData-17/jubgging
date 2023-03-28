@@ -1,18 +1,36 @@
 <?xml version="1.0" encoding="UTF-8" ?>
+
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-  <!-- namespace : sql탸그 id를 그룹화하기 위한 속성 
-  		mapper의 경로를 작성 -->
+<!-- namespace : sql탸그 id를 그룹화하기 위한 속성 mapper의 경로를 작성 -->
 <mapper namespace="com.jubging.darabase.JubgingMapper">
-	
+
 	<!-- 회원가입 -->
-	<insert id ="insertjoin" parameterType = "com.jubging.domain.join">
-		insert into t_user(user_id, user_pw, user_email) values(#{user_id},#{user_pw},#{user_email})
+	<insert id="insertjoin" parameterType="com.jubging.domain.join">
+		insert into	t_user(user_id, user_pw, user_email) values(#{user_id},#{user_pw},#{user_email})
 	</insert>
-	
+
 	<!-- 로그인 -->
-	<select id = "selectlogin" parameterType ="com.jubging.domain.join" resultType = "com.jubging.domain.join">
-		select user_id,user_pw from t_user where user_id=#{user_id} and user_pw=#{user_pw}
+	<select id="selectlogin" parameterType="com.jubging.domain.join"
+		resultType="com.jubging.domain.join">
+		select * from t_user where user_id=#{user_id} and user_pw=#{user_pw}
 	</select>
+
+	<!-- 타임라인 데이더 저장 -->
+	<insert id="insertcommunity" parameterType="com.jubging.domain.Community">
+		insert into t_community(c_content, c_hashtag, user_id)
+		values(#{c_content},#{c_hashtag},#{user_id})
+	</insert>
+
+
+	<!-- 상테 메시지 저장 -->
+	<update id="updatesituation" parameterType="com.jubging.domain.Profile">
+		UPDATE t_user SET user_situation = #{user_situation} WHERE user_id = #{user_id}
+	</update>
+	
+	<select id = "selectsituation" parameterType="com.jubging.domain.Profile">
+		select * from t_user where user_id=#{user_id}
+	</select>
+
 </mapper>

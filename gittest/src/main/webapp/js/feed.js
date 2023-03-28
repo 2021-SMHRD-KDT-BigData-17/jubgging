@@ -76,7 +76,7 @@ function addTags() {
     tagContainer.appendChild(tagElement);
   });
 }
-// post box 안에  input 기능
+/*// post box 안에  input 기능
 const editableInput = document.querySelector(".editable"),
 readonlyInput = document.querySelector(".readonly"),
 placeholder = document.querySelector(".placeholder"),
@@ -124,7 +124,7 @@ function checkInput(element){
     counterLimit.style.color = "#333"
   }
   readonlyInput.innerHTML=textTag;
-}
+}*/
 
 //날씨 정보 기능 
 // Geolocation API에 액세스할 수 있는지를 확인

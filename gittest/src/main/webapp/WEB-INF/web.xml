@@ -28,6 +28,18 @@
   	<description></description>
   	<servlet-class>com.jubging.controller.productCon</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>CommunirtyCon</servlet-name>
+  	<display-name>CommunirtyCon</display-name>
+  	<description></description>
+  	<servlet-class>com.jubging.controller.CommunirtyCon</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>saveCon</servlet-name>
+  	<display-name>saveCon</display-name>
+  	<description></description>
+  	<servlet-class>com.jubging.controller.saveCon</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>JoinCon</servlet-name>
   	<url-pattern>/JoinCon</url-pattern>
@@ -43,5 +55,13 @@
   <servlet-mapping>
   	<servlet-name>productCon</servlet-name>
   	<url-pattern>/productCon</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>CommunirtyCon</servlet-name>
+  	<url-pattern>/CommunirtyCon</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>saveCon</servlet-name>
+  	<url-pattern>/saveCon</url-pattern>
   </servlet-mapping>
 </web-app>
