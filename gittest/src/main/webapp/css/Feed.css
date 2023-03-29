@@ -419,7 +419,7 @@ img .user_profile_img{
     margin-top: 15px;
     margin-left: 20px;
     padding: 20px;
-    background-color: whitesmoke;
+    /* background-color: whitesmoke; */
     border-radius: 20px;
 }
 .widgets_treand_Container h2{
@@ -429,7 +429,7 @@ img .user_profile_img{
     margin-top: 15px;
     margin-left: 20px;
     padding: 20px;
-    background-color: whitesmoke;
+    /* background-color: whitesmoke; */
     border-radius: 20px;
 }
 .widgets::-webkit-scrollbar{
