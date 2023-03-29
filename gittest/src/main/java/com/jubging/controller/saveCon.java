@@ -30,7 +30,7 @@ public class saveCon extends HttpServlet {
 
 		MemberDAO dao = new MemberDAO();
 		
-		int cnt = dao.updatesituation(profileMember);
+		int cnt = dao.insertsituation(profileMember);
 		
 		/* int cnt = dao.updatesituation(profileMember); */
 		// 4. MemberMapper.xml에 sql문 작성
@@ -46,7 +46,7 @@ public class saveCon extends HttpServlet {
 			System.out.println("상태 메시지 변경 실패!!");
 		}
 		
-		response.sendRedirect("profile.jsp");
+		response.sendRedirect("profile_post.jsp");
 		
 	}
 

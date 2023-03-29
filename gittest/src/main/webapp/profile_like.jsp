@@ -81,7 +81,7 @@ join user_id = (join) session.getAttribute("user_id");
               <i class="fa-solid fa-earth-asia"></i>
             </a>
           </address>
-          <p>Nature, plogging, Happy</p>
+          <p><%=user_id.getUser_situation()%></p>
         </div>
         <div class="activity_bx">
           <div class="activity_card_bx">
@@ -280,7 +280,7 @@ join user_id = (join) session.getAttribute("user_id");
             <div class="text">
                 <span class="name">Smhrd</span>
                 <span class="profile_content">
-                    Nature, plogging, Happy
+                    <%=user_id.getUser_situation()%>
                 </span>
             </div>
         </div>

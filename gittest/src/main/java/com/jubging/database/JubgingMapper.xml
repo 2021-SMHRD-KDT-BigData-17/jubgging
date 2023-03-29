@@ -25,12 +25,12 @@
 
 
 	<!-- 상테 메시지 저장 -->
-	<update id="updatesituation" parameterType="com.jubging.domain.Profile">
+	<update id="insertsituation" parameterType="com.jubging.domain.Profile">
 		UPDATE t_user SET user_situation = #{user_situation} WHERE user_id = #{user_id}
 	</update>
 	
-	<select id = "selectsituation" parameterType="com.jubging.domain.Profile">
+	<!-- <select id = "selectsituation" parameterType="com.jubging.domain.Profile">
 		select * from t_user where user_id=#{user_id}
-	</select>
+	</select> -->
 
 </mapper>
