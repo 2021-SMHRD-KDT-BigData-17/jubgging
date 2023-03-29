@@ -1,19 +1,10 @@
-<!-- JPS 부분 
-
-
-
-<% join user_id = (join) session.getAttribute("user_id");%>
-
--->
-
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/gittest/src/main/webapp/folde1/js/feed.js">
+    <link rel="stylesheet" href="/gittest/src/main/webapp/folde1/css/Feed.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
     integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -25,7 +16,7 @@
   <!-- sidebar section Start -->
   <div class="sidebar">
     <div class="sidebarOption_logo"> 
-      <img src="./img/homelogo.png">
+      <img src="/gittest/src/main/webapp/folde1/img/homelogo.png">
     </div>
     <div class="sidebarOption">
       <i class="fa-solid fa-house-chimney"></i>
@@ -45,17 +36,10 @@
     </div>
     <div class="profile_btn" onclick="dropdown()">
       <div class="user_info">
-        <img src="/img/129.png" class="user_profile_img" style="width: 55px; height: 55px;">
+        <img src="/gittest/src/main/webapp/folde1/img/129.png" class="user_profile_img" style="width: 55px; height: 55px;">
         <div class="name">
           <p class="user_nick">admin</p>
           <p class="user_id">@admin</p>
-          <!-- 
-
-            <p class="user_nick"><%=user_id.getUser_id()%></p>
-               <p class="user_id">
-                  @<%=user_id.getUser_id()%></p>
-
-           -->
         </div>
         <div class="user_profile_op">
           <i class="fa-solid fa-angles-down"></i>          
@@ -64,14 +48,6 @@
     </div>
     <div class="sidebar_dropdown-content" id="dropdown-content">
       <p onclick="logout()">로그아웃</p>
-
-      <!-- 
-
-        <a href="LogoutCon"><p onclick="logout()">로그아웃</p></a>
-
-       -->
-
-
     </div>
   </div>
     <!-- sidebar section end -->
@@ -131,7 +107,7 @@
       <div class="post_list_box">
         <div class="content">
           <div class="post_profile" style="float: left;">
-            <img src="./img/129.png" alt="">
+            <img src="/gittest/src/main/webapp/folde1/img/129.png" alt="">
           </div>
           <div class="user_name_time">
             <h5 name="user_nick">
@@ -148,7 +124,7 @@
             <span>a 태그는 링크를 걸어주는 태그로 href, target, rel 속성이 있다. 각 속성에는 다양한 속성값이 있다. id와 class 속성은 body 영역에서 사용할 수 있는데 모든 태그에서 사용할 수 있다. id 속성은 고유한 이름이며, class 속성은 중복해서 이름을 지정할 수 있다.</span>
           </div>
           <div class="img_post_bx">
-            <img src="/img/AdobeStock_523835731.png" alt="">
+            <img src="/gittest/src/main/webapp/img/AdobeStock_523835731.png" alt="">
           </div>
           <div class="post_card_social_data">
             <div class="post_social_card">
@@ -172,7 +148,7 @@
           <div class="comment_list">
             <div class="dropdown-comment_list">
               <div class="post_profile" style="float: left;">
-                <img src="./img/129.png" alt="">
+                <img src="/gittest/src/main/webapp/folde1/img/129.png" alt="">
               </div>
               <div class="user_name_time_comment">
                 <h5 name="user_nick">
@@ -205,7 +181,7 @@
     </div>
     <div class="widgets_treand_Container">
       <div class="widgets_weather_header">
-        <h2>트렌드</h2>
+        <h2>친환경 상품</h2>
       </div> 
     </div>
     
@@ -218,18 +194,18 @@
         <p>위치정보를 찾을 수 없습니다.</p>
       </div>
       <div class="weather">
-        <img src="/img/icon/1530391_clouds_sun_sunny_weather.png" class="weather-icon">
+        <img src="/gittest/src/main/webapp/folde1/img/icon/1530391_clouds_sun_sunny_weather.png" class="weather-icon">
         <h1 class="temp"></h1>
         <h2 class="city_result"></h2> 
         <div class="details">
           <div class="col">
-            <img src="/img/icon/cloud_forecast_rain_humidity_weather_icon_228446.png" alt="">
+            <img src="/gittest/src/main/webapp/img/icon/cloud_forecast_rain_humidity_weather_icon_228446.png" alt="">
               <div class="col_text">
               <p class="humidity"></p>
               <p>습도</p>
           </div>
           <div class="col">
-            <img src="/img/icon/wind_icon-icons.com_64274.png" alt="">
+            <img src="/gittest/src/main/webapp/img/icon/wind_icon-icons.com_64274.png" alt="">
               <div class="col_text">
                 <p class="windy_speed"></p>
                 <p>풍속</p>
@@ -253,9 +229,171 @@
 <!-- popup section end -->
 
   <!-- js file section -->
-  <script src="/js/feed.js"></script>
   <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=cc62bb43e9feeb15374bcc3b80292f46"></script>
   <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
   <script src="https://kit.fontawesome.com/369266d994.js" crossorigin="anonymous"></script>
+
+<script>
+
+  //사이드 바 안의 로그아웃 메뉴
+function dropdown() {
+    var dropdownContent = document.getElementById("dropdown-content");
+    dropdownContent.classList.toggle("show");
+  }
+  
+  
+  
+  function logout() {
+    var dropdownContent = document.getElementById("dropdown-content");
+    dropdownContent.classList.remove("show");
+    // '로그아웃' 삭제 수행
+  }
+  
+  
+  // 댓글
+  function dropdowncoment() {
+    var dropdownContent = document.querySelector(".dropdown-comment");
+    dropdownContent.classList.toggle("show_comment");
+  
+  }
+  
+  const links = document.querySelectorAll('.sidebarOption a');
+
+  const currentUrl = window.location.href;
+  
+  links.forEach(link => {
+    if (link.href === currentUrl) {
+      link.classList.add('active');
+    } else {
+      link.classList.add('default');
+    }
+  }); 
+  
+  
+  // 좋아요 색깔 , 숫자
+  function like() {
+    const heartIcon = document.querySelector('.fas.fa-heart');
+    const likeCount = document.querySelector('[name="like_cnt"]');
+    const currentColor = heartIcon.style.color;
+  
+    if (currentColor === 'red') {
+      heartIcon.style.color = 'rgb(0,0,0,0.2)';
+      likeCount.textContent = Number(likeCount.textContent) - 1;
+    } else {
+      heartIcon.style.color = 'red';
+      likeCount.textContent = Number(likeCount.textContent) + 1;
+    }
+  }
+  
+  
+  
+  
+  //태그입력 창 열기
+  function dropdown_tage() {
+    document.getElementById("tage_dropdown-content").classList.toggle("show_tag");
+  }
+  
+
+//이미지 업로드 
+const icon = document.querySelector('.fa-file-image');
+const input = document.querySelector('input[name="c_img"]');
+
+icon.addEventListener('click', () => {
+  input.click();
+});
+  
+  
+  
+  
+ 
+  
+  
+  //날씨 정보 기능 
+  // Geolocation API에 액세스할 수 있는지를 확인
+  if (navigator.geolocation) {
+    //위치 정보를 얻기
+    navigator.geolocation.getCurrentPosition (function(pos) {
+        const lat = pos.coords.latitude;     // 위도
+        const lon = pos.coords.longitude; // 경도
+        
+        const apikey='e89bb3afd798d5b46c49698f627bf5eb';
+        const apiUrl = 'http://api.openweathermap.org/data/2.5/weather?'
+        const weatherIcon =document.querySelector(".weather-icon")
+       
+        async function getWeather(){
+        const response = await fetch(apiUrl+`lat=`+lat+`&lon=`+lon+`&lang=kr&APPID=${apikey}`);
+        if(response.status==404){
+            document.querySelector(".weather").style.display="none";
+            document.querySelector(".error").style.display="block";
+        }else{
+            var data = await response.json();  
+            console.log(data);
+        // display weather data on webpage
+        
+        document.querySelector(".humidity").innerHTML = data.main.humidity+"<span>&nbsp;%</span>";        
+        document.querySelector(".windy_speed").innerHTML = data.wind.speed+"<span>&nbsp;km/h</span>";        
+        document.querySelector(".city_result").innerHTML = data.name;                
+        document.querySelector(".temp").innerHTML = Math.round(Number(data.main.temp) - 273.15)+"<span>&nbsp;°C</span>";        
+            
+        if(data.weather[0].main=="Clear"){
+            weatherIcon.src="/gittest/src/main/webapp/folde1/img/icon/1530392_weather_sun_sunny_temperature.png";
+        }
+        else if(data.weather[0].icon=="01n"){
+            weatherIcon.src="/gittest/src/main/webapp/folde1/img/icon/1530382_weather_night_moon_moonlight.png";
+        }
+        else if(data.weather[0].icon=="04n"){
+            weatherIcon.src="/gittest/src/main/webapp/folde1/img/icon/1530383_moon_weather_clouds_cloudy.png";
+        }
+        else if(data.weather[0].main=="Clouds"){
+            weatherIcon.src="/gittest/src/main/webapp/folde1/img/icon/1530369_cloudy_weather_clouds_cloud.png";
+        }
+        else if(data.weather[0].icon=="02d"){
+            weatherIcon.src="/gittest/src/main/webapp/folde1/img/icon/1530391_clouds_sun_sunny_weather.png";
+        }
+        else if(data.weather[0].id==500){
+            weatherIcon.src="/gittest/src/main/webapp/folde1/img/icon/1530390_sunny_rain_cloudy_weather_clouds.png";
+        }
+        else if(data.weather[0].main=="Rain"){
+            weatherIcon.src="/gittest/src/main/webapp/folde1/img/icon/1530364_rain_storm_shower_weather.png";
+        }
+        else if(data.weather[0].main=="Drizzle"){
+            weatherIcon.src="/gittest/src/main/webapp/folde1/img/icon/1530365_rain_cloud_drizzel_weather.png";
+        }
+        else if(data.weather[0].main=="Mist"){
+            weatherIcon.src="/gittest/src/main/webapp/folde1/img/icon/1530368_foggy_weather_fog_clouds_cloudy.png";
+        }
+        else if(data.weather[0].main=="Snow"){
+            weatherIcon.src="/gittest/src/main/webapp/folde1/img/icon/1530371_winter_snow_clouds_weather.png";
+        } 
+        document.querySelector(".weather").style.display="block";
+        document.querySelector(".error").style.display="none";
+  
+        }
+  
+        
+    };
+        
+        getWeather();
+        
+    });
+        
+  
+  } else {
+    alert("이 브라우저에서는 Geolocation이 지원되지 않습니다.")
+  }
+  
+  
+  
+  //지도 확인 창
+  function open_popup_map(){
+    var popup = document.querySelector(".popup");
+    popup.classList.toggle("show");
+    var close = popup.querySelector(".close");
+    close.onclick = function() {
+      popup.classList.remove("show");
+    };
+  }
+  
+</script>
 </body>
 </html>
