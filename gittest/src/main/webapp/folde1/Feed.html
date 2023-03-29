@@ -300,42 +300,46 @@ function dropdown() {
 
 
 // 파일 선택 창 열기
+const accessToken = "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"; // Replace with your own GitHub access token
+const owner = "asefr01"; // Replace with your GitHub username
+const repo = "filehosting"; // Replace with the name of your GitHub repository
+const branch = "main"; // Replace with the name of the branch you want to upload the file to
+
 const addImg = document.querySelector('.add-img');
 const input = addImg.querySelector('input[name="c_img"]');
 
-addImg.addEventListener('click', () => {
-  input.click();
+input.addEventListener('change', () => {
+  const file = input.files[0]; // Get the first file selected by the user
+  const fileReader = new FileReader(); // Create a new FileReader object to read the contents of the file
+
+  fileReader.readAsDataURL(file); // Read the contents of the file as a data URL
+
+  fileReader.onload = async () => {
+    const fileContent = fileReader.result.split(",")[1]; // Extract the base64-encoded content of the file
+
+    const url = `https://api.github.com/repos/${owner}/${repo}/contents/${file.name}`;
+
+    const response = await fetch(url, {
+      method: "PUT",
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        message: `Upload ${file.name}`,
+        content: fileContent,
+        branch: branch,
+      }),
+    });
+
+    const data = await response.json(); // Parse the response JSON data
+
+    console.log("File uploaded successfully:", data);
+  };
 });
 
-const fileInput = document.querySelector('input[type="file"]');
-const repoName = '2021-SMHRD-KDT-BigData-17';
-const ownerName = 'asefr01';
-const token = "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"; // you'll need to generate this token from your GitHub account settings
-
-fileInput.addEventListener('change', async () => {
-  const file = fileInput.files[0];
-  const content = await file.text();
-  const filename = file.name;
-  const apiUrl = 'https://api.github.com/repos/2021-SMHRD-KDT-BigData-17/jubging/contents/gittest/src/main/webapp/folde1/img/' + filename;
-
-  const response = await fetch(apiUrl, {
-    method: 'PUT',
-    headers: {
-      Authorization: `token ${accessToken}`,
-      Accept: 'application/vnd.github.v3+json',
-    },
-    body: JSON.stringify({
-      message: 'Add new file',
-      content: btoa(content),
-    }),
-  });
-
-  if (response.ok) {
-    const responseData = await response.json();
-    console.log(`File uploaded successfully. URL: ${responseData.html_url}`);
-  } else {
-    console.error(`Failed to upload file. Status code: ${response.status}`);
-  }
+addImg.addEventListener('click', () => {
+  input.click();
 });
 
 // 파일 업로드 후 프리뷰
