@@ -70,7 +70,7 @@
         <div class="postbox_footer">
           <div class="footer-icon">
             <div class="add-img">
-              <i class="far fa-file-image"><input type="file" name="c_img" style="display: none;"></i>
+              <i class="far fa-file-image"><input type="file" name="c_img" style="display: none;" accept="image/*"></i>
             </div>
             <div class="add_map">
               <i class="fa-solid fa-location-dot"></i>
@@ -297,11 +297,46 @@ function dropdown() {
   function dropdown_tage() {
     document.getElementById("tage_dropdown-content").classList.toggle("show_tag");
   }
-  
-// GitHub Personal Access Token 
 
 
 // 파일 선택 창 열기
+const addImg = document.querySelector('.add-img');
+const input = addImg.querySelector('input[name="c_img"]');
+
+addImg.addEventListener('click', () => {
+  input.click();
+});
+
+const fileInput = document.querySelector('input[type="file"]');
+const repoName = '2021-SMHRD-KDT-BigData-17';
+const ownerName = 'asefr01';
+const token = "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"; // you'll need to generate this token from your GitHub account settings
+
+fileInput.addEventListener('change', async () => {
+  const file = fileInput.files[0];
+  const content = await file.text();
+  const filename = file.name;
+  const apiUrl = 'https://api.github.com/repos/2021-SMHRD-KDT-BigData-17/jubging/contents/gittest/src/main/webapp/folde1/img/' + filename;
+
+  const response = await fetch(apiUrl, {
+    method: 'PUT',
+    headers: {
+      Authorization: `token ${accessToken}`,
+      Accept: 'application/vnd.github.v3+json',
+    },
+    body: JSON.stringify({
+      message: 'Add new file',
+      content: btoa(content),
+    }),
+  });
+
+  if (response.ok) {
+    const responseData = await response.json();
+    console.log(`File uploaded successfully. URL: ${responseData.html_url}`);
+  } else {
+    console.error(`Failed to upload file. Status code: ${response.status}`);
+  }
+});
 
 // 파일 업로드 후 프리뷰
   
