@@ -70,7 +70,7 @@
         <div class="postbox_footer">
           <div class="footer-icon">
             <div class="add-img">
-              <i class="far fa-file-image"><input type="file" name="c_img" style="display: none;"></i>
+              <i class="far fa-file-image"><input id="fileInput" type="file" name="c_img" style="display: none;" accept="image/*"></i>
             </div>
             <div class="add_map">
               <i class="fa-solid fa-location-dot"></i>
@@ -298,66 +298,36 @@ function dropdown() {
     document.getElementById("tage_dropdown-content").classList.toggle("show_tag");
   }
   
+// GitHub Personal Access Token 
+const token = "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"; 
 
-//이미지 업로드 
-function readFile(file) {
-  const reader = new FileReader();
-  reader.readAsDataURL(file);
-  return new Promise((resolve, reject) => {
-    reader.onload = () => {
-      const result = reader.result.split(',')[1];
-      resolve(result);
-    };
-    reader.onerror = reject;
-  });
-}
-
-// 이미지 파일 업로드
-// 파일을 읽어와 Base64로 인코딩하는 함수
-function readFile(file) {
-  const reader = new FileReader();
-  reader.readAsDataURL(file);
-  return new Promise((resolve, reject) => {
-    reader.onload = () => {
-      const result = reader.result.split(',')[1];
-      resolve(result);
-    };
-    reader.onerror = reject;
-  });
-}
-
-// 이미지 파일 업로드
-const fileInput = document.getElementById('file-input');
-const file = fileInput.files[0];
-const fileName = file.name;
-const repoName = 'jubging';
-const ownerName = '2021-SMHRD-KDT-BigData-17';
-const branchName = 'main';
-const apiUrl = `https://api.github.com/repos/${ownerName}/${repoName}/contents/gittest/src/main/webapp/folde1/img/${fileName}`;
-const authToken = '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';
-
-readFile(file).then((fileContent) => {
-  $.ajax({
-    url: apiUrl,
-    method: 'PUT',
-    headers: {
-      Authorization: `token ${authToken}`,
-    },
-    data: JSON.stringify({
-      message: `Add ${fileName}`,
-      content: fileContent,
-      branch: branchName,
-    }),
-    success: function(response) {
-      console.log(response);
-    },
-    error: function(error) {
-      console.error(error);
-    }
-  });
-}).catch((error) => {
-  console.error(error);
-});
+// 파일 선택 창 열기
+const fileInput = document.getElementById('fileInput');
+      fileInput.addEventListener('change', () => {
+        const file = fileInput.files[0];
+      
+        // FormData 객체 생성
+        const formData = new FormData();
+        formData.append('file', file);
+      
+        // HTTP 요청 생성
+        const request = new XMLHttpRequest();
+        request.open('PUT', 'https://api.github.com/repos/<your-repository>/contents/<your-folder>/img/' + file.name);
+        request.setRequestHeader('Authorization', `Bearer ${token}`);
+        request.setRequestHeader('Accept', 'application/vnd.github+json');
+        request.onreadystatechange = function () {
+          if (request.readyState === 4) {
+            if (request.status === 201) {
+              console.log("File uploaded successfully!");
+            } else {
+              console.error("Error occurred while uploading the file");
+            }
+          }
+        };
+      
+        // 업로드 시작
+        request.send(formData);
+      });
 
 // 파일 업로드 후 프리뷰
   
