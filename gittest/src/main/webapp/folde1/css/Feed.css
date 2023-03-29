@@ -215,6 +215,9 @@ img .user_profile_img{
     transition: 0.3s;
     cursor: pointer;
 }
+.postbox_image-container img {
+    width: 520px;
+}
 .add_map i{
     padding: 10px;
     transition: 0.3s;
