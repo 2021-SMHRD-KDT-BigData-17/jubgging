@@ -70,7 +70,7 @@
         <div class="postbox_footer">
           <div class="footer-icon">
             <div class="add-img">
-              <i class="far fa-file-image"><input id="fileInput" type="file" name="c_img" style="display: none;" accept="image/*"></i>
+              <i class="far fa-file-image"><input type="file" name="c_img" style="display: none;"></i>
             </div>
             <div class="add_map">
               <i class="fa-solid fa-location-dot"></i>
@@ -299,35 +299,9 @@ function dropdown() {
   }
   
 // GitHub Personal Access Token 
-const token = "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"; 
+
 
 // 파일 선택 창 열기
-const fileInput = document.getElementById('fileInput');
-      fileInput.addEventListener('change', () => {
-        const file = fileInput.files[0];
-      
-        // FormData 객체 생성
-        const formData = new FormData();
-        formData.append('file', file);
-      
-        // HTTP 요청 생성
-        const request = new XMLHttpRequest();
-        request.open('PUT', 'https://api.github.com/repos/<your-repository>/contents/<your-folder>/img/' + file.name);
-        request.setRequestHeader('Authorization', `Bearer ${token}`);
-        request.setRequestHeader('Accept', 'application/vnd.github+json');
-        request.onreadystatechange = function () {
-          if (request.readyState === 4) {
-            if (request.status === 201) {
-              console.log("File uploaded successfully!");
-            } else {
-              console.error("Error occurred while uploading the file");
-            }
-          }
-        };
-      
-        // 업로드 시작
-        request.send(formData);
-      });
 
 // 파일 업로드 후 프리뷰
   
