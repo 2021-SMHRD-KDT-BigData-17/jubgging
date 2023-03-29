@@ -298,39 +298,12 @@ function dropdown() {
     document.getElementById("tage_dropdown-content").classList.toggle("show_tag");
   }
   
+// GitHub Personal Access Token 
 
-//이미지 업로드 
-const icon = document.querySelector('.fa-file-image');
-const input = document.querySelector('input[name="c_img"]');
 
-icon.addEventListener('click', () => {
-  input.click();
-});
-const fileInput = $('input[type="file"]');
-const imageContainer = $('.postbox_image-container');
+// 파일 선택 창 열기
 
-fileInput.on('change', (event) => {
-  const file = event.target.files[0];
-
-  const formData = new FormData();
-  formData.append('image', file);
-
-  $.ajax({
-    url: 'https://github.com/2021-SMHRD-KDT-BigData-17/jubging/tree/master/gittest/src/main/webapp/folde1/img/upload-image', // 로컬 서버의 주소로 변경
-    type: 'POST',
-    data: formData,
-    processData: false,
-    contentType: false,
-    success: (response) => {
-      const imageUrl = response.imageUrl;
-      const img = $('<img>').attr('src', imageUrl);
-      imageContainer.append(img);
-    }
-  });
-});
-  
-  
- 
+// 파일 업로드 후 프리뷰
   
   
   //날씨 정보 기능 
