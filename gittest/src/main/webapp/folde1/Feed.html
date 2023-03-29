@@ -300,37 +300,64 @@ function dropdown() {
   
 
 //이미지 업로드 
-const icon = document.querySelector('.fa-file-image');
-const input = document.querySelector('input[name="c_img"]');
+function readFile(file) {
+  const reader = new FileReader();
+  reader.readAsDataURL(file);
+  return new Promise((resolve, reject) => {
+    reader.onload = () => {
+      const result = reader.result.split(',')[1];
+      resolve(result);
+    };
+    reader.onerror = reject;
+  });
+}
 
-icon.addEventListener('click', () => {
-  input.click();
-});
-const fileInput = $('input[type="file"]');
-const imageContainer = $('.postbox_image-container');
+// 이미지 파일 업로드
+// 파일을 읽어와 Base64로 인코딩하는 함수
+function readFile(file) {
+  const reader = new FileReader();
+  reader.readAsDataURL(file);
+  return new Promise((resolve, reject) => {
+    reader.onload = () => {
+      const result = reader.result.split(',')[1];
+      resolve(result);
+    };
+    reader.onerror = reject;
+  });
+}
 
-fileInput.on('change', (event) => {
-  const file = event.target.files[0];
+// 이미지 파일 업로드
+const fileInput = document.getElementById('file-input');
+const file = fileInput.files[0];
+const fileName = file.name;
+const repoName = 'jubging';
+const ownerName = '2021-SMHRD-KDT-BigData-17';
+const branchName = 'main';
+const apiUrl = `https://api.github.com/repos/${ownerName}/${repoName}/contents/gittest/src/main/webapp/folde1/img/${fileName}`;
+const authToken = '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';
 
-  const formData = new FormData();
-  formData.append('image', file);
-
+readFile(file).then((fileContent) => {
   $.ajax({
-    url: 'https://github.com/2021-SMHRD-KDT-BigData-17/jubging/tree/master/gittest/src/main/webapp/folde1/img/upload-image', // 로컬 서버의 주소로 변경
-    type: 'POST',
-    data: formData,
-    processData: false,
-    contentType: false,
-    success: (response) => {
-      const imageUrl = response.imageUrl;
-      const img = $('<img>').attr('src', imageUrl);
-      imageContainer.append(img);
+    url: apiUrl,
+    method: 'PUT',
+    headers: {
+      Authorization: `token ${authToken}`,
+    },
+    data: JSON.stringify({
+      message: `Add ${fileName}`,
+      content: fileContent,
+      branch: branchName,
+    }),
+    success: function(response) {
+      console.log(response);
+    },
+    error: function(error) {
+      console.error(error);
     }
   });
+}).catch((error) => {
+  console.error(error);
 });
-  
-  
- 
   
   
   //날씨 정보 기능 
