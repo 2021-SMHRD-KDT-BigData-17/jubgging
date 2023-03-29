@@ -596,6 +596,7 @@ img .user_profile_img{
 .comment_list::-webkit-scrollbar{
     display: none;
 }
+
 /* widgets */
 .widgets{
     flex: 0.2;
