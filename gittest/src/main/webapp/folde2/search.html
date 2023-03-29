@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/profile/css/search.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>::Jubging:: - Profile</title>
+
+</head>
+
+<body>
+  <!-- sidebar section Start -->
+  <div class="sidebar">
+    <div class="sidebarOption_logo">
+      <img src="/profile/img/homelogo.png">
+    </div>
+    <div class="sidebarOption">
+      <i class="fa-solid fa-house-chimney"></i>
+      <h2>홈</h2>
+    </div>
+    <div class="sidebarOption">
+      <i class="fa-sharp fa-solid fa-magnifying-glass"></i>
+      <a href="/search.html"><h2>탐색하기</h2></a>
+    </div>
+    <div class="sidebarOption">
+      <i class="fa-solid fa-envelope"></i>
+      <h2>TODAY'S PICK</h2>
+    </div>
+    <div class="sidebarOption">
+      <i class="fa-solid fa-store"></i>
+      <h2>스토어</h2>
+    </div>
+    <div class="sidebarOption">
+      <i class="fa-solid fa-user"></i>
+      <a href="/profile_post.html"><h2>프로필</h2></a>
+    </div>
+    <div class="profile_btn" onclick="dropdown()">
+      <div class="user_info">
+        <img src="../profile/img/129.png" class="user_profile_img" style="width: 55px; height: 55px;">
+        <div class="name">
+          <p class="user_nick">admin</p>
+          <p class="user_id">@admin</p>
+        </div>
+        <div class="user_profile_op">
+          <i class="fa-solid fa-angles-down"></i>
+        </div>
+      </div>
+    </div>
+    <div class="sidebar_dropdown-content" id="dropdown-content">
+      <p>로그아웃</p>
+    </div>
+  </div>
+  <!-- sidebar section end -->
+  <section>
+  <div class="profile_header">
+    <div class="widgets_input">
+      <input type="text" placeholder="Search.." onfocus="this.placeholder=''" onblur="this.placeholder='Search..'" name="search">
+      <button type="submit"><i class="fa-sharp fa-solid fa-magnifying-glass"></i></button>
+    </div>
+  </div>
+    <div class="follow_bx">
+      <div class = "trend_for_you">
+          <nav>
+            <h6>Trands for you</h6>
+          </nav>
+          <div class="trend_bx">
+            <div class="rate">
+              <li><a href="#">#today weather <br><p>9.7k posts</p></a></li>
+              <div class="interest">
+                <button class="smile"><i class="fas fa-smile"></i> Interested</button>
+                <button class="frown"><i class="fas fa-frown"></i> Not Interested</button>
+              </div>
+            </div>
+            <div class="rate">
+              <li><a href="#">#plogging <br><p>1.37k posts</p></a></li>
+              <div class="interest">
+                <button class="smile"><i class="fas fa-smile"></i> Interested</button>
+                <button class="frown"><i class="fas fa-frown"></i> Not Interested</button>
+              </div>
+            </div>
+            <div class="rate">
+              <li><a href="#">#dongcheon <br><p>3.2k posts</p></a></li>
+              <div class="interest">
+                <button class="smile"><i class="fas fa-smile"></i> Interested</button>
+                <button class="frown"><i class="fas fa-frown"></i> Not Interested</button>
+              </div>
+            </div>
+            <div class="rate">
+              <li><a href="#">#분리수거 <br><p>7.1k posts</p></a></li>
+              <div class="interest">
+                <button class="smile"><i class="fas fa-smile"></i> Interested</button>
+                <button class="frown"><i class="fas fa-frown"></i> Not Interested</button>
+              </div>
+            </div>
+            <div class="rate">
+              <li><a href="#">#떡잎마을 방범대 <br><p>3.1k posts</p></a></li>
+              <div class="interest">
+                <button class="smile"><i class="fas fa-smile"></i> Interested</button>
+                <button class="frown"><i class="fas fa-frown"></i> Not Interested</button>
+              </div>
+            </div>
+          </div> 
+      </div>
+    </div>
+  </div>
+  </section>
+  <section>
+  <div class="widgets">
+    <div class="widgets_treand_Container">
+      <h2>트렌드</h2>
+      <span><iframe width="385" height="240" src="https://www.youtube.com/embed/P4MunVGijbo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></span>
+    </div>
+    <div class="widgets_weather_Container">
+      <h2>날씨</h2>
+      <div class="weather_card">
+        <div class="error">
+          <p>위치정보를 찾을 수 없습니다.</p>
+        </div>
+        <div class="weather">
+          <img src="/profile/img/icon/1530391_clouds_sun_sunny_weather.png" class="weather-icon">
+          <h1 class="temp"></h1>
+          <h2 class="city_result"></h2>
+          <div class="details">
+            <div class="col">
+              <img src="/profile/img/icon/cloud_forecast_rain_humidity_weather_icon_228446.png" alt="">
+                <div class="col_text">
+                <p class="humidity"></p>
+                <p>습도</p>
+            </div>
+            <div class="col">
+              <img src="/profile/img/icon/wind_icon-icons.com_64274.png" alt="">
+                <div class="col_text">
+                  <p class="windy_speed"></p>
+                  <p>풍속</p>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>  
+    </div>
+  </div>
+  </section>
+  
+  <!-- js file section -->
+  <script src="/profile/js/search.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script src="https://kit.fontawesome.com/369266d994.js" crossorigin="anonymous"></script>
+</body>
+
+</html>
