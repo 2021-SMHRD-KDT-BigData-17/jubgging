@@ -32,7 +32,7 @@
     </div>
     <div class="sidebarOption">
       <i class="fa-solid fa-user"></i>
-      <a href="/gittest/src/main/webapp/folde2/profile_post.html"><h2>프로필</h2>
+      <a href="/gittest/src/main/webapp/folde2/profile_post.html"><h2>프로필</h2></a>
     </div>
     <div class="profile_btn" onclick="dropdown()">
       <div class="user_info">
@@ -70,7 +70,7 @@
         <div class="postbox_footer">
           <div class="footer-icon">
             <div class="add-img">
-              <i class="far fa-file-image"><input type="file" name="c_img" style="display: none;"></i>
+              <i class="far fa-file-image"><input type="file" name="c_img" style="display: none;" accept="image/*"></i>
             </div>
             <div class="add_map">
               <i class="fa-solid fa-location-dot"></i>
@@ -233,6 +233,11 @@
   <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
   <script src="https://kit.fontawesome.com/369266d994.js" crossorigin="anonymous"></script>
 
+
+
+
+
+
 <script>
 
   //사이드 바 안의 로그아웃 메뉴
@@ -292,20 +297,52 @@ function dropdown() {
   function dropdown_tage() {
     document.getElementById("tage_dropdown-content").classList.toggle("show_tag");
   }
-  
 
-//이미지 업로드 
-const icon = document.querySelector('.fa-file-image');
-const input = document.querySelector('input[name="c_img"]');
 
-icon.addEventListener('click', () => {
+// 파일 선택 창 열기
+const accessToken = "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"; // Replace with your own GitHub access token
+const owner = "asefr01"; // Replace with your GitHub username
+const repo = "filehosting"; // Replace with the name of your GitHub repository
+const branch = "main"; // Replace with the name of the branch you want to upload the file to
+
+const addImg = document.querySelector('.add-img');
+const input = addImg.querySelector('input[name="c_img"]');
+
+input.addEventListener('change', () => {
+  const file = input.files[0]; // Get the first file selected by the user
+  const fileReader = new FileReader(); // Create a new FileReader object to read the contents of the file
+
+  fileReader.readAsDataURL(file); // Read the contents of the file as a data URL
+
+  fileReader.onload = async () => {
+    const fileContent = fileReader.result.split(",")[1]; // Extract the base64-encoded content of the file
+
+    const url = `https://api.github.com/repos/${owner}/${repo}/contents/${file.name}`;
+
+    const response = await fetch(url, {
+      method: "PUT",
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        message: `Upload ${file.name}`,
+        content: fileContent,
+        branch: branch,
+      }),
+    });
+
+    const data = await response.json(); // Parse the response JSON data
+
+    console.log("File uploaded successfully:", data);
+  };
+});
+
+addImg.addEventListener('click', () => {
   input.click();
 });
-  
-  
-  
-  
- 
+
+// 파일 업로드 후 프리뷰
   
   
   //날씨 정보 기능 

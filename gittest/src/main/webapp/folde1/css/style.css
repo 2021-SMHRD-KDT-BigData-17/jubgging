@@ -312,6 +312,24 @@ label {
   background-color: #151111;
   border-radius: 1rem;
 }
+
+.user_info_modal .info{
+  margin-bottom: 10px;
+
+}
+.user_info_modal .id_info{
+  font-size: 20px;
+  font-weight: bold;
+}
+.info_res{
+  width: 100%;
+  padding: 10px;
+  border: 1px solid whitesmoke;
+  border-radius: 10px;
+}
+.user_info_modal .id{
+  margin-bottom: 10px;
+}
 .modal{
   display: flex;
   justify-content: center;

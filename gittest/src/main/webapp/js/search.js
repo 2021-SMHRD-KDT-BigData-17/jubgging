@@ -2,8 +2,6 @@ function dropdown() {
     document.getElementById("dropdown-content").classList.toggle("show");
 }
 
-
-
 //날씨 정보 기능 
 // Geolocation API에 액세스할 수 있는지를 확인
 if (navigator.geolocation) {
