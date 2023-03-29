@@ -25,6 +25,23 @@ public class join {
 		this.user_email = user_email;
 	}
 	
+	
+	
+	public join(String user_id, String user_pw, String user_name, String user_nick, String user_email,
+			String user_point, String user_img, String user_joindate, String user_type, String user_situation) {
+		super();
+		this.user_id = user_id;
+		this.user_pw = user_pw;
+		this.user_name = user_name;
+		this.user_nick = user_nick;
+		this.user_email = user_email;
+		this.user_point = user_point;
+		this.user_img = user_img;
+		this.user_joindate = user_joindate;
+		this.user_type = user_type;
+		this.user_situation = user_situation;
+	}
+
 	// 로그인 생성자
 	public join(String user_id, String user_pw) {
 		super();

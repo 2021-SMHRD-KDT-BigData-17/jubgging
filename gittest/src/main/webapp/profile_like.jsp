@@ -48,7 +48,7 @@ join user_id = (join) session.getAttribute("user_id");
       <div class="user_info">
         <img src="./img/129.png" class="user_profile_img" style="width: 55px; height: 55px;">
         <div class="name">
-          <p class="user_nick"><%=user_id.getUser_id()%></p>
+          <p class="user_nick"><%=user_id.getUser_nick()%></p>
           <p class="user_id">@<%=user_id.getUser_id()%></p>
         </div>
         <div class="user_profile_op">
@@ -70,7 +70,7 @@ join user_id = (join) session.getAttribute("user_id");
       <div class="profile_bx">
         <div class="profile_card">
           <img src="./img/icon/profile_img.png" alt="" class="profile_img">
-          <h5 name="user_nick"><%=user_id.getUser_id()%></h5>
+          <h5 name="user_nick"><%=user_id.getUser_nick()%></h5>
           <h6 name="usesr_id">@<%=user_id.getUser_id()%></h6>
           <address>
             <a href="#">
@@ -278,7 +278,7 @@ join user_id = (join) session.getAttribute("user_id");
               </div>
             </div>
             <div class="text">
-                <span class="name">Smhrd</span>
+                <span class="name"><%=user_id.getUser_nick()%></span>
                 <span class="profile_content">
                     <%=user_id.getUser_situation()%>
                 </span>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace : sql탸그 id를 그룹화하기 위한 속성 mapper의 경로를 작성 -->
+<mapper namespace="com.jubging.darabase.JubgingMapper2">
+
+		
+</mapper>

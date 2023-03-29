@@ -4,11 +4,13 @@ public class Profile {
 	
 	private String user_id;
 	private String user_situation;
+	private String user_nick;
 	
-	public Profile(String user_id, String user_situation) {
+	public Profile(String user_id, String user_situation ,String user_nick) {
 		super();
 		this.user_id = user_id;
 		this.user_situation = user_situation;
+		this.user_nick = user_nick;
 	}
 
 	public String getUser_id() {
@@ -29,7 +31,15 @@ public class Profile {
 
 	@Override
 	public String toString() {
-		return "Profile [user_id=" + user_id + ", user_situation=" + user_situation + "]";
+		return "Profile [user_id=" + user_id + ", user_situation=" + user_situation + ", user_nick=" + user_nick + "]";
+	}
+
+	public String getUser_nick() {
+		return user_nick;
+	}
+
+	public void setUser_nick(String user_nick) {
+		this.user_nick = user_nick;
 	}
 	
 	

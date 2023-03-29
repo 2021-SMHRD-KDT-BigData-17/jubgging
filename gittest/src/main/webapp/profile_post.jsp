@@ -47,7 +47,7 @@ join user_id = (join) session.getAttribute("user_id");
       <div class="user_info">
         <img src="./img/129.png" class="user_profile_img" style="width: 55px; height: 55px;">
         <div class="name">
-          <p class="user_nick"><%=user_id.getUser_id()%></p>
+          <p class="user_nick"><%=user_id.getUser_nick()%></p>
           <p class="user_id">@<%=user_id.getUser_id()%></p>
         </div>
         <div class="user_profile_op">
@@ -70,7 +70,7 @@ join user_id = (join) session.getAttribute("user_id");
       <div class="profile_bx">
         <div class="profile_card">
           <img src="./img/icon/profile_img.png" alt="" class="profile_img">
-          <h5 name="user_nick"><%=user_id.getUser_id()%></h5>
+          <h5 name="user_nick"><%=user_id.getUser_nick()%></h5>
           <h6 name="usesr_id">@<%=user_id.getUser_id()%></h6>
           <address>
             <a href="#">
@@ -119,7 +119,7 @@ join user_id = (join) session.getAttribute("user_id");
               <div class="content">
                 <div class="user_name_time">
                   <h5 name="user_nick">
-                    <%=user_id.getUser_id()%>
+                    <%=user_id.getUser_nick()%>
                     <p name="user_id">@<%=user_id.getUser_id()%></p>
                   </h5>
                   <h6><i class="far fa-clock" name="c_date"></i>25 mins</h6>
@@ -149,7 +149,7 @@ join user_id = (join) session.getAttribute("user_id");
               <div class="content">
                 <div class="user_name_time">
                   <h5 name="user_nick">
-                    <%=user_id.getUser_id()%>
+                    <%=user_id.getUser_nick()%>
                     <p name="user_id">@<%=user_id.getUser_id()%></p> 
                   </h5>
                   <h6><i class="far fa-clock" name="c_date"></i>2 hours</h6>
@@ -183,7 +183,7 @@ join user_id = (join) session.getAttribute("user_id");
               <div class="content">
                 <div class="user_name_time">
                   <h5 name="user_nick">
-                    <%=user_id.getUser_id()%>
+                    <%=user_id.getUser_nick()%>
                     <p name="user_id">@<%=user_id.getUser_id()%></p>
                   </h5>
                   <h6><i class="far fa-clock" name="c_date"></i>4 hours</h6>
@@ -274,17 +274,17 @@ join user_id = (join) session.getAttribute("user_id");
               </div>
             </div>
             <div class="text">
-                <span class="name"><%=user_id.getUser_id()%></span>
+                <span class="name"><%=user_id.getUser_nick()%></span>
                 <span class="profile_content">
                     <%=user_id.getUser_situation()%>
                 </span>
             </div>
         </div>
         <form action="saveCon">
-            <textarea class ="nickarea" placeholder="닉네임을 입력하세요"></textarea>
+            <textarea class ="nickarea" name = "user_nick" placeholder="닉네임을 입력하세요"></textarea>
             <textarea class ="profilearea" name="user_situation" placeholder="프로필 내용을 입력하세요"></textarea>
             <div class="button">
-                <button class="save" type="sumbit">저장</button>
+                <button class="save" type="submit">저장</button>
             </div>
           </form>
     </div>

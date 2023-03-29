@@ -23,11 +23,15 @@ public class saveCon extends HttpServlet {
 		join userid = (join) session.getAttribute("user_id");
 		String user_id = userid.getUser_id();
 		String user_situation = request.getParameter("user_situation");
+		String user_nick = request.getParameter("user_nick");
 		
 		System.out.println("데이터 저장");
-		Profile profileMember = new Profile(user_id,user_situation);
+		Profile profileMember = new Profile(user_id,user_situation,user_nick);
 		System.out.println(profileMember.toString());
-
+		join update = new join(userid.getUser_id(), userid.getUser_pw(), userid.getUser_name(), user_nick,
+				userid.getUser_email(),userid.getUser_point(),userid.getUser_img(),userid.getUser_joindate(),
+				userid.getUser_type(),user_situation);
+		
 		MemberDAO dao = new MemberDAO();
 		
 		int cnt = dao.insertsituation(profileMember);
@@ -42,6 +46,7 @@ public class saveCon extends HttpServlet {
 		
 		if(cnt>0) {
 			System.out.println("상태 메시지 변경 성공!!");
+			session.setAttribute("user_id", update);
 		}else {
 			System.out.println("상태 메시지 변경 실패!!");
 		}
