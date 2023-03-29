@@ -46,7 +46,6 @@ public class MemberDAO {
 		return loginMember;
 	} // selectMember 끝
 
-	// 프로필 상테 메시지 작성
 	public int insertsituation(Profile profileMember) {
 
 		int cnt = 0;
@@ -67,5 +66,21 @@ public class MemberDAO {
 
 		return cnt;
 	} // insertMember 끝
+
+
+	public join selectfind(String user_email) {
+
+		join findMember = null;
+
+		try {
+			findMember = sqlSession.selectOne("selectfind", user_email);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+		return findMember;
+
+	}
 
 }

@@ -1,5 +1,10 @@
+<%@page import="com.jubging.domain.join"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+ 
+<%
+join user= (join) request.getAttribute("user");
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -115,7 +120,7 @@
 		</div>
 	</section>
 	<!-- 회원 정보 찾기 POPUP -->
-	<form action="">
+	<form action="FindCon" method="post" onsubmit = "return submitForm()">
 		<div class="modal hidden">
 			<div class="modal_background">
 				<div class="modal_content">
@@ -123,9 +128,9 @@
 					<h1>회원 정보찾기</h1>
 					<div class="input-wrap" style="margin-top: 20px;">
 						<input type="email" class="input-field" autocomplete="off"
-							name="email" required /> <label>가입한 이메일</label>
+							name="user_email" required /> <label>가입한 이메일</label>
 					</div>
-					<input type="submit" value="아이디 & 비밀 번호 조회" class="sign-btn" />
+						<input type="submit" value="아이디 & 비밀 번호 조회" class="sign-btn" />
 				</div>
 			</div>
 		</div>

@@ -18,6 +18,7 @@
     </environment>
   </environments>
   <mappers>
-    <mapper resource="com/jubging/database/JubgingMapper.xml"/>
+    <mapper resource="com/jubging/database/JubgingMapper1.xml"/>
+    <mapper resource="com/jubging/database/JubgingMapper2.xml"/>
   </mappers>
 </configuration>

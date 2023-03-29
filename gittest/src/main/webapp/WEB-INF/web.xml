@@ -40,6 +40,12 @@
   	<description></description>
   	<servlet-class>com.jubging.controller.saveCon</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>FindCon</servlet-name>
+  	<display-name>FindCon</display-name>
+  	<description></description>
+  	<servlet-class>com.jubging.controller.FindCon</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>JoinCon</servlet-name>
   	<url-pattern>/JoinCon</url-pattern>
@@ -63,5 +69,9 @@
   <servlet-mapping>
   	<servlet-name>saveCon</servlet-name>
   	<url-pattern>/saveCon</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>FindCon</servlet-name>
+  	<url-pattern>/FindCon</url-pattern>
   </servlet-mapping>
 </web-app>
