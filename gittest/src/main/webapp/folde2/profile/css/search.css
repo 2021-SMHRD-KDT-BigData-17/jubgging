@@ -143,14 +143,14 @@ section .follow_bx .trend_for_you{
 
 section .follow_bx .trend_for_you::-webkit-scrollbar{
     width: 5px;
-    background: rgb(0, 0, 0, 0.1);
+    background: #fff;
     border-radius: 20px;
     visibility: hidden;   
 }
 
 section .follow_bx .trend_for_you::-webkit-scrollbar-thumb{
     width: 5px;
-    background: rgb(0, 0, 0, 0.1);
+    background: #fff;
     border-radius: 20px;
     visibility: hidden;   
 }
