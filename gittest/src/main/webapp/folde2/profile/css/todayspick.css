@@ -7,32 +7,62 @@
     font-family: 'Popins', sans-serif;
 }
 
-section{
-    position: relative;
-    width: 100%;
+body{
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: rgb(100, 182, 23);;
+background-image: linear-gradient(315deg, #F4FBF3 0%, rgb(100, 182, 23));
+
+}
+ 
+.container{
+    max-width: 300px;
+    width: 100%;
+    background: #efefef;
+    border-radius: 8px;
+    
+}
+
+.card {
+    width: 312px;
+    background: #fff;
+    border-radius: 8px;
+}
+
+.card .image-box{
+    height: 200px;
+}
+
+.card .image-box img{
+    width: 300px;   
+    height: 100%;
+    border-radius: 8px 8px 0 0;
+}
+
+.card .profile_details{
+    display: flex;
     align-items: center;
-    background: #2196f3;
-    overflow: hidden;
+    column-gap: 12px;
+    padding: 15px ;
 }
 
-.swiper-container {
-    width: 100%;
-    padding-top: 50px;
-    padding-bottom: 50px;
+.card .profile_details img{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+
 }
 
-.swiper-slide {
-    background-position: center;
-    background-size: cover;
-    width: 300px;
-    height: 300px;
+.profile_details .name_region .h3{
+    font-size: 15px;
+    font-weight: 500;
 }
 
-.swiper-slide img {
-    display: block;
-    width: 100%;
+.profile_details .name_region .h4{
+    font-size:12px;
+    font-weight:500;
+    color:#4d4d4d;
 }
+
