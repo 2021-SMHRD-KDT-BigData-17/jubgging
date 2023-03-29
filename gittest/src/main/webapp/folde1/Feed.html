@@ -115,10 +115,7 @@
               <p name="user_id">@admin</p>
             </h5>
             <h6><i class="far fa-clock" name="c_date"></i>25 mins</h6>
-            <i class="fa-solid fa-ellipsis-vertical"></i>
-          </div>
-          <div class="delete_post">
-            <p>삭제하기</p>
+            <i class="fa-solid fa-trash-can" onclick="deletepostlist()"></i>
           </div>
           <div class="content_text" name="post-content">
             <span>a 태그는 링크를 걸어주는 태그로 href, target, rel 속성이 있다. 각 속성에는 다양한 속성값이 있다. id와 class 속성은 body 영역에서 사용할 수 있는데 모든 태그에서 사용할 수 있다. id 속성은 고유한 이름이며, class 속성은 중복해서 이름을 지정할 수 있다.</span>
@@ -155,10 +152,7 @@
                   admin
                   <p name="user_id">@admin</p>
                   <h6><i class="far fa-clock" name="c_date"></i>25 mins</h6>
-                  <i class="fa-solid fa-ellipsis-vertical"></i>
-                  <div class="delete_coment">
-                    <p>삭제하기</p>
-                  </div>
+                  <i class="fa-solid fa-trash-can" onclick="deletecomment()"></i>
                 </h5>
               </div>
               <div class="comment_text">
@@ -226,6 +220,7 @@
   <div class="modal_content">
   </div>
 </div>
+
 <!-- popup section end -->
 
   <!-- js file section -->
@@ -300,48 +295,6 @@ function dropdown() {
 
 
 // 파일 선택 창 열기
-const accessToken = "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"; // Replace with your own GitHub access token
-const owner = "asefr01"; // Replace with your GitHub username
-const repo = "filehosting"; // Replace with the name of your GitHub repository
-const branch = "main"; // Replace with the name of the branch you want to upload the file to
-
-const addImg = document.querySelector('.add-img');
-const input = addImg.querySelector('input[name="c_img"]');
-
-input.addEventListener('change', () => {
-  const file = input.files[0]; // Get the first file selected by the user
-  const fileReader = new FileReader(); // Create a new FileReader object to read the contents of the file
-
-  fileReader.readAsDataURL(file); // Read the contents of the file as a data URL
-
-  fileReader.onload = async () => {
-    const fileContent = fileReader.result.split(",")[1]; // Extract the base64-encoded content of the file
-
-    const url = `https://api.github.com/repos/${owner}/${repo}/contents/${file.name}`;
-
-    const response = await fetch(url, {
-      method: "PUT",
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        message: `Upload ${file.name}`,
-        content: fileContent,
-        branch: branch,
-      }),
-    });
-
-    const data = await response.json(); // Parse the response JSON data
-
-    console.log("File uploaded successfully:", data);
-  };
-});
-
-addImg.addEventListener('click', () => {
-  input.click();
-});
-
 // 파일 업로드 후 프리뷰
   
   
@@ -430,7 +383,20 @@ addImg.addEventListener('click', () => {
       popup.classList.remove("show");
     };
   }
+
   
+
+
+  function deletecomment() {
+  var dropdown = document.querySelector(".dropdown-comment_list");
+  dropdown.parentNode.removeChild(dropdown);
+}
+
+function deletepostlist() {
+  var dropdown = document.querySelector(".post_list_box");
+  dropdown.parentNode.removeChild(dropdown);
+}
+
 </script>
 </body>
 </html>

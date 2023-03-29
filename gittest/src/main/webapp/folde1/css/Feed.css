@@ -401,6 +401,7 @@ img .user_profile_img{
     justify-content: center;
 }
 
+
 .post_profile img {
     margin-right: 10px;
     width: 45px;
@@ -443,7 +444,8 @@ img .user_profile_img{
     color: #000;
     font-size: 12px;
     font-weight: 500;
-    margin-left: 210px;
+    margin-left: 200px;
+    
 
 }
 
@@ -570,6 +572,7 @@ img .user_profile_img{
     color: #000;
     font-size: 12px;
     font-weight: 600;
+    margin-left: 200px;
 }
 .user_name_time_comment h6 i{
     font-size: 12px;
@@ -795,6 +798,10 @@ header .close{
 header .close:hover{
     background: #ebedf9;
 }
-.popup .content{
+.popup .modal_content{
     margin: 20px 0;
 }
+
+
+
+
