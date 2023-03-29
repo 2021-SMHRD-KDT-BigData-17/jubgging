@@ -32,7 +32,7 @@ a{
 }
 .sidebar{
     border-right: 1px solid whitesmoke;
-    flex: 0.2;
+    flex: 0.23;
     min-width: 250px;
     margin-top: 20px;
     padding-left: 20px;
@@ -46,13 +46,14 @@ a{
 .sidebarOption i{
     padding: 10px 0 0 0;
     line-height: 50px;
+    color:rgb(100, 182, 23);
     
 }
 .sidebarOption h2{
     padding: 20px;
     font-weight: 400;
     font-size: 19px;
-    margin-right: 18px;
+    margin-right: 20px;
     letter-spacing: -1px;
 }
 .sidebarOption:hover{
@@ -108,7 +109,7 @@ img .user_profile_img{
     padding-left: 5px;
 }
 .user_profile_op i{
-    margin-left: 50px;
+    margin-left: 45px;
 }
 .sidebar_dropdown-content{
     display: none;
