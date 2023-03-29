@@ -248,45 +248,10 @@ section .follow_bx .trend_for_you .trend_bx .rate .interest {
     min-width: fit-content;
     overflow-y: scroll;
 }
-.widgets_input{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #d3d3d3;
-    padding: 10px;
-    border-radius: 20px;
-    margin-top: 40px;
-    margin-left: 20px;
-}
-.widgets_input input{
-    border: none;
-    background-color: #d3d3d3;
-    outline: none;
-    color: white;
-    width: 80%;
-    height: 20px;
-    margin-right: 20px;
-    margin-left: 40px;
-
-}
-.widgets_input button{
-    background: none;
-    border: none;
-    outline: none;
-    cursor: pointer;
-}
-.widgets_input button i{
-    color: white;
-    margin-right: 15px;
-}
-.widgets_input input::placeholder{
-	color: white;
-}
 .widgets_treand_Container{
     margin-top: 15px;
     margin-left: 20px;
     padding: 20px;
-    background-color: whitesmoke;
     border-radius: 20px;
 }
 .widgets_treand_Container h2{
@@ -296,7 +261,6 @@ section .follow_bx .trend_for_you .trend_bx .rate .interest {
     margin-top: 15px;
     margin-left: 20px;
     padding: 20px;
-    background-color: whitesmoke;
     border-radius: 20px;
 }
 .widgets::-webkit-scrollbar{
