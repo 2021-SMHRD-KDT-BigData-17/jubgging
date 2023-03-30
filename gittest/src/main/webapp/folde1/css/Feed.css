@@ -627,39 +627,6 @@ img .user_profile_img{
     min-width: fit-content;
     overflow-y: scroll;
 }
-.widgets_input{
-    display: flex;
-    align-items: center;
-    background-color: #d3d3d3;
-    padding: 10px;
-    border-radius: 10px;
-    margin-top: 10px;
-    margin-left: 20px;
-}
-.widgets_input input{
-    border: none;
-    background-color: #d3d3d3;
-    outline: none;
-    color: white;
-    width: 80%;
-    height: 20px;
-    margin-right: 20px;
-    margin-left: 40px;
-
-}
-.widgets_input button{
-    background: none;
-    border: none;
-    outline: none;
-    cursor: pointer;
-}
-.widgets_input button i{
-    color: white;
-    margin-right: 15px;
-}
-.widgets_input input::placeholder{
-	color: white;
-}
 .widgets_treand_Container{
     margin-top: 15px;
     margin-left: 20px;
