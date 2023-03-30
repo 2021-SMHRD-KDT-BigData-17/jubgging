@@ -251,7 +251,7 @@ function dropdown() {
   }
   
   
-  // 댓글
+  // 댓글창 보이기
   function dropdowncoment() {
     var dropdownContent = document.querySelector(".dropdown-comment");
     dropdownContent.classList.toggle("show_comment");
@@ -272,20 +272,24 @@ function dropdown() {
   
   
   // 좋아요 색깔 , 숫자
-  function like() {
-    const heartIcon = document.querySelector('.fas.fa-heart');
-    const likeCount = document.querySelector('[name="like_cnt"]');
-    const currentColor = heartIcon.style.color;
-  
-    if (currentColor === 'red') {
-      heartIcon.style.color = 'rgb(0,0,0,0.2)';
-      likeCount.textContent = Number(likeCount.textContent) - 1;
-    } else {
-      heartIcon.style.color = 'red';
-      likeCount.textContent = Number(likeCount.textContent) + 1;
+  const heartIcons = document.querySelectorAll('.fas.fa-heart');
+    const likeCounts = document.querySelectorAll('[name="like_cnt"]');
+    let isLiked = [];
+
+    for (let i = 0; i < heartIcons.length; i++) {
+    isLiked.push(false); // Initialize all isLiked variables to false
+    heartIcons[i].addEventListener('click', function() {
+    if (!isLiked[i]) {
+        heartIcons[i].style.color = 'red';
+        likeCounts[i].textContent = Number(likeCounts[i].textContent) + 1;
+        isLiked[i] = true;
+      } else {
+        heartIcons[i].style.color = 'rgb(0,0,0,0.2)';
+        likeCounts[i].textContent = Number(likeCounts[i].textContent) - 1;
+        isLiked[i] = false;
+      }
+      });
     }
-  }
-  
   
   
   
@@ -395,21 +399,7 @@ document.querySelector('input[name="c_img"]').addEventListener('change', functio
     alert("이 브라우저에서는 Geolocation이 지원되지 않습니다.")
   }
   
-  
-  
-  //지도 확인 창
-  function open_popup_map(){
-    var popup = document.querySelector(".popup");
-    popup.classList.toggle("show");
-    var close = popup.querySelector(".close");
-    close.onclick = function() {
-      popup.classList.remove("show");
-    };
-  }
-
-  
-
-
+  //게시물 및 댓글 삭제
   function deletecomment() {
   var dropdown = document.querySelector(".dropdown-comment_list");
   dropdown.parentNode.removeChild(dropdown);
@@ -423,44 +413,51 @@ function deletepostlist() {
 
 
 
-function open_popup_map() {
-  // Select the popup element
-  var popup = document.querySelector(".popup");
-  
-  // Toggle the visibility of the popup
-  popup.classList.toggle("show");
-  
-  // Create the map
-  var mapContainer = popup.querySelector('.map');
-  var mapOption = {
-    center: new kakao.maps.LatLng(37.56675, 126.97870), //위도 경도 수정부분
-    level: 3,
-    mapTypeId : kakao.maps.MapTypeId.ROADMAP
-  }; 
-  var map = new kakao.maps.Map(mapContainer, mapOption);
-  var mapTypeControl = new kakao.maps.MapTypeControl();
 
-// 지도의 상단 우측에 지도 타입 변경 컨트롤을 추가한다
-  map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
-  
-  // Add a marker to the map
-  var marker = new kakao.maps.Marker({
-    position: new kakao.maps.LatLng(37.56675, 126.97870), //마커 생성 위도 경도 수정 부분 
-    draggable: true,
-    map: map
+//지도 확인 기능
+var popup = document.querySelector(".popup");
+
+// Select all the map location icon elements
+var mapLocationIcons = document.querySelectorAll(".fa-map-location-dot");
+
+// Add a click event listener to each map location icon
+mapLocationIcons.forEach(function(mapLocationIcon) {
+  mapLocationIcon.addEventListener("click", function() {
+    // Toggle the visibility of the popup
+    popup.classList.toggle("show");
+
+    // Create the map
+    var mapContainer = popup.querySelector('.map');
+    var mapOption = {
+      center: new kakao.maps.LatLng(37.56675, 126.97870), //위도 경도 수정부분
+      level: 3,
+      mapTypeId : kakao.maps.MapTypeId.ROADMAP
+    }; 
+    var map = new kakao.maps.Map(mapContainer, mapOption);
+    var mapTypeControl = new kakao.maps.MapTypeControl();
+
+    // 지도의 상단 우측에 지도 타입 변경 컨트롤을 추가한다
+    map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
+
+    // Add a marker to the map
+    var marker = new kakao.maps.Marker({
+      position: new kakao.maps.LatLng(37.56675, 126.97870), //마커 생성 위도 경도 수정 부분 
+      draggable: true,
+      map: map
+    });
+
+    // Add a click listener to the popup's close button
+    var close = popup.querySelector(".close");
+    close.onclick = function() {
+      // Remove the popup from the page
+      popup.classList.remove("show");
+
+      // Remove the map and marker objects
+      marker.setMap(null);
+      map = null;
+    };
   });
- 
-  // Add a click listener to the popup's close button
-  var close = popup.querySelector(".close");
-  close.onclick = function() {
-    // Remove the popup from the page
-    popup.classList.remove("show");
-    
-    // Remove the map and marker objects
-    marker.setMap(null);
-    map = null;
-  };
-}
+});
 
 
 	</script>

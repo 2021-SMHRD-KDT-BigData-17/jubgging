@@ -574,7 +574,7 @@ section .profile_post_follow_bx .post_follow_bx .post .post_main_bx .post_card_b
 }
 
 section .profile_post_follow_bx .post_follow_bx .post .post_main_bx .post_card_bx .content .post_card_social_data .post_social_card:nth-child(2) i{
-   color:red;
+   color:rgb(0,0,0,0.2);
     
 }
 
@@ -1031,4 +1031,63 @@ input[type=file]::-webkit-file-upload-button{
     text-align: center;
     font-size: 14px;
     margin-top: 10px;
+}
+
+
+/* map modal */
+.popup_map{
+    position: absolute;
+    left: 50%;
+    background: #fff;
+    padding: 25px;
+    border-radius: 15px;
+    top: -150%;
+    max-width: 430px;
+    width: 100%;
+    opacity: 0;
+    pointer-events: none;
+    box-shadow: 0px 10px 15px rgba(0,0,0,0.1);
+    transform: translate(-50%, -50%) scale(1.2);
+    transition: top 0s 0.2s ease-in-out,
+                opacity 0.2s 0s ease-in-out,
+                transform 0.2s 0s ease-in-out;
+}
+.popup_map.show{
+    top: 50%;
+    opacity: 1;
+    pointer-events: auto;
+    transform:translate(-50%, -50%) scale(1);
+    transition: top 0s 0s ease-in-out,
+                opacity 0.2s 0s ease-in-out,
+                transform 0.2s 0s ease-in-out;
+}
+.popup_map :is(header){
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+header span{
+    font-size: 21px;
+    font-weight: 600;
+}
+header .close{
+    display: flex;
+    align-items: center;
+    border-radius: 50%;
+    justify-content: center;
+    transition: all 0.3s ease-in-out;
+}
+header .close{
+    color: #878787;
+    font-size: 17px;
+    background: #f2f3fb;
+    height: 33px;
+    width: 33px;
+    cursor: pointer;
+}
+header .close:hover{
+    background: #ebedf9;
+}
+.popup_map .modal_content{
+    margin:  10px 0 0 0;
 }
