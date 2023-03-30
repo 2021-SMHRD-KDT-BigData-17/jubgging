@@ -50,7 +50,7 @@ a:hover {
     </div>
     <div class="sidebarOption">
       <i class="fa-solid fa-envelope"></i>
-      <a href="#"><h2>Today's Pick!</h2></a>
+      <a href="/todayspick.jsp"><h2>Today's Pick!</h2></a>
     </div>
     <div class="sidebarOption">
       <i class="fa-solid fa-user"></i>
@@ -105,7 +105,7 @@ a:hover {
             <button class="postbox_btn" type="submit">글쓰기</button>
           </div>
         </div>  
-      
+      <!-- </form> -->
       <div class="tag_wrapper" id="tage_dropdown-content">
         <div class="title">
           <i class="fa-solid fa-tags"></i>
@@ -113,7 +113,7 @@ a:hover {
         </div>
           <div class="tag_content">
             <div class="tag_box">
-              <form action="">
+              <!-- <form action="CommunirtyCon"> -->
                 <ul><input type="text" name="c_hashtag" placeholder="원하는 태그를 입력 해 주세요"></ul>
                 <div class="tag_details">
                   <button id="add_postboxTags">태그 추가</button>
@@ -122,7 +122,6 @@ a:hover {
             </div>
           </div> 
       </div>   
-      </form>
     </div>
     <!-- post box end -->
     <!-- post list start-->
@@ -279,7 +278,7 @@ function dropdown() {
     dropdownContent.classList.toggle("show_comment");
   
   }
-  
+  // 사이드바 링크 활성화 부분//
   const links = document.querySelectorAll('.sidebarOption a');
 
   const currentUrl = window.location.href;
@@ -318,8 +317,21 @@ function dropdown() {
 
 
 // 파일 선택 창 열기
-// 파일 업로드 후 프리뷰
-  
+document.querySelector('.add-img').addEventListener('click', function() {
+    document.querySelector('input[name="c_img"]').click();
+});
+
+document.querySelector('input[name="c_img"]').addEventListener('change', function(event) {
+    var file = event.target.files[0];
+    var reader = new FileReader();
+    reader.onload = function(e) {
+        var img = document.createElement('img');
+        img.src = e.target.result;
+        document.querySelector('.postbox_image-container').innerHTML = '';
+        document.querySelector('.postbox_image-container').appendChild(img);
+    };
+    reader.readAsDataURL(file);
+});
   
   //날씨 정보 기능 
   // Geolocation API에 액세스할 수 있는지를 확인
