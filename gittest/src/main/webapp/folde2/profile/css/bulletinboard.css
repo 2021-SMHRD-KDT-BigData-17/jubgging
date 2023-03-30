@@ -216,18 +216,27 @@ a{
     font-weight: 600;
     color:#64B617
 }
-/* .board_list_wrap .paging a.num:hover{
+
+.board_list_wrap .paging a.num:nth-child(1){
     border: 1px solid #64B617;
     font-weight: 600;
     color:#fff;
     background:#64B617;
-} */
+}
+
+}
+.board_list_wrap .paging a.num:hover{
+    border: 1px solid #64B617;
+    font-weight: 600;
+    color:#fff;
+    background:#64B617;
+}
 
 .board_list_wrap .paging a.num.on{
     color:#64B617;
 }
 
-/* .board_list_wrap .paging a.num.on:hover{
+.board_list_wrap .paging a.num.on:hover{
     background: #64B617;
     color:#fff;
-} */
+}
