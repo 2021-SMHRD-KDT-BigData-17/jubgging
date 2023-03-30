@@ -1,0 +1,242 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    display: flex;
+    height: 100vh;
+    max-width: 1300px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 10px;
+    background-color: white;
+}
+a{
+    text-decoration: none;
+}
+
+
+/* sidebar */
+.sidebarOption{
+    margin: 10px 0 10px 0;
+    padding-left: 20px;
+    display: flex;
+    align-self: center;
+    cursor: pointer;
+}
+.sidebar{
+    border-right: 1px solid whitesmoke;
+    flex: 0.23;
+    min-width: 250px;
+    margin-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px; 
+}
+.sidebarOption_logo >img{
+    
+    margin: 15px;
+    width: 150px;
+}
+.sidebarOption i{
+    padding: 10px 0 0 0;
+    line-height: 50px;
+    color:rgb(100, 182, 23);
+    
+}
+.sidebarOption h2{
+    padding: 20px;
+    font-weight: 400;
+    font-size: 19px;
+    margin-right: 20px;
+    letter-spacing: -1px;
+}
+.sidebarOption:hover{
+ border-radius: 10px;
+ background-color: whitesmoke;
+ color: black;
+ transition: color 100ms ease-out;   
+}
+
+.active{
+    color: rgb(100, 182, 23);
+}
+.default{
+    color: black;
+}
+
+.profile_btn{
+    display: flex;
+    margin-top: 50px;
+    padding: 20px;
+    border-radius: 20px;
+    font-size: 14px;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid whitesmoke;
+    box-shadow: 0 1px 1px 1px rgba(34, 36, 38, 0.15);
+}
+.profile_btn:active {
+    background-color: whitesmoke;
+}
+.user_info{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+img .user_profile_img{
+    border-radius: 50px;
+    margin-right: 10px;
+}
+.name .user_nick{
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 1.5;
+    padding-left: 7px;
+}
+.name .user_id{
+    color: #98a5b1;
+    padding-left: 5px;
+}
+.user_profile_op i{
+    margin-left: 45px;
+}
+.sidebar_dropdown-content{
+    display: none;
+    position: relative;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
+    padding: 12px 16px;
+    z-index: 1;
+    cursor: pointer;
+    border-radius: 10px;
+    margin-top: 5px;
+}
+.show {display: block;}
+
+
+.section{
+    width: 100%
+}
+
+.bulletinboard_header{
+    background: #98a5b1;
+    width:700px;
+    height: 110px;
+}
+
+/* 게시판 섹션 */
+
+table {
+    border-collapse:collapse;
+
+}
+
+caption{
+    display: none;
+}
+
+a{
+    text-decoration: none;
+    color:inherit;
+}
+
+.board_list_wrap{
+    padding: 27px;
+}
+
+.board_list{
+    border-top: 2px solid #64B617;
+    width: 100%;
+}
+
+.board_list tr{
+    border-bottom: 1px solid #ccc;
+}
+
+.board_list th,
+.board_list td {
+    padding:10px;
+    font-size: 14px;
+}
+
+.board_list td{
+    text-align: center;
+}
+
+.board_list .tit{
+    text-align: left;
+}
+
+.board_list .tit:nth-child(2):hover{
+    text-decoration: underline;
+}
+
+.board_list_wrap .paging{
+    font-size: 0;;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.board_list_wrap .paging a{
+    display: inline-blocks;
+    margin-left: 10px;
+    padding: 5px 10px;
+    border-radius: 100px;
+    font-size: 12px;
+}
+    
+.board_list_wrap .paging a:first-child{
+    margin-left: 0px; 
+}
+
+.board_list_wrap .paging a.bt{
+    border: 1px solid #eee;
+    background: #eee;
+}
+
+.board_list_wrap .paging a.num{
+    border: 1px solid #64B617;
+    font-weight: 600;
+    color:#64B617
+}
+
+.active{
+    border: 1px solid #64B617;
+    font-weight: 600;
+    color:#fff;
+    background:#64B617; 
+}
+
+.default{
+    border: 1px solid #64B617;
+    font-weight: 600;
+    color:#64B617
+}
+
+.board_list_wrap .paging a.num:nth-child(1){
+    border: 1px solid #64B617;
+    font-weight: 600;
+    color:#fff;
+    background:#64B617;
+}
+
+}
+.board_list_wrap .paging a.num:hover{
+    border: 1px solid #64B617;
+    font-weight: 600;
+    color:#fff;
+    background:#64B617;
+}
+
+.board_list_wrap .paging a.num.on{
+    color:#64B617;
+}
+
+.board_list_wrap .paging a.num.on:hover{
+    background: #64B617;
+    color:#fff;
+}
