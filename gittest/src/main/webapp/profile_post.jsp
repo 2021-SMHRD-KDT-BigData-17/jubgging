@@ -1,8 +1,16 @@
+<%@page import="java.util.List"%>
+<%@page import="com.jubging.domain.CommunityDAO2"%>
+<%@page import="com.jubging.domain.Community"%>
 <%@page import="com.jubging.domain.join"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
 join user_id = (join) session.getAttribute("user_id");
+
+
+CommunityDAO2 dao = new CommunityDAO2();
+List<Community> com = dao.SelectMember(user_id.getUser_id());
+
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -118,7 +126,7 @@ join user_id = (join) session.getAttribute("user_id");
                     <%=user_id.getUser_nick() %>
                     <p name="user_id">@<%=user_id.getUser_id() %></p>
                   </h5>
-                  <h6><i class="far fa-clock" name="c_date"></i>25 mins</h6>
+                  <h6><i class="far fa-clock"></i>플로깅이나 하세용</h6>
                 </div>
                 <div class = "content_text_bx">
                   <span class = content_text>오늘 비오려나 플로깅 하러 가야하는데!</span>
@@ -126,7 +134,7 @@ join user_id = (join) session.getAttribute("user_id");
                 <div class="post_card_social_data">
                   <div class="post_social_card">
                     <i class="fas fa-comment"></i>
-                    <span name="comment_cnt">20</span><!-- 댓글 수-->
+                    <span name="comment_cnt">20</span> <!-- 댓글 수-->
                   </div>
                   <div class="post_social_card">
                     <i class="fas fa-heart"></i>
@@ -138,7 +146,9 @@ join user_id = (join) session.getAttribute("user_id");
                 </div>
               </div>
             </div>
-            <div class="post_card_bx">
+            <!-- for문 -->
+            <%for(Community c : com){ %>
+              <div class="post_card_bx">
               <div class="post_profile">
                 <img src="./img/icon/profile_img.png" alt="">
               </div>
@@ -148,10 +158,10 @@ join user_id = (join) session.getAttribute("user_id");
                     <%=user_id.getUser_nick() %>
                     <p name="user_id">@<%=user_id.getUser_id() %></p> 
                   </h5>
-                  <h6><i class="far fa-clock" name="c_date"></i>2 hours</h6>
+                  <h6><i class="far fa-clock" name="c_date"></i><%=c.getC_date() %></h6>
                 </div>
                 <div class = "content_text_bx">
-                  <span class="content_text">오늘 동천에서 이만큼 주웠습니다! 뿌듯하네요.</span>
+                  <span class="content_text"><%=c.getC_content() %><span>
                 </div>
                 <div class="image_post_bx">
                   <img src="./img/cantrash.jpg" alt="">
@@ -171,7 +181,42 @@ join user_id = (join) session.getAttribute("user_id");
                   </div>
                 </div>
               </div>
-            </div>
+            </div><!-- post_card_bx끝 -->
+            <%} %>
+            <div class="post_card_bx">
+              <div class="post_profile">
+                <img src="./img/icon/profile_img.png" alt="">
+              </div>
+              <div class="content">
+                <div class="user_name_time">
+                  <h5 name="user_nick">
+                    <%=user_id.getUser_nick() %>
+                    <p name="user_id">@<%=user_id.getUser_id() %></p> 
+                  </h5>
+                  <h6><i class="far fa-clock" name="c_date"></i>2 hours</h6>
+                </div>
+                <div class = "content_text_bx">
+                  <span class="content_text">sdwe<span>
+                </div>
+                <div class="image_post_bx">
+                  <img src="./img/cantrash.jpg" alt="">
+                  <img src="./img/trashduml.jpg" alt="">
+                </div>
+                <div class="post_card_social_data">
+                  <div class="post_social_card">
+                    <i class="fas fa-comment"></i>
+                    <span name="comment_cnt">120</span><!-- 댓글 수-->
+                  </div>
+                  <div class="post_social_card">
+                    <i class="fas fa-heart"></i>
+                    <span name="like_cnt">10.4k</span>
+                  </div>
+                  <div class="post_social_card">
+                    <i class="fas fa-share"></i>
+                  </div>
+                </div>
+              </div>
+            </div><!-- post_card_bx끝 -->
             <div class="post_card_bx">
               <div class="post_profile">
                 <img src="./img/icon/profile_img.png" alt="">

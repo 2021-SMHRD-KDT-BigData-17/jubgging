@@ -3,8 +3,25 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<!-- namespace : sql탸그 id를 그룹화하기 위한 속성 mapper의 경로를 작성 -->
+<!-- namespace : sql태그 id를 그룹화하기 위한 속성 mapper의 경로를 작성 -->
+
 <mapper namespace="com.jubging.darabase.JubgingMapper2">
 
-		
+<resultMap type="com.jubging.domain.Community" id="profile_post">
+  <result property="c_idx" column="c_idx" />
+  <result property="c_content" column="c_content" />
+  <result property="c_likes" column="c_likes"  />
+  <result property="c_hashtag" column="c_hashtag" />
+  <result property="lat" column="lat" />
+  <result property="lng" column="lng" />
+  <result property="c_date" column="c_date"/>
+  <result property="user_id" column="user_id" />
+  <result property="user_nick" column="user_nick" />
+  <result property="c_img" column="c_img" jdbcType="CLOB" javaType="java.lang.String" />
+</resultMap>
+
+	<select id="SelectMember" parameterType="String" resultMap="profile_post"
+	resultType="com.jubging.domain.Community">
+		SELECT * FROM T_COMMUNITY WHERE user_id=#{user_id}
+	</select>
 </mapper>

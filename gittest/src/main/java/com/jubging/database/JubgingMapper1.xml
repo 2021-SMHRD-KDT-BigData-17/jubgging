@@ -18,8 +18,13 @@
 
 	<!-- 타임라인 데이더 저장 -->
 	<insert id="insertcommunity" parameterType="com.jubging.domain.Community">
-		insert into t_community(c_content, c_hashtag, user_id)values(#{c_content},#{c_hashtag},#{user_id})
+		insert into t_community(c_content, c_hashtag, user_id, c_img , c_date)values(#{c_content},#{c_hashtag},#{user_id}, #{c_img},sysdate)
 	</insert>
+	
+	<!-- 타임라인 데이터 불러오기 -->
+	<select id ="selectcommunity" parameterType="com.jubging.domain.Community" resultType="com.jubging.domain.Community">
+		select * from t_community
+	</select>
 	
 	<!-- 회원 정보 찾기 -->
 	<select id ="selectfind" parameterType="com.jubging.domain.join" resultType="com.jubging.domain.join">
@@ -31,8 +36,6 @@
 		UPDATE t_user SET user_situation = #{user_situation}, user_nick=#{user_nick} WHERE user_id = #{user_id}
 	</update>
 	
-	<!-- <select id = "selectsituation" parameterType="com.jubging.domain.Profile">
-		select * from t_user where user_id=#{user_id}
-	</select> -->
+		
 
 </mapper>

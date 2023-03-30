@@ -21,4 +21,6 @@
     <mapper resource="com/jubging/database/JubgingMapper1.xml"/>
     <mapper resource="com/jubging/database/JubgingMapper2.xml"/>
   </mappers>
+  
+  
 </configuration>

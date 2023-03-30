@@ -4,7 +4,6 @@ public class Community {
 
 	private int c_idx;
 	private String c_content;
-	private String c_img;
 	private int c_likes;
 	private String c_hashtag;
 	private int lat;
@@ -12,15 +11,18 @@ public class Community {
 	private String c_date;
 	private String user_id;
 	private String user_nick;
+	private String c_img;
 	
+	
+	public Community() {
+		super();
+	}
 
-
-	public Community(int c_idx, String c_content, String c_img, int c_likes, String c_hashtag, int lat, int lng,
-			String c_date, String user_id, String user_nick) {
+	public Community(int c_idx, String c_content, int c_likes, String c_hashtag, int lat, int lng, String c_date,
+			String user_id, String user_nick, String c_img) {
 		super();
 		this.c_idx = c_idx;
 		this.c_content = c_content;
-		this.c_img = c_img;
 		this.c_likes = c_likes;
 		this.c_hashtag = c_hashtag;
 		this.lat = lat;
@@ -28,15 +30,16 @@ public class Community {
 		this.c_date = c_date;
 		this.user_id = user_id;
 		this.user_nick = user_nick;
+		this.c_img = c_img;
 	}
 
 	public Community(String c_content, String c_hashtag, String user_id, String c_img, String c_date) {
 		super();
 		this.c_content = c_content;
 		this.c_hashtag = c_hashtag;
+		this.c_date = c_date;
 		this.user_id = user_id;
 		this.c_img = c_img;
-		this.c_date = c_date;
 	}
 
 	public int getC_idx() {
@@ -107,14 +110,26 @@ public class Community {
 		return user_nick;
 	}
 
+	public String getC_date() {
+		return c_date;
+	}
+
+	public void setC_date(String c_date) {
+		this.c_date = c_date;
+	}
+
 	public void setUser_nick(String user_nick) {
 		this.user_nick = user_nick;
 	}
 
 	@Override
 	public String toString() {
-		return "Community [c_content=" + c_content + ", c_hashtag=" + c_hashtag + ", user_id=" + user_id + "]";
+		return "Community [c_idx=" + c_idx + ", c_content=" + c_content + ", c_likes=" + c_likes + ", c_hashtag="
+				+ c_hashtag + ", lat=" + lat + ", lng=" + lng + ", c_date=" + c_date + ", user_id=" + user_id
+				+ ", user_nick=" + user_nick + ", c_img=" + c_img + "]";
 	}
+
+	
 	
 	
 	

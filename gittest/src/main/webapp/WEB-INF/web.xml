@@ -3,6 +3,8 @@
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
+
+
   <display-name>Archetype Created Web Application</display-name>
   <servlet>
   	<servlet-name>JoinCon</servlet-name>
@@ -46,6 +48,18 @@
   	<description></description>
   	<servlet-class>com.jubging.controller.FindCon</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>ComUplodCon</servlet-name>
+  	<display-name>ComUplodCon</display-name>
+  	<description></description>
+  	<servlet-class>com.jubging.controller.ComUplodCon</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ProfileCon</servlet-name>
+  	<display-name>ProfileCon</display-name>
+  	<description></description>
+  	<servlet-class>com.jubging.controller.ProfileCon</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>JoinCon</servlet-name>
   	<url-pattern>/JoinCon</url-pattern>
@@ -73,5 +87,13 @@
   <servlet-mapping>
   	<servlet-name>FindCon</servlet-name>
   	<url-pattern>/FindCon</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ComUplodCon</servlet-name>
+  	<url-pattern>/ComUplodCon</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ProfileCon</servlet-name>
+  	<url-pattern>/ProfileCon</url-pattern>
   </servlet-mapping>
 </web-app>
