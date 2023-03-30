@@ -18,8 +18,7 @@
 
 	<!-- 타임라인 데이더 저장 -->
 	<insert id="insertcommunity" parameterType="com.jubging.domain.Community">
-		insert into t_community(c_content, c_hashtag, user_id)
-		values(#{c_content},#{c_hashtag},#{user_id})
+		insert into t_community(c_content, c_hashtag, user_id)values(#{c_content},#{c_hashtag},#{user_id})
 	</insert>
 	
 	<!-- 회원 정보 찾기 -->

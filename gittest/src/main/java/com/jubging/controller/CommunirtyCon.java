@@ -18,13 +18,13 @@ public class CommunirtyCon extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		
-		
 		request.setCharacterEncoding("UTF-8");
 
 		// 파라미터 수집 (c_content,c_hashtag,user_id)
 		String c_content = request.getParameter("c_content");
 		String c_hashtag = request.getParameter("c_hashtag");
+		String c_img = request.getParameter("c_img");
+		String c_date = null;
 		
 		HttpSession session = request.getSession();
 		join userid = (join) session.getAttribute("user_id");
@@ -32,13 +32,13 @@ public class CommunirtyCon extends HttpServlet {
 		String user_id = userid.getUser_id();
 		// 2. 받아온 값을 묵어주기
 		
-		Community community = new Community(c_content,c_hashtag,user_id);
+		Community Community = new Community(c_content,c_hashtag,user_id, c_img, c_date);
 		
-		System.out.println(community.toString());
+		System.out.println(Community.toString());
 		
 		CommunityDAO dao = new CommunityDAO();
 		
-		int cnt = dao.insertcommunity(community);
+		int cnt = dao.insertcommunity(Community);
 		
 		if(cnt>0) {
 			System.out.println("데이터 저장 성공");
