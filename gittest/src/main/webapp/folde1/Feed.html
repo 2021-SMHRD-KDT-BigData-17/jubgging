@@ -218,6 +218,7 @@
     <div class="close"><i class="fa-solid fa-xmark"></i></div>
   </header>
   <div class="modal_content">
+    <div class="map" style="width:380px;height:280px;"></div>
   </div>
 </div>
 
@@ -419,6 +420,50 @@ function deletepostlist() {
   dropdown.parentNode.removeChild(dropdown);
 }
 // user_id 가 맞을때만 삭제되도록 조건을 넣어야 한다.
+
+
+
+function open_popup_map() {
+  // Select the popup element
+  var popup = document.querySelector(".popup");
+  
+  // Toggle the visibility of the popup
+  popup.classList.toggle("show");
+  
+  // Create the map
+  var mapContainer = popup.querySelector('.map');
+  var mapOption = {
+    center: new kakao.maps.LatLng(37.56675, 126.97870), //위도 경도 수정부분
+    level: 3,
+    mapTypeId : kakao.maps.MapTypeId.ROADMAP
+  }; 
+  var map = new kakao.maps.Map(mapContainer, mapOption);
+  var mapTypeControl = new kakao.maps.MapTypeControl();
+
+// 지도의 상단 우측에 지도 타입 변경 컨트롤을 추가한다
+  map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
+  
+  // Add a marker to the map
+  var marker = new kakao.maps.Marker({
+    position: new kakao.maps.LatLng(37.56675, 126.97870), //마커 생성 위도 경도 수정 부분 
+    draggable: true,
+    map: map
+  });
+ 
+  // Add a click listener to the popup's close button
+  var close = popup.querySelector(".close");
+  close.onclick = function() {
+    // Remove the popup from the page
+    popup.classList.remove("show");
+    
+    // Remove the map and marker objects
+    marker.setMap(null);
+    map = null;
+  };
+}
+
+
+	</script>
 
 </script>
 </body>

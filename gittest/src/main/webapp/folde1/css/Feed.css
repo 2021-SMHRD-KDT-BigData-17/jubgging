@@ -770,7 +770,7 @@ img .user_profile_img{
     padding: 25px;
     border-radius: 15px;
     top: -150%;
-    max-width: 380px;
+    max-width: 430px;
     width: 100%;
     opacity: 0;
     pointer-events: none;
@@ -793,9 +793,6 @@ img .user_profile_img{
     display: flex;
     align-items: center;
     justify-content: space-between;
-}
-.popup header{
-    padding-bottom: 15px;
 }
 header span{
     font-size: 21px;
@@ -820,7 +817,7 @@ header .close:hover{
     background: #ebedf9;
 }
 .popup .modal_content{
-    margin: 20px 0;
+    margin:  10px 0 0 0;
 }
 
 
