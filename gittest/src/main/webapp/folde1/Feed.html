@@ -294,7 +294,7 @@ function dropdown() {
   }
 
 
-// 파일 선택 창 열기
+// 파일 선택 창 열기 및 이미지 프리뷰, 이미지 삭제
 document.querySelector('.add-img').addEventListener('click', function() {
     document.querySelector('input[name="c_img"]').click();
 });
@@ -307,10 +307,19 @@ document.querySelector('input[name="c_img"]').addEventListener('change', functio
         img.src = e.target.result;
         document.querySelector('.postbox_image-container').innerHTML = '';
         document.querySelector('.postbox_image-container').appendChild(img);
+        
+        var icon = document.createElement('i');
+        icon.classList.add('fa-solid', 'fa-xmark');
+        icon.addEventListener('click', function() {
+            document.querySelector('.postbox_image-container').removeChild(img);
+            document.querySelector('.postbox_image-container').removeChild(icon);
+        });
+        
+        document.querySelector('.postbox_image-container').appendChild(icon);
     };
     reader.readAsDataURL(file);
 });
-  
+
   //날씨 정보 기능 
   // Geolocation API에 액세스할 수 있는지를 확인
   if (navigator.geolocation) {
