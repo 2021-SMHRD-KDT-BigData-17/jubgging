@@ -26,7 +26,7 @@ join user_id = (join) session.getAttribute("user_id");
     </div>
     <div class="sidebarOption">
       <i class="fa-solid fa-house-chimney"></i>
-      <h2>홈</h2>
+      <a href="./Feed.jsp"><h2>홈</h2></a>
     </div>
     <div class="sidebarOption">
       <i class="fa-sharp fa-solid fa-magnifying-glass"></i>
@@ -37,10 +37,6 @@ join user_id = (join) session.getAttribute("user_id");
       <h2>TODAY'S PICK</h2>
     </div>
     <div class="sidebarOption">
-      <i class="fa-solid fa-store"></i>
-      <h2>스토어</h2>
-    </div>
-    <div class="sidebarOption">
       <i class="fa-solid fa-user"></i>
       <a class="color" href="./profile_post.jsp"><h2>프로필</h2></a>
     </div>
@@ -48,8 +44,8 @@ join user_id = (join) session.getAttribute("user_id");
       <div class="user_info">
         <img src="./img/129.png" class="user_profile_img" style="width: 55px; height: 55px;">
         <div class="name">
-          <p class="user_nick"><%=user_id.getUser_nick()%></p>
-          <p class="user_id">@<%=user_id.getUser_id()%></p>
+          <p class="user_nick"><%=user_id.getUser_nick() %></p>
+          <p class="user_id">@<%=user_id.getUser_id() %></p>
         </div>
         <div class="user_profile_op">
           <i class="fa-solid fa-angles-down"></i>
@@ -70,8 +66,8 @@ join user_id = (join) session.getAttribute("user_id");
       <div class="profile_bx">
         <div class="profile_card">
           <img src="./img/icon/profile_img.png" alt="" class="profile_img">
-          <h5 name="user_nick"><%=user_id.getUser_nick()%></h5>
-          <h6 name="usesr_id">@<%=user_id.getUser_id()%></h6>
+          <h5 name="user_nick"><%=user_id.getUser_nick() %></h5>
+          <h6 name="usesr_id">@<%=user_id.getUser_id() %></h6>
           <address>
             <a href="#">
               <i class="fa-solid fa-location-dot"></i>
@@ -81,7 +77,7 @@ join user_id = (join) session.getAttribute("user_id");
               <i class="fa-solid fa-earth-asia"></i>
             </a>
           </address>
-          <p><%=user_id.getUser_situation()%></p>
+          <p><%=user_id.getUser_situation() %></p>
         </div>
         <div class="activity_bx">
           <div class="activity_card_bx">
@@ -107,7 +103,7 @@ join user_id = (join) session.getAttribute("user_id");
           <nav>
             <ul>
               <li><a class = "postnav" href="./profile_post.jsp">Post</a></li>
-              <li><a class = "likenav" href="#">Like</a></li>
+              <li><a class = "likenav" href="./profile_like.jsp">Like</a></li>
             </ul>
             <i class="fas fa-ellipsis-h"></i>
           </nav>
@@ -278,15 +274,15 @@ join user_id = (join) session.getAttribute("user_id");
               </div>
             </div>
             <div class="text">
-                <span class="name"><%=user_id.getUser_nick()%></span>
+                <span class="name"><%=user_id.getUser_nick() %></span>
                 <span class="profile_content">
-                    <%=user_id.getUser_situation()%>
+                    <%=user_id.getUser_situation() %>
                 </span>
             </div>
         </div>
         <form action="saveCon">
-            <textarea class ="nickarea" placeholder ="닉네임을 입력하세요"></textarea>
-            <textarea class ="profilearea" name ="user_situation" placeholder ="프로필 내용을 입력하세요"></textarea>
+            <textarea class ="nickarea" name="user_nick" placeholder="닉네임을 입력하세요"></textarea>
+            <textarea class ="profilearea" name="user_situattion" placeholder="프로필 내용을 입력하세요"></textarea>
             <div class="button">
                 <button class="save" type="sumbit">저장</button>
             </div>
@@ -294,8 +290,43 @@ join user_id = (join) session.getAttribute("user_id");
     </div>
   </div>
 
+
   <!-- js file section -->
-  <script src="./js/profile_like.js"></script>
+  <script>
+    function dropdown() {
+    document.getElementById("dropdown-content").classList.toggle("show");
+    }
+
+    // 프로필 세팅 모달창
+
+  const viewBtn = document.querySelector("#openmodal"),
+    popup = document.querySelector(".popup"),
+    close = popup.querySelector(".close");
+    viewBtn.onclick = ()=>{
+      popup.classList.toggle("show");
+    };
+
+    close.onclick = ()=>{
+      viewBtn.click();
+    };
+
+  // 사이드바 기능
+
+  const links = document.querySelectorAll('.sidebarOption a');
+
+  const currentUrl = window.location.href;
+
+  links.forEach(link => {
+    if (link.href === currentUrl) {
+      link.classList.add('active');
+    } else {
+      link.classList.add('default');
+    }
+  }); 
+
+
+
+  </script>
   <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
   <script src="https://kit.fontawesome.com/369266d994.js" crossorigin="anonymous"></script>
 </body>

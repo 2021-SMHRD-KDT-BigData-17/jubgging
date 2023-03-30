@@ -1,9 +1,8 @@
 <%@page import="com.jubging.domain.join"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
- 
+	pageEncoding="UTF-8"%>
 <%
-join user= (join) request.getAttribute("user");
+join user = (join) request.getAttribute("findMember");
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,14 +33,12 @@ join user= (join) request.getAttribute("user");
 						<div class="actual-form">
 							<div class="input-wrap">
 								<input type="text" minlength="4" class="input-field"
-									autocomplete="off" name="user_id" required />
-								<label>아이디</label>
+									autocomplete="off" name="user_id" required /> <label>아이디</label>
 							</div>
 
 							<div class="input-wrap">
 								<input type="password" minlength="4" class="input-field"
-									autocomplete="off" name="user_pw" required />
-								<label>비밀번호</label>
+									autocomplete="off" name="user_pw" required /> <label>비밀번호</label>
 							</div>
 
 							<input type="submit" value="로그인" class="sign-btn" />
@@ -67,11 +64,10 @@ join user= (join) request.getAttribute("user");
 								<input type="text" minlength="4" class="input-field"
 									autocomplete="off" name="user_id" required /> <label>아이디</label>
 							</div>
-							
+
 							<div class="input-wrap">
 								<input type="password" minlength="4" class="input-field"
-									autocomplete="off" name="user_pw" required />
-								<label>비밀번호</label>
+									autocomplete="off" name="user_pw" required /> <label>비밀번호</label>
 							</div>
 
 							<div class="input-wrap">
@@ -79,7 +75,7 @@ join user= (join) request.getAttribute("user");
 									name="user_email" required /> <label>이메일</label>
 							</div>
 
-							
+
 
 							<input type="submit" value="회원가입" class="sign-btn" />
 							<p class="text">
@@ -120,17 +116,59 @@ join user= (join) request.getAttribute("user");
 		</div>
 	</section>
 	<!-- 회원 정보 찾기 POPUP -->
-	<form action="FindCon" method="post" onsubmit = "return submitForm()">
+	<form >
 		<div class="modal hidden">
 			<div class="modal_background">
 				<div class="modal_content">
 					<i id="close" class="fa-solid fa-xmark"></i>
 					<h1>회원 정보찾기</h1>
 					<div class="input-wrap" style="margin-top: 20px;">
-						<input type="email" class="input-field" autocomplete="off"
+						<input type="email" class="input-field check-email" autocomplete="off"
 							name="user_email" required /> <label>가입한 이메일</label>
 					</div>
-						<input type="submit" value="아이디 & 비밀 번호 조회" class="sign-btn" />
+					
+					<button type="button" class="sign-btn" onclick="submitForm()">아이디 & 비밀 번호 조회</button>
+					<script>
+						function submitForm() {
+							
+							console.log($(".check-email").val());
+							$.ajax({
+								url : "FindCon",
+								type : "post",
+								data : {
+									"user_email" : $(".check-email").val()
+								},
+								dataType : "json",
+								success : function(res){
+									//console.log(userid);
+									//$('.sign-btn').after(userid);
+									console.log(res);
+									//$('.sign-btn').after(res.user_id);
+									//$('.sign-btn').after(res.user_pw);
+									$(".check_id").text(res.user_id);
+									$(".check_pw").text(res.user_pw);
+									
+								},
+								error : function(){
+									alert("Ajax 통신 실패!!")
+								}
+								})
+							}
+					</script> 
+					<div class="user_info_modal">
+						<p class="info">
+							<span class="check_id">  </span> 님이 가입한
+							정보입니다.
+						</p>
+						<div class="info_res">
+							<p class="id">
+								아이디 : <span class="check_id">  </span>
+							</p>
+							<p class="pw">
+								Password : <span class="check_pw"> </span>
+							</p>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -140,6 +178,7 @@ join user= (join) request.getAttribute("user");
 
 	<!-- Javascript file -->
 	<script src="./js/app.js"></script>
+	<script src="./js/jquery-3.6.4.min.js"></script>
 </body>
 </html>
 
