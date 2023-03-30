@@ -81,7 +81,7 @@ a:hover {
       <h2>홈</h2>
     </div>
     <div class="postbox">
-      <form action = "CommunirtyCon">
+      <form action = "CommunirtyCon" method = "post" enctype="multipart/form-data">
         <div class="input_box">
           <div class="postbox_area">
             <textarea name="c_content" cols="40" rows="5" placeholder="무슨 일이 일어나고 있나요?"></textarea>
@@ -159,7 +159,7 @@ a:hover {
             </div>
           </div>
           <div class="dropdown-comment">
-            <form>
+            <form action = "ComUplodCon" method ="post">
               <input type="text" name="commentInput">
               <button class="commentBtn" type="submit" value="댓글입력">댓글입력</button>
             </form>

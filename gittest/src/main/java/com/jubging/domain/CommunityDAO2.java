@@ -1,22 +1,22 @@
 package com.jubging.domain;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
 import com.jubging.database.SqlSessionManager;
 
-public class CommunityDAO {
-
+public class CommunityDAO2 {
+	
 	// DB에서 연결 고리를 만들어 놓고 가져다 쓸 수 있게 sqlSession생성
-	SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSession();
-	SqlSession sqlSession = sqlSessionFactory.openSession();
+		SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSession();
+		SqlSession sqlSession = sqlSessionFactory.openSession();
 
-	// 커뮤니티 타임라인 데이터 저장
-	public int insertcommunity(Community community) {
+	public int InsertMember(Community newPost) {
 		int cnt = 0;
-
 		try {
-			cnt = sqlSession.insert("insertcommunity", community);
+			cnt = sqlSession.insert("insertcommunity", newPost);
 			if (cnt > 0) {
 				System.out.println("DAO에서는 저장 성공");
 				sqlSession.commit();
@@ -27,24 +27,23 @@ public class CommunityDAO {
 			e.printStackTrace();
 		} finally {
 			sqlSession.close();
-		} // finally 끝
-
-		return cnt;
-	} // insertMember 끝
-
+		} // finally 끝TODO Auto-generated method stub
+		return 0;
+	}
 	
-	// 커뮤니티 타임라인 데이터 불러오기 
-	public Community selectcommunity(Community community) {
+	public List<Community> SelectMember(String user_id) {
+		List<Community> cnt = null;
 
-		Community com = null;
 		try {
-			com = sqlSession.selectOne("selectcommunity", community);
+			cnt = sqlSession.selectList("com.jubging.darabase.JubgingMapper2.SelectMember", user_id);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			sqlSession.close();
 		}
-		return com;
-	} // selectMember 끝
+		return cnt;
+
+	}
+
 
 }
