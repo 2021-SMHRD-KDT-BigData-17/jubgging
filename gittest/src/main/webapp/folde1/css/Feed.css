@@ -673,7 +673,10 @@ img .user_profile_img{
 
 
 /* produt widget */
-
+.swiper {
+    width: 300px;
+    height: 200px;
+  }
 
 /* Weather widget */
 .weather_card{
