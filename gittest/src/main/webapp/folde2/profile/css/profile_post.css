@@ -15,7 +15,7 @@ body{
     margin-left: auto;
     margin-right: auto;
     padding: 0 10px;
-    background-color: white;
+    
 }
 a{
     text-decoration: none;
@@ -603,7 +603,7 @@ section .profile_post_follow_bx .post_follow_bx .tag_bx .trend_for_you {
    background: #fff;
    border: 2px solid #eaeaea;
    /* box-shadow: 0px 0px 10px rgb(0, 0, 0, 0.1); */
-   border-radius: 5px;
+   border-radius: 8px;
    padding-bottom: 10px;
 }
 
