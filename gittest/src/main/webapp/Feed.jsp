@@ -7,12 +7,15 @@ join user_id = (join) session.getAttribute("user_id");
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="./css/Feed.css">
-
-<title>::Jubging:: - Feed</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/Feed.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+  <title>::Jubging:: - Feed</title>
 <style type="text/css">
 a:link {
 	color: red;
@@ -32,196 +35,404 @@ a:hover {
 </head>
 
 <body>
-	<!-- sidebar section Start -->
-	<div class="sidebar">
-		<div class="sidebarOption_logo">
-			<img src="./img/homelogo.png">
-		</div>
-		<div class="sidebarOption active">
-			<i class="fa-solid fa-house-chimney active"></i>
-			<h2>홈</h2>
-		</div>
-		<div class="sidebarOption">
-			<i class="fa-sharp fa-solid fa-magnifying-glass"></i>
-			<h2>탐색하기</h2>
-		</div>
-		<div class="sidebarOption">
-			<i class="fa-solid fa-envelope"></i>
-			<h2>쪽지</h2>
-		</div>
-		<div class="sidebarOption">
-			<i class="fa-solid fa-store"></i>
-			<h2>스토어</h2>
-		</div>
-		<a href="./profile_post.jsp">
-			<div class="sidebarOption">
-				<i class="fa-solid fa-user"></i>
-				<h2>프로필</h2>
-			</div>
-		</a>
-		<div class="profile_btn" onclick="dropdown()">
-			<div class="user_info">
-				<img src="./img/129.png" class="user_profile_img"
-					style="width: 55px; height: 55px;">
-				<div class="name">
-					<p class="user_nick"><%=user_id.getUser_id()%></p>
-					<p class="user_id">
-						@<%=user_id.getUser_id()%></p>
-				</div>
-				<div class="user_profile_op">
-					<i class="fa-solid fa-angles-down"></i>
-				</div>
-			</div>
-		</div>
-		<div class="sidebar_dropdown-content" id="dropdown-content">
-			<a href="LogoutCon"><p onclick="logout()">로그아웃</p></a>
-		</div>
-	</div>
-	<!-- sidebar section end -->
+  <!-- sidebar section Start -->
+  <div class="sidebar">
+    <div class="sidebarOption_logo"> 
+      <img src="./img/homelogo.png">
+    </div>
+    <div class="sidebarOption">
+      <i class="fa-solid fa-house-chimney"></i>
+      <a href="./Feed.jsp"><h2>홈</h2></a>
+    </div>
+    <div class="sidebarOption">
+      <i class="fa-sharp fa-solid fa-magnifying-glass"></i>
+      <a href="./search.jsp"><h2>탐색하기</h2></a>
+    </div>
+    <div class="sidebarOption">
+      <i class="fa-solid fa-envelope"></i>
+      <a href="/todayspick.jsp"><h2>Today's Pick!</h2></a>
+    </div>
+    <div class="sidebarOption">
+      <i class="fa-solid fa-user"></i>
+      <a href="./profile_post.jsp"><h2>프로필</h2></a>
+    </div>
+    <div class="profile_btn" onclick="dropdown()">
+      <div class="user_info">
+        <img src="./img/129.png" class="user_profile_img" style="width: 55px; height: 55px;">
+        <div class="name">
+          <p class="user_nick"><%=user_id.getUser_nick() %></p>
+          <p class="user_id">@<%=user_id.getUser_id() %></p>
+        </div>
+        <div class="user_profile_op">
+          <i class="fa-solid fa-angles-down"></i>          
+        </div>
+      </div>
+    </div>
+    <div class="sidebar_dropdown-content" id="dropdown-content">
+      <a href="LogoutCon"><p onclick="logout()">로그아웃</p></a>
+    </div>
+  </div>
+    <!-- sidebar section end -->
 
-	<!-- feed section start -->
-	<!-- post box -->
-	<div class="feed">
-		<div class="feed_header">
-			<h2>홈</h2>
-		</div>
-		<div class="postbox">
-			<form action="./CommunirtyCon">
-				<div class="input_box" >
-					<!-- <div class="postbox_area"  >
-						<span class="placeholder">무슨 일이 일어나고 있나요?</span>
-						<div class="input editable" contenteditable="true"
-							spellcheck="false" ></div>
-						<div class="input readonly" contenteditable="true"
-							spellcheck="false"></div>
-					</div>  -->
-					<!-- <form action="./CommunirtyCon"> -->
-					<input type="text" name ="c_content">
-					<button type="submit">글쓰기</button>  -->
-					<!-- </form> -->
-					<div id="postbox_image-container_1"></div>
-					<div class="tag" name="c_hashtag"></div>
-					
-				</div>
-				<div class="postbox_footer">
-					<div class="footer-icon">
-						<div class="add-img" name="c_img">
-							<i class="far fa-file-image"></i>
-						</div>
-						<div class="add_map" id="add_map">
-							<i class="fa-solid fa-location-dot"></i>
-						</div>
-						<div class="add_tage" onclick="dropdown_tage()">
-							<i class="fa-regular fa-hashtag"></i>
-						</div>
-					</div>
-					<div class="post-limits">
-						<span class="counter-limit">240</span>
-						<button class="postbox_btn" type="submit">글쓰기</button>
-					</div>
-				</div>
-			<!-- </form> -->
-			<div class="tag_wrapper" id="tage_dropdown-content">
-				<div class="title">
-					<i class="fa-solid fa-tags"></i>
-					<h2>태그</h2>
-				</div>
-				<div class="tag_content">
-					<p>원하는 태그를 입력 해주세요</p>
-					<div class="tag_box">
-						<ul>
-							<input type="text" name="c_hashtag">
-						</ul>
-					</div>
-					<div class="tag_details">
-						<p>
-							<span>_</span>개의 태그까지 추가할 수 있습니다
-						</p>
-						<button id="add_postboxTags" name="c_hashtag" onclick="addTags()">태그 추가</button>
-						<button id="tag_allremove">전체 삭제</button>
-					</div>
-				</div>
-			</div>
-			</form>
-		</div>
-		<!-- post box end -->
-		<!-- post list start-->
+  <!-- feed section start -->
+  <!-- post box -->
+  <div class="feed">
+    <div class="feed_header">
+      <h2>홈</h2>
+    </div>
+    <div class="postbox">
+      <form action = "CommunirtyCon">
+        <div class="input_box">
+          <div class="postbox_area">
+            <textarea name="c_content" cols="40" rows="5" placeholder="무슨 일이 일어나고 있나요?"></textarea>
+            <div class="tag"></div>
+          </div> 
+        </div>     
+        <div class="postbox_image-container"></div>
+        <div class="postbox_footer">
+          <div class="footer-icon">
+            <div class="add-img">
+              <i class="far fa-file-image"><input type="file" name="c_img" style="display: none;" accept="image/*"></i>
+            </div>
+            <div class="add_map">
+              <i class="fa-solid fa-location-dot"></i>
+            </div>
+            <div class="add_tage" onclick="dropdown_tage()">
+              <i class="fa-regular fa-hashtag"></i>
+            </div>
+          </div>
+          <div class="post-submit">
+            <button class="postbox_btn" type="submit">글쓰기</button>
+          </div>
+        </div>  
+      <!-- </form> -->
+      <div class="tag_wrapper" id="tage_dropdown-content">
+        <div class="title">
+          <i class="fa-solid fa-tags"></i>
+          <h2>태그</h2>
+        </div>
+          <div class="tag_content">
+            <div class="tag_box">
+              <!-- <form action="CommunirtyCon"> -->
+                <ul><input type="text" name="c_hashtag" placeholder="원하는 태그를 입력 해 주세요"></ul>
+                <div class="tag_details">
+                  <button id="add_postboxTags">태그 추가</button>
+                </div>
+             </form>
+            </div>
+          </div> 
+      </div>   
+    </div>
+    <!-- post box end -->
+    <!-- post list start-->
+    <div class="post_list">
+      <div class="post_list_box">
+        <div class="content">
+          <div class="post_profile" style="float: left;">
+            <img src="./img/129.png" alt="">
+          </div>
+          <div class="user_name_time">
+            <h5 name="user_nick">
+              <%=user_id.getUser_nick() %>
+              <p name="user_id">@<%=user_id.getUser_id() %></p>
+            </h5>
+            <h6><i class="far fa-clock" name="c_date"></i>25 mins</h6>
+            <i class="fa-solid fa-trash-can" onclick="deletepostlist()"></i>
+          </div>
+          <div class="content_text" name="post-content">
+            <span>a 태그는 링크를 걸어주는 태그로 href, target, rel 속성이 있다. 각 속성에는 다양한 속성값이 있다. id와 class 속성은 body 영역에서 사용할 수 있는데 모든 태그에서 사용할 수 있다. id 속성은 고유한 이름이며, class 속성은 중복해서 이름을 지정할 수 있다.</span>
+          </div>
+          <div class="img_post_bx">
+            <img src="./img/AdobeStock_523835731.png" alt="">
+          </div>
+          <div class="post_card_social_data">
+            <div class="post_social_card">
+              <i class="fas fa-comment" onclick="dropdowncoment()"></i>
+              <span name="comment_cnt">0</span><!-- 댓글 수-->
+            </div>
+            <div class="post_social_card">
+              <i class="fas fa-heart" onclick="like()"></i>
+              <span name="like_cnt">0</span>
+            </div>
+            <div class="post_social_card" >
+              <i class="fa-solid fa-map-location-dot" onclick="open_popup_map()"></i>
+            </div>
+          </div>
+          <div class="dropdown-comment">
+            <form>
+              <input type="text" name="commentInput">
+              <button class="commentBtn" type="submit" value="댓글입력">댓글입력</button>
+            </form>
+          </div>
+          <div class="comment_list">
+            <div class="dropdown-comment_list">
+              <div class="post_profile" style="float: left;">
+                <img src="./img/129.png" alt="">
+              </div>
+              <div class="user_name_time_comment">
+                <h5 name="user_nick">
+                  <%=user_id.getUser_nick() %>
+                  <p name="user_id">@<%=user_id.getUser_id() %></p>
+                  <h6><i class="far fa-clock" name="c_date"></i>25 mins</h6>
+                  <i class="fa-solid fa-trash-can" onclick="deletecomment()"></i>
+                </h5>
+              </div>
+              <div class="comment_text">
+                <span>테스트입니다.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- post list end-->
+  </div>
+  <!-- feed section end -->
+
+  <!-- widget section Start -->
+  <div class="widgets">
+    <div class="widgets_input">
+      <input type="text" placeholder="Search.." onfocus="this.placeholder=''" onblur="this.placeholder='Search..'" name="search">
+      <button type="submit"><i class="fa-sharp fa-solid fa-magnifying-glass"></i></button>
+    </div>
+    <div class="widgets_treand_Container">
+      <div class="widgets_weather_header">
+        <h2>친환경 상품</h2>
+      </div> 
+    </div>
+    
+    <div class="widgets_weather_Container">
+    <div class="widgets_weather_header">
+      <h2>날씨</h2>
+    </div>  
+    <div class="weather_card">
+      <div class="error">
+        <p>위치정보를 찾을 수 없습니다.</p>
+      </div>
+      <div class="weather">
+        <img src="./img/icon/1530391_clouds_sun_sunny_weather.png" class="weather-icon">
+        <h1 class="temp"></h1>
+        <h2 class="city_result"></h2> 
+        <div class="details">
+          <div class="col">
+            <img src="./img/icon/cloud_forecast_rain_humidity_weather_icon_228446.png" alt="">
+              <div class="col_text">
+              <p class="humidity"></p>
+              <p>습도</p>
+          </div>
+          <div class="col">
+            <img src="./img/icon/wind_icon-icons.com_64274.png" alt="">
+              <div class="col_text">
+                <p class="windy_speed"></p>
+                <p>풍속</p>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>    
+  </div>
+  <!-- widget section end -->
+  
+<!-- map popup section Start -->
+<div class="popup">
+  <header>
+    <div class="close"><i class="fa-solid fa-xmark"></i></div>
+  </header>
+  <div class="modal_content">
+  </div>
+</div>
+
+<!-- popup section end -->
+
+  <!-- js file section -->
+  <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=cc62bb43e9feeb15374bcc3b80292f46"></script>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script src="https://kit.fontawesome.com/369266d994.js" crossorigin="anonymous"></script>
 
 
-		<!-- post list end-->
-	</div>
-	<!-- feed section end -->
 
-	<!-- widget section Start -->
-	<div class="widgets">
-		<div class="widgets_input">
-			<input type="text" placeholder="Search.."
-				onfocus="this.placeholder=''" onblur="this.placeholder='Search..'"
-				name="search">
-			<button type="submit">
-				<i class="fa-sharp fa-solid fa-magnifying-glass"></i>
-			</button>
-		</div>
-		<div class="widgets_treand_Container">
-			<h2>트렌드</h2>
-			<span><iframe width="385" height="240"
-					src="https://www.youtube.com/embed/P4MunVGijbo"
-					title="YouTube video player" frameborder="0"
-					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-					allowfullscreen></iframe></span>
-		</div>
-		<div class="widgets_weather_Container">
-			<h2>날씨</h2>
-			<div class="weather_card">
-				<div class="error">
-					<p>위치정보를 찾을 수 없습니다.</p>
-				</div>
 
-				<div class="weather">
-					<img src="./img/icon/1530391_clouds_sun_sunny_weather.png"
-						class="weather-icon">
-					<h1 class="temp"></h1>
-					<h2 class="city_result"></h2>
-					<div class="details">
-						<div class="col">
-							<img
-								src="./img/icon/cloud_forecast_rain_humidity_weather_icon_228446.png"
-								alt="">
-							<div class="col_text">
-								<p class="humidity"></p>
-								<p>습도</p>
-							</div>
-							<div class="col">
-								<img src="./img/icon/wind_icon-icons.com_64274.png" alt="">
-								<div class="col_text">
-									<p class="windy_speed"></p>
-									<p>풍속</p>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- widget section end -->
 
-		<!-- map popup section Start -->
-		<div class="popup">
-			<header>
-				<div class="close">
-					<i class="fa-solid fa-xmark"></i>
-				</div>
-			</header>
-			<div class="content"></div>
-		</div>
-		<!-- popup section end -->
 
-		<!-- js file section -->
-		<script src="./js/feed.js"></script>
-		<script
-			src="//dapi.kakao.com/v2/maps/sdk.js?appkey=cc62bb43e9feeb15374bcc3b80292f46"></script>
-		<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-		<script src="https://kit.fontawesome.com/369266d994.js"
-			crossorigin="anonymous"></script>
+<script>
+
+  //사이드 바 안의 로그아웃 메뉴
+function dropdown() {
+    var dropdownContent = document.getElementById("dropdown-content");
+    dropdownContent.classList.toggle("show");
+  }
+  
+  
+  
+  function logout() {
+    var dropdownContent = document.getElementById("dropdown-content");
+    dropdownContent.classList.remove("show");
+    // '로그아웃' 삭제 수행
+  }
+  
+  
+  // 댓글
+  function dropdowncoment() {
+    var dropdownContent = document.querySelector(".dropdown-comment");
+    dropdownContent.classList.toggle("show_comment");
+  
+  }
+  // 사이드바 링크 활성화 부분//
+  const links = document.querySelectorAll('.sidebarOption a');
+
+  const currentUrl = window.location.href;
+  
+  links.forEach(link => {
+    if (link.href === currentUrl) {
+      link.classList.add('active');
+    } else {
+      link.classList.add('default');
+    }
+  }); 
+  
+  
+  // 좋아요 색깔 , 숫자
+  function like() {
+    const heartIcon = document.querySelector('.fas.fa-heart');
+    const likeCount = document.querySelector('[name="like_cnt"]');
+    const currentColor = heartIcon.style.color;
+  
+    if (currentColor === 'red') {
+      heartIcon.style.color = 'rgb(0,0,0,0.2)';
+      likeCount.textContent = Number(likeCount.textContent) - 1;
+    } else {
+      heartIcon.style.color = 'red';
+      likeCount.textContent = Number(likeCount.textContent) + 1;
+    }
+  }
+  
+  
+  
+  
+  //태그입력 창 열기
+  function dropdown_tage() {
+    document.getElementById("tage_dropdown-content").classList.toggle("show_tag");
+  }
+
+
+// 파일 선택 창 열기
+document.querySelector('.add-img').addEventListener('click', function() {
+    document.querySelector('input[name="c_img"]').click();
+});
+
+document.querySelector('input[name="c_img"]').addEventListener('change', function(event) {
+    var file = event.target.files[0];
+    var reader = new FileReader();
+    reader.onload = function(e) {
+        var img = document.createElement('img');
+        img.src = e.target.result;
+        document.querySelector('.postbox_image-container').innerHTML = '';
+        document.querySelector('.postbox_image-container').appendChild(img);
+    };
+    reader.readAsDataURL(file);
+});
+  
+  //날씨 정보 기능 
+  // Geolocation API에 액세스할 수 있는지를 확인
+  if (navigator.geolocation) {
+    //위치 정보를 얻기
+    navigator.geolocation.getCurrentPosition (function(pos) {
+        const lat = pos.coords.latitude;     // 위도
+        const lon = pos.coords.longitude; // 경도
+        
+        const apikey='e89bb3afd798d5b46c49698f627bf5eb';
+        const apiUrl = 'http://api.openweathermap.org/data/2.5/weather?'
+        const weatherIcon =document.querySelector(".weather-icon")
+       
+        async function getWeather(){
+        const response = await fetch(apiUrl+`lat=`+lat+`&lon=`+lon+`&lang=kr&APPID=${apikey}`);
+        if(response.status==404){
+            document.querySelector(".weather").style.display="none";
+            document.querySelector(".error").style.display="block";
+        }else{
+            var data = await response.json();  
+            console.log(data);
+        // display weather data on webpage
+        
+        document.querySelector(".humidity").innerHTML = data.main.humidity+"<span>&nbsp;%</span>";        
+        document.querySelector(".windy_speed").innerHTML = data.wind.speed+"<span>&nbsp;km/h</span>";        
+        document.querySelector(".city_result").innerHTML = data.name;                
+        document.querySelector(".temp").innerHTML = Math.round(Number(data.main.temp) - 273.15)+"<span>&nbsp;°C</span>";        
+            
+        if(data.weather[0].main=="Clear"){
+            weatherIcon.src="./img/icon/1530392_weather_sun_sunny_temperature.png";
+        }
+        else if(data.weather[0].icon=="01n"){
+            weatherIcon.src="./img/icon/1530382_weather_night_moon_moonlight.png";
+        }
+        else if(data.weather[0].icon=="04n"){
+            weatherIcon.src="./img/icon/1530383_moon_weather_clouds_cloudy.png";
+        }
+        else if(data.weather[0].main=="Clouds"){
+            weatherIcon.src="./img/icon/1530369_cloudy_weather_clouds_cloud.png";
+        }
+        else if(data.weather[0].icon=="02d"){
+            weatherIcon.src="./img/icon/1530391_clouds_sun_sunny_weather.png";
+        }
+        else if(data.weather[0].id==500){
+            weatherIcon.src="./img/icon/1530390_sunny_rain_cloudy_weather_clouds.png";
+        }
+        else if(data.weather[0].main=="Rain"){
+            weatherIcon.src="./img/icon/1530364_rain_storm_shower_weather.png";
+        }
+        else if(data.weather[0].main=="Drizzle"){
+            weatherIcon.src="./img/icon/1530365_rain_cloud_drizzel_weather.png";
+        }
+        else if(data.weather[0].main=="Mist"){
+            weatherIcon.src="./img/icon/1530368_foggy_weather_fog_clouds_cloudy.png";
+        }
+        else if(data.weather[0].main=="Snow"){
+            weatherIcon.src="./img/icon/1530371_winter_snow_clouds_weather.png";
+        } 
+        document.querySelector(".weather").style.display="block";
+        document.querySelector(".error").style.display="none";
+  
+        }
+  
+        
+    };
+        
+        getWeather();
+        
+    });
+        
+  
+  } else {
+    alert("이 브라우저에서는 Geolocation이 지원되지 않습니다.")
+  }
+  
+  
+  
+  //지도 확인 창
+  function open_popup_map(){
+    var popup = document.querySelector(".popup");
+    popup.classList.toggle("show");
+    var close = popup.querySelector(".close");
+    close.onclick = function() {
+      popup.classList.remove("show");
+    };
+  }
+
+  
+
+
+  function deletecomment() {
+  var dropdown = document.querySelector(".dropdown-comment_list");
+  dropdown.parentNode.removeChild(dropdown);
+}
+
+function deletepostlist() {
+  var dropdown = document.querySelector(".post_list_box");
+  dropdown.parentNode.removeChild(dropdown);
+}
+// user_id 가 맞을때만 삭제되도록 조건을 넣어야 한다.
+
+</script>
 </body>
 </html>

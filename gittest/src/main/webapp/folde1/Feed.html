@@ -28,7 +28,7 @@
     </div>
     <div class="sidebarOption">
       <i class="fa-solid fa-envelope"></i>
-      <a href="#"><h2>Today's Pick!</h2></a>
+      <a href="/gittest/src/main/webapp/folde2/todayspick.html"><h2>Today's Pick!</h2></a>
     </div>
     <div class="sidebarOption">
       <i class="fa-solid fa-user"></i>
@@ -256,7 +256,7 @@ function dropdown() {
     dropdownContent.classList.toggle("show_comment");
   
   }
-  
+  // 사이드바 링크 활성화 부분//
   const links = document.querySelectorAll('.sidebarOption a');
 
   const currentUrl = window.location.href;
@@ -295,8 +295,21 @@ function dropdown() {
 
 
 // 파일 선택 창 열기
-// 파일 업로드 후 프리뷰
-  
+document.querySelector('.add-img').addEventListener('click', function() {
+    document.querySelector('input[name="c_img"]').click();
+});
+
+document.querySelector('input[name="c_img"]').addEventListener('change', function(event) {
+    var file = event.target.files[0];
+    var reader = new FileReader();
+    reader.onload = function(e) {
+        var img = document.createElement('img');
+        img.src = e.target.result;
+        document.querySelector('.postbox_image-container').innerHTML = '';
+        document.querySelector('.postbox_image-container').appendChild(img);
+    };
+    reader.readAsDataURL(file);
+});
   
   //날씨 정보 기능 
   // Geolocation API에 액세스할 수 있는지를 확인

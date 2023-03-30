@@ -9,15 +9,34 @@ public class Community {
 	private String c_hashtag;
 	private int lat;
 	private int lng;
+	private String c_date;
 	private String user_id;
 	private String user_nick;
 	
 
-	public Community(String c_content, String c_hashtag, String user_id) {
+
+	public Community(int c_idx, String c_content, String c_img, int c_likes, String c_hashtag, int lat, int lng,
+			String c_date, String user_id, String user_nick) {
+		super();
+		this.c_idx = c_idx;
+		this.c_content = c_content;
+		this.c_img = c_img;
+		this.c_likes = c_likes;
+		this.c_hashtag = c_hashtag;
+		this.lat = lat;
+		this.lng = lng;
+		this.c_date = c_date;
+		this.user_id = user_id;
+		this.user_nick = user_nick;
+	}
+
+	public Community(String c_content, String c_hashtag, String user_id, String c_img, String c_date) {
 		super();
 		this.c_content = c_content;
 		this.c_hashtag = c_hashtag;
 		this.user_id = user_id;
+		this.c_img = c_img;
+		this.c_date = c_date;
 	}
 
 	public int getC_idx() {

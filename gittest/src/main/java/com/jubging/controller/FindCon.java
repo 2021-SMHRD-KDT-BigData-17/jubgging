@@ -1,6 +1,7 @@
 package com.jubging.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.google.gson.Gson;
 import com.jubging.domain.MemberDAO;
 import com.jubging.domain.join;
 
@@ -33,7 +35,19 @@ public class FindCon extends HttpServlet {
 				System.out.println("회원정보 불러오기 성공!!");
 				System.out.println(findMember.toString());
 				HttpSession session = request.getSession();
-				session.setAttribute("findMember", findMember);
+				session.setAttribute("findMember",findMember);
+				
+				// String userid = "ID : " + findMember.getUser_id() + " \t pw : " + findMember.getUser_pw();
+				
+				Gson gson = new Gson();
+
+				// toJson()으로 얻는 값은 String 타입 입이다.
+				PrintWriter out = response.getWriter();
+				response.setContentType("application/json");
+				response.setCharacterEncoding("UTF-8");
+				String json = gson.toJson(findMember);
+				
+				out.print(json);
 				
 			} else {
 				System.out.println("회원정보 불러오기 실패!!");
