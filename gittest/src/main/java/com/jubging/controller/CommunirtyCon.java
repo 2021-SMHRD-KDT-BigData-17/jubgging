@@ -34,13 +34,13 @@ public class CommunirtyCon extends HttpServlet {
 		String user_id = userid.getUser_id();
 		// 2. 받아온 값을 묵어주기
 		
-		Community community = new Community(c_content,c_hashtag,user_id, c_img, c_date);
+		Community Community = new Community(c_content,c_hashtag,user_id, c_img, c_date);
 		
-		System.out.println(community.toString());
+		System.out.println(Community.toString());
 		
 		CommunityDAO dao = new CommunityDAO();
 		
-		int cnt = dao.insertcommunity(community);
+		int cnt = dao.insertcommunity(Community);
 		
 		if(cnt>0) {
 			System.out.println("데이터 저장 성공");
