@@ -566,6 +566,7 @@ section .profile_post_follow_bx .post_follow_bx .post .post_main_bx .post_card_b
    color:rgb(0,0,0,0.2);
    margin-right: 5px;
    font-size: 14px;
+   cursor: pointer;
 }
 
 section .profile_post_follow_bx .post_follow_bx .post .post_main_bx .post_card_bx .content .post_card_social_data .post_social_card span{
