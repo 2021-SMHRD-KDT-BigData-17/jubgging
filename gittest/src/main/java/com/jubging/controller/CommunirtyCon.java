@@ -18,8 +18,6 @@ public class CommunirtyCon extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		
-		
 		request.setCharacterEncoding("UTF-8");
 
 		// 파라미터 수집 (c_content,c_hashtag,user_id)
