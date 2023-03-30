@@ -143,16 +143,16 @@ section .follow_bx .trend_for_you{
 
 section .follow_bx .trend_for_you::-webkit-scrollbar{
     width: 5px;
-    background: #fff;
     border-radius: 20px;
-    visibility: hidden;   
+    visibility: hidden;
+    display: none;   
 }
 
 section .follow_bx .trend_for_you::-webkit-scrollbar-thumb{
     width: 5px;
-    background: #fff;
     border-radius: 20px;
-    visibility: hidden;   
+    visibility: hidden;
+    display: none;   
 }
 
 
