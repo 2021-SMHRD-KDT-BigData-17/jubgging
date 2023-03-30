@@ -30,7 +30,7 @@ a{
     cursor: pointer;
 }
 .sidebar{
-    border-right: 1px solid whitesmoke;
+    border-right: 1px solid #eaeaea;
     flex: 0.23;
     min-width: 250px;
     margin-top: 20px;
@@ -77,7 +77,7 @@ a{
     font-size: 14px;
     justify-content: space-between;
     align-items: center;
-    border: 1px solid whitesmoke;
+    border: 1px solid #eaeaea;
     box-shadow: 0 1px 1px 1px rgba(34, 36, 38, 0.15);
 }
 .profile_btn:active {
@@ -123,8 +123,8 @@ img .user_profile_img{
 
 /* feed and post */
 .feed{
-    flex: 0.5;
-    border-right: 1px solid whitesmoke;
+    flex: 0.48;
+    border-right: 1px solid #eaeaea;
     min-width: fit-content;
     overflow-y: scroll;
     -ms-overflow-style: none;
@@ -136,7 +136,7 @@ img .user_profile_img{
     top: 0;
     z-index: 100;
     padding: 15px 20px;
-    border-bottom: 1px solid whitesmoke;
+    border-bottom: 1px solid #eaeaea;
 
 }
 .feed_header h2{
@@ -161,7 +161,7 @@ img .user_profile_img{
     padding-left: 20px;
     padding-right: 20px;
     overflow-y: scroll;
-    border-bottom: 1px solid whitesmoke;
+    border-bottom: 1px solid #eaeaea;
 }
 .postbox_area::-webkit-scrollbar{
     height: 0;
@@ -173,7 +173,7 @@ img .user_profile_img{
 .input_box{
     height: fit-content;
     padding-top: 10px;
-    border-bottom: 1px solid whitesmoke;
+    border-bottom: 1px solid #eaeaea;
     padding-bottom: 10px;
 }
 .input_box .postbox_area{
@@ -367,7 +367,7 @@ img .user_profile_img{
 }
 .post_add{
     width: 30vw;
-    border-bottom: 1px solid whitesmoke;
+    border-bottom: 1px solid #eaeaea;
 }
 .post_body img{
     width: 50px;
@@ -631,7 +631,7 @@ img .user_profile_img{
     margin-top: 15px;
     margin-left: 20px;
     padding: 0 0 20px 0; 
-    border: 1px solid whitesmoke;
+    border: 1px solid #eaeaea;
     border-radius: 10px;
 }
 .widgets_treand_Container h2{
@@ -646,7 +646,7 @@ img .user_profile_img{
     margin-top: 15px;
     margin-left: 20px;
     padding: 0 0 20px 0; 
-    border: 1px solid whitesmoke;
+    border: 1px solid #eaeaea;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     border-top-right-radius: 10px;
