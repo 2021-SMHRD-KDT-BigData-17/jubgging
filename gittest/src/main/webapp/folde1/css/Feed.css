@@ -104,7 +104,7 @@ img .user_profile_img{
     padding-left: 5px;
 }
 .user_profile_op i{
-    margin-left: 90px;
+    margin-left: 45px;
 }
 .sidebar_dropdown-content{
     display: none;
@@ -417,9 +417,10 @@ img .user_profile_img{
 .post_list_box{
     max-width: 590px;
     height: auto;
-    padding: 12px 15px 0px 15px;
+    padding: 12px 15px 15px 15px;
     display: flex;
     justify-content: center;
+    border-bottom: 1px solid #eaeaea;
 }
 
 
@@ -473,7 +474,11 @@ img .user_profile_img{
 .content .user_name_time h6 i{
     font-size: 12px;
     margin-right: 3px;
+    
 
+}
+.content .user_name_time >i{
+    cursor: pointer;
 }
 
 .content .h3{
@@ -598,6 +603,7 @@ img .user_profile_img{
 .user_name_time_comment h6 i{
     font-size: 12px;
     margin-right: 3px;
+    cursor: pointer;
 }
 .show_comment_list{
     display: block;
@@ -627,14 +633,14 @@ img .user_profile_img{
     min-width: fit-content;
     overflow-y: scroll;
 }
-.widgets_treand_Container{
+.widgets_product_Container{
     margin-top: 15px;
     margin-left: 20px;
     padding: 0 0 20px 0; 
     border: 1px solid #eaeaea;
     border-radius: 10px;
 }
-.widgets_treand_Container h2{
+.widgets_product_Container h2{
     font-size: 20px;
     font-weight: 600;
 }
@@ -655,13 +661,19 @@ img .user_profile_img{
 .widgets::-webkit-scrollbar{
     display: none;
 }
-.widgets_weather_header{
+.widgets_header{
     padding: 10px;
     color: #fff;
     background-color: #64B617;
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
+    margin-bottom: 20px;
 }
+
+
+
+/* produt widget */
+
 
 /* Weather widget */
 .weather_card{
@@ -709,7 +721,7 @@ img .user_profile_img{
 .col_text .humidity , .windy_speed{
     font-weight: 600;
     font-size: 20px;
-    margin-left: 8px   ;
+    margin-left: 8px;
 }
 .col_text span{
     font-size: 18px;
@@ -726,6 +738,7 @@ img .user_profile_img{
     font-size: 14px;
     margin-top: 10px;
 }
+
 
 
 /* popup css */
