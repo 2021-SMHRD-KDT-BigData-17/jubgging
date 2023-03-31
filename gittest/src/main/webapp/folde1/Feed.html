@@ -647,13 +647,6 @@ var postBoxBtn = document.querySelector('.postbox_btn');
 // Add a click event listener to the button
 postBoxBtn.addEventListener('click', function() {
 
-  // Get the tagsInput element
-  var tagsInput = document.querySelector('#tagsInput');
-
-  // Get the tag input and add it to the tagsInput element
-  var tagInput = document.querySelector('#tag_input').trim();
-  tagsInput.innerHTML += `<span class="tag">${tagInput}</span>`;
-
   // Get the post_list element
   var postList = document.querySelector('.post_list');
 
@@ -682,7 +675,7 @@ postBoxBtn.addEventListener('click', function() {
             ${postContent}
           </div>
           <div class="tags_output">
-            ${tagsInput.innerHTML} 
+
           </div>
           <div class="img_post_bx">
             
