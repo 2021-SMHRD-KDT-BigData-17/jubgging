@@ -434,7 +434,6 @@ section .profile_post_follow_bx .post_follow_bx .post li:hover {
 section .profile_post_follow_bx .post_follow_bx .post li a {
     text-decoration: none;
     font-size: 15px;
-    font-family: 'TheJamsil5Bold';
     font-weight: 600;
     color: #000;
     transition: .3s linear;

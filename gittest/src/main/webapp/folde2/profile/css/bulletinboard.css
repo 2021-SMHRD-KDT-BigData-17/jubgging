@@ -12,6 +12,20 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'TheJamsil5Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil5Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GongGothicMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10@1.0/GongGothicMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body{
     display: flex;
     height: 100vh;
@@ -56,9 +70,10 @@ a{
 .sidebarOption h2{
     padding: 20px;
     font-weight: 400;
-    font-size: 19px;
+    font-size: 17px;
     margin-right: 20px;
     letter-spacing: -1px;
+    font-family: 'TheJamsil5Bold';
     
 }
 
@@ -143,14 +158,17 @@ img .user_profile_img{
     width:980px;
     height: 130px;
     margin-left: 5px;
+    
 }
 
 .bulletinboard_header .header_text h2{
-    font-family: 'OTWelcomeRA';
+    font-family: 'TheJamsil5Bold';
+    font-weight: 200;
     padding: 69px 0px 0px 36px;
     font-size: 40px;
     color:#6d6666;
     border:1px solids #eee;
+    font-family: 'GongGothicMedium';
     
 }
 
