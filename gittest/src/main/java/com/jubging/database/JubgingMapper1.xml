@@ -18,7 +18,6 @@
 	  <result property="user_nick" column="user_nick" />
 	  <result property="c_img" column="c_img" jdbcType="CLOB" javaType="java.lang.String" />
 	</resultMap> -->
-
 	<!-- 회원가입 -->
 	<insert id="insertjoin" parameterType="com.jubging.domain.join">
 		insert into	t_user(user_id, user_pw, user_email) values(#{user_id},#{user_pw},#{user_email})
@@ -49,5 +48,4 @@
 		UPDATE t_user SET user_situation = #{user_situation}, user_nick=#{user_nick} WHERE user_id = #{user_id}
 	</update>
 	
-
 </mapper>

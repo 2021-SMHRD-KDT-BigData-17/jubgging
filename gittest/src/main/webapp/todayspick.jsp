@@ -21,10 +21,10 @@
       <div class="card-wrapper swiper-wrapper">
         <div class="card swiper-slide">
           <div class="image-box">
-            <a href="/gittest/src/main/webapp/folde2/bulletinboard_jeannam.html"><img src="/gittest/src/main/webapp/folde2/profile/img/forest.jpg" alt=""></a>
+            <a href="./bulletinboard_jeannam.jsp"><img src="./img/forest.jpg" alt=""></a>
           </div>
           <div class="profile_details">
-            <img src="/gittest/src/main/webapp/folde2/profile/img/jeannam2.jpg" alt="">
+            <img src="./img/jeannam2.jpg" alt="">
             <div class="name_region">
               <h3 class="name">봉화산 둘레길</h3>
               <h4 class="region">순천</h4>
@@ -33,10 +33,10 @@
         </div>
         <div class="card swiper-slide">
           <div class="image-box">
-            <a href="/gittest/src/main/webapp/folde2/bulletinboard_jeannam.html"><img src="/gittest/src/main/webapp/folde2/profile/img/forest.jpg" alt=""></a>
+            <a href="./bulletinboard_jeanbuk.jsp"><img src="./img/forest.jpg" alt=""></a>
           </div>
           <div class="profile_details">
-            <img src="/gittest/src/main/webapp/folde2/profile/img/jeannam2.JPG" alt="">
+            <img src="./img/jeannam2.jpg" alt="">
             <div class="name_region">
               <h3 class="name">봉화산 둘레길</h3>
               <h4 class="region">순천</h4>
@@ -45,10 +45,10 @@
         </div>
         <div class="card swiper-slide">
           <div class="image-box">
-            <img src="/gittest/src/main/webapp/folde2/profile/img/forest.jpg" alt="">
+            <img src="./img/forest.jpg" alt="">
           </div>
           <div class="profile_details">
-            <img src="/gittest/src/main/webapp/folde2/profile/img/jeannam2.JPG" alt="">
+            <img src="./img/jeannam2.jpg" alt="">
             <div class="name_region">
               <h3 class="name">봉화산 둘레길</h3>
               <h4 class="region">순천</h4>
@@ -57,10 +57,10 @@
         </div>
         <div class="card swiper-slide">
           <div class="image-box">
-            <img src="/gittest/src/main/webapp/folde2/profile/img/forest.jpg" alt="">
+            <img src="./img/forest.jpg" alt="">
           </div>
           <div class="profile_details">
-            <img src="/gittest/src/main/webapp/folde2/profile/img/jeannam2.JPG" alt="">
+            <img src="./img/jeannam2.jpg" alt="">
             <div class="name_region">
               <h3 class="name">봉화산 둘레길</h3>
               <h4 class="region">순천</h4>
@@ -69,10 +69,10 @@
         </div>
         <div class="card swiper-slide">
           <div class="image-box">
-            <img src="/gittest/src/main/webapp/folde2/profile/img/forest.jpg" alt="">
+            <img src="./img/forest.jpg" alt="">
           </div>
           <div class="profile_details">
-            <img src="/gittest/src/main/webapp/folde2/profile/img/jeannam2.JPG" alt="">
+            <img src="./img/jeannam2.jpg" alt="">
             <div class="name_region">
               <h3 class="name">봉화산 둘레길</h3>
               <h4 class="region">순천</h4>
@@ -86,8 +86,8 @@
     <div class="swiper-pagination"></div>
   </div>
 </section>
-  <script src="/gittest/src/main/webapp/folde2/profile/js/swiper-bundle.min.js"></script>
-  <script src="/gittest/src/main/webapp/folde2/profile/js/todayspick.js"></script>
+  <script src="./js/swiper-bundle.min.js"></script>
+  <script src="./js/todayspick.js"></script>
   
 </body>
 
