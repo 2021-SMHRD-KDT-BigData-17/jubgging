@@ -68,9 +68,10 @@ a{
 .sidebarOption h2{
     padding: 20px;
     font-weight: 400;
-    font-size: 19px;
+    font-size: 17px;
     margin-right: 20px;
     letter-spacing: -1px;
+    font-family: 'TheJamsil5Bold';
 }
 .sidebarOption:hover{
  border-radius: 10px;
@@ -667,7 +668,7 @@ section .profile_post_follow_bx .post_follow_bx .tag_bx .trend_for_you .trend_bx
 section .profile_post_follow_bx .post_follow_bx .tag_bx .trend_for_you .trend_bx li a p {
     text-decoration: none;
     font-size: 12px;
-    font-weight: 100;
+    font-weight: 500;
     color: rgba(0, 0, 0, 0.4);
 }
 

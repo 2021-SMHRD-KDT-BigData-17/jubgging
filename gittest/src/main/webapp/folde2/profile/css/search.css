@@ -14,6 +14,14 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
 
 * {
     margin: 0;
@@ -67,9 +75,10 @@ a{
 .sidebarOption h2{
     padding: 20px;
     font-weight: 400;
-    font-size: 19px;
+    font-size: 17px;
     margin-right: 20px;
     letter-spacing: -1px;
+    font-family: 'TheJamsil5Bold';
 }
 .sidebarOption:hover{
  border-radius: 10px;
@@ -214,7 +223,7 @@ section .follow_bx .trend_for_you .trend_bx li{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 5px 0px ;
+    padding: 7px 0px ;
     
 }
 
@@ -229,7 +238,7 @@ section .follow_bx .trend_for_you .trend_bx li a{
 
 section .follow_bx .trend_for_you .trend_bx li a p{
     text-decoration: none;
-    font-size: 10px;
+    font-size: 13px;
     font-weight: 500;
     color: rgb(0,0,0, 0.4);
 }
@@ -272,6 +281,7 @@ section .follow_bx .trend_for_you .trend_bx .rate .interest {
     min-width: fit-content;
     overflow-y: scroll;
 }
+
 .widgets_product_Container{
     margin-top: 15px;
     margin-left: 20px;
@@ -281,11 +291,13 @@ section .follow_bx .trend_for_you .trend_bx .rate .interest {
 }
 .widgets_product_Container h2{
     font-size: 20px;
-    font-weight: 600;
+    font-weight: 00;
+    font-family: 'GmarketSansMedium';
 }
 .widgets_weather_Container h2{
     font-size: 20px;
-    font-weight: 600;
+    font-weight: 400;
+    font-family: 'GmarketSansMedium';
 }
 .widgets_weather_Container{
     margin-top: 15px;
