@@ -14,6 +14,14 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
 
 * {
     margin: 0;
@@ -52,6 +60,7 @@ a{
     margin-top: 20px;
     padding-left: 20px;
     padding-right: 20px; 
+    height: 85vh;
 }
 .sidebarOption_logo >img{
     
@@ -67,9 +76,10 @@ a{
 .sidebarOption h2{
     padding: 20px;
     font-weight: 400;
-    font-size: 19px;
+    font-size: 17px;
     margin-right: 20px;
     letter-spacing: -1px;
+    font-family: 'TheJamsil5Bold';
 }
 .sidebarOption:hover{
  border-radius: 10px;
@@ -147,7 +157,7 @@ section .profile_header{
 section .follow_bx .trend_for_you{
     
     width: 500px;
-    height: 700px;
+    height: 600px;
     margin-left: 20px;
     background: #fff;
     border: 1px solid #eaeaea;
@@ -214,7 +224,7 @@ section .follow_bx .trend_for_you .trend_bx li{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 5px 0px ;
+    padding: 7px 0px ;
     
 }
 
@@ -229,7 +239,7 @@ section .follow_bx .trend_for_you .trend_bx li a{
 
 section .follow_bx .trend_for_you .trend_bx li a p{
     text-decoration: none;
-    font-size: 10px;
+    font-size: 13px;
     font-weight: 500;
     color: rgb(0,0,0, 0.4);
 }
@@ -271,7 +281,9 @@ section .follow_bx .trend_for_you .trend_bx .rate .interest {
     flex: 0.2;
     min-width: fit-content;
     overflow-y: scroll;
+    height: 85vh;
 }
+
 .widgets_product_Container{
     margin-top: 15px;
     margin-left: 20px;
@@ -281,11 +293,13 @@ section .follow_bx .trend_for_you .trend_bx .rate .interest {
 }
 .widgets_product_Container h2{
     font-size: 20px;
-    font-weight: 600;
+    font-weight: 400;
+    font-family: 'GmarketSansMedium';
 }
 .widgets_weather_Container h2{
     font-size: 20px;
-    font-weight: 600;
+    font-weight: 400;
+    font-family: 'GmarketSansMedium';
 }
 .widgets_weather_Container{
     margin-top: 15px;
@@ -383,3 +397,57 @@ section .follow_bx .trend_for_you .trend_bx .rate .interest {
     margin-top: 10px;
 }
 
+/* footer */
+
+#wrap {
+    min-height: 100vh;
+    position: relative;
+    width: 100%; 
+    height: 100%;
+    background-color: #f2f2f2;
+    display:contents;
+  }
+  
+  section:nth-child(2) {
+    padding-bottom: 30px;
+  }
+  
+  footer {
+    padding-left: 120px;
+    width: 100%;
+    height: 46px;
+    bottom: 0px;
+    position: absolute;
+    border-top: 1px solid #c4c4c4;
+    padding-top: 7px;
+    padding-bottom: 75px;
+    color: #808080;
+    font-size: 11px;
+    left: 0;
+}
+
+ footer nav a{
+    margin-bottom: 3px;
+ }
+  
+  footer a {
+    display: inline-block;
+    margin: 0 20px 10px 20px;
+    color: #808080; font-size: 11px;
+  }
+  
+  footer a:visited {
+    color: #808080;
+  }
+  
+  footer p {
+    margin-top: 0; 
+    margin-bottom: 0;
+    width: 300px;   
+    height: 20px;
+  }
+  
+  footer p span {
+    display: inline-block;
+    margin-left: 20px;
+  }
