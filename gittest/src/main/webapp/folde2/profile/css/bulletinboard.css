@@ -5,6 +5,13 @@
     font-family: 'Poppins', sans-serif;
 }
 
+@font-face {
+    font-family: 'OTWelcomeRA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/OTWelcomeRA.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body{
     display: flex;
     height: 100vh;
@@ -117,21 +124,32 @@ img .user_profile_img{
 }
 .show {display: block;}
 
+/* 게시판 섹션 */
 
 .section{
     width: 100%
 }
 
 .bulletinboard_header{
-    background: #98a5b1;
-    width:700px;
-    height: 110px;
+    justify-content: center;
+    background-image: linear-gradient(to top, #c1dfc4 0%, #deecdd 100%);
+    width:980px;
+    height: 130px;
+    margin-left: 5px;
 }
 
-/* 게시판 섹션 */
+.bulletinboard_header .header_text h2{
+    font-family: 'OTWelcomeRA';
+    padding: 69px 0px 0px 36px;
+    font-size: 40px;
+    color:#6d6666;
+    border:1px solids #eee;
+    
+}
 
 table {
     border-collapse:collapse;
+    margin-left: 3px;
 
 }
 
@@ -145,7 +163,7 @@ a{
 }
 
 .board_list_wrap{
-    padding: 27px;
+    margin: 3px;
 }
 
 .board_list{
@@ -224,6 +242,12 @@ a{
     background:#64B617;
 }
 
+.board_list_wrap .paging a.num:hover{
+    border: 1px solid #64B617;
+    font-weight: 600;
+    color:#fff;
+    background:#64B617;
+}
 
 .board_list_wrap .paging a.num:hover{
     border: 1px solid #64B617;
@@ -240,3 +264,4 @@ a{
     background: #64B617;
     color:#fff;
 }
+
