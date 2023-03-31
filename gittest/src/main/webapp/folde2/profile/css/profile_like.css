@@ -8,6 +8,21 @@
     font-family: 'Poppins', sans-serif;
 }
 
+@font-face {
+    font-family: 'TheJamsil5Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil5Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+
 body{
     display: flex;
     height: 100vh;
@@ -69,6 +84,7 @@ a{
 
 .active{
     color: rgb(100, 182, 23);
+    font-weight: 700;
 }
 .default{
     color: black;
@@ -417,6 +433,7 @@ section .profile_post_follow_bx .post_follow_bx .post li:hover {
 section .profile_post_follow_bx .post_follow_bx .post li a {
     text-decoration: none;
     font-size: 15px;
+    font-family: 'TheJamsil5Bold';
     font-weight: 600;
     color: #000;
     transition: .3s linear;
@@ -510,6 +527,7 @@ section .profile_post_follow_bx .post_follow_bx .post .post_main_bx .post_card_b
     font-size: 14px;
     color: #222;
     margin-top: 10px;
+    font-family: 'Pretendard-Regular';
 }
 
 section .profile_post_follow_bx .post_follow_bx .post .post_main_bx .post_card_bx .content .user_name_time{
@@ -622,6 +640,7 @@ section .profile_post_follow_bx .post_follow_bx .tag_bx .trend_for_you {
    /* box-shadow: 0px 0px 10px rgb(0, 0, 0, 0.1); */
    border-radius: 8px;
    padding-bottom: 10px;
+   
 }
 
 section .profile_post_follow_bx .post_follow_bx .tag_bx .trend_for_you nav {
@@ -638,6 +657,7 @@ section .profile_post_follow_bx .post_follow_bx .tag_bx .trend_for_you nav h6 {
     font-size: 12px;
     color: #fff;
     padding: 0;
+    font-family: 'TheJamsil5Bold';
 }
 
 section .profile_post_follow_bx .post_follow_bx .tag_bx .trend_for_you .trend_bx {
@@ -658,8 +678,9 @@ section .profile_post_follow_bx .post_follow_bx .tag_bx .trend_for_you .trend_bx
 section .profile_post_follow_bx .post_follow_bx .tag_bx .trend_for_you .trend_bx li a {
     text-decoration: none;
     font-size: 13px;
-    font-weight: 600;
+    font-weight: 100;
     color: #000;
+    font-family: 'TheJamsil5Bold';
 }
 
 section .profile_post_follow_bx .post_follow_bx .tag_bx .trend_for_you .trend_bx li a p {
