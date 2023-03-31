@@ -59,7 +59,14 @@ a{
     font-size: 19px;
     margin-right: 20px;
     letter-spacing: -1px;
+    
 }
+
+.sidebarOption .trendBtn{
+    color:#64B617;
+
+}
+
 .sidebarOption:hover{
  border-radius: 10px;
  background-color: whitesmoke;
