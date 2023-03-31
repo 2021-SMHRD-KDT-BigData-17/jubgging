@@ -227,7 +227,7 @@ section .profile_post_follow_bx .profile_bx .profile_card h6 {
 section .profile_post_follow_bx .profile_bx .profile_card address {
     display: flex;
     align-items: center;
-    margin-top: 8px;
+    margin-top: 3px;
 }
 
 section .profile_post_follow_bx .profile_bx .profile_card address a {
