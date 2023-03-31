@@ -288,6 +288,15 @@ section .follow_bx .trend_for_you .trend_bx .rate .interest {
 }
 
 /* produt widget */
+.swiper {
+    width: 200px;
+    height: 230px;
+}
+
+.swiper-wrapper .product img{
+    width: 200px;
+    width: 200px;
+}
 
 /* Weather widget */
 .weather_card{

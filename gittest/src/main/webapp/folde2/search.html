@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
     integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="/gittest/src/main/webapp/folde2/profile/css/swiper-bundle.min.css"/>
     <title>::Jubging:: - Trands</title>
 
 </head>
@@ -110,7 +111,46 @@
       <div class="widgets_header">
         <h2>친환경 상품</h2>
       </div>
-
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="product">
+              <a href="https://cueclyp.com/product/C214WAUP02ZZF-725">
+                <img src="/gittest/src/main/webapp/folde1/img/image_1680053440516_1000-removebg-preview.png" alt="">
+              </a>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="product">
+              <a href="https://www.neogift.kr/front/f_goods/f_Goods_Detail.asp?g_code=56928&cat_1=K&cat_2=468">
+                <img src="/gittest/src/main/webapp/folde1/img/제목 없음-1.png" alt="">
+              </a>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="product">
+              <a href="https://cueclyp.com/product/C232CAUP02ZZF-17">
+                <img src="/gittest/src/main/webapp/folde1/img/image_1678424977558_2500-removebg-preview.png" alt="">
+              </a>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="product">
+              <a href="https://cueclyp.com/product/C214TTUP02ZZF">
+                <img src="/gittest/src/main/webapp/folde1/img/image_1619527405937_2500-removebg-preview.png" alt="">
+              </a>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="product">
+              <a href="https://cueclyp.com/product/C228BPRE01BKF">
+                <img src="/gittest/src/main/webapp/folde1/img/image_1662602533288_2500-removebg-preview.png" alt="">
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
     </div>
     
     <div class="widgets_weather_Container">
@@ -223,7 +263,7 @@ if (navigator.geolocation) {
     alert("이 브라우저에서는 Geolocation이 지원되지 않습니다.")
 }
 
-// 사이드바 기능
+// 사이드바 활성화 기능
 
 const links = document.querySelectorAll('.sidebarOption a');
 
@@ -236,10 +276,27 @@ links.forEach(link => {
     link.classList.add('default');
   }
 }); 
-
+// 상품 소개 슬라이더
+var swiper = new Swiper(".mySwiper", {
+      spaceBetween: 30,
+      centeredSlides: true,
+      autoplay: {
+        delay: 4000,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
 
 
 </script>
+<script src="/gittest/src/main/webapp/folde2/profile/js/swiper-bundle.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script src="https://kit.fontawesome.com/369266d994.js" crossorigin="anonymous"></script>
 </body>
