@@ -37,11 +37,11 @@ List<Community> com = dao.SelectMember(user_id.getUser_id());
     </div>
     <div class="sidebarOption">
       <i class="fa-sharp fa-solid fa-magnifying-glass"></i>
-      <a href="./search.jsp"><h2>탐색하기</h2></a>
+      <a href="./search.jsp"><h2>트렌드</h2></a>
     </div>
     <div class="sidebarOption">
       <i class="fa-solid fa-envelope"></i>
-      <h2>TODAY'S PICK</h2>
+      <a href="./todayspick.jsp"><h2>TODAY'S PICK</h2></a>
     </div>
     <div class="sidebarOption">
       <i class="fa-solid fa-user"></i>
@@ -117,37 +117,8 @@ List<Community> com = dao.SelectMember(user_id.getUser_id());
           </nav>
           <div class="post_main_bx">
             <div class="post_card_bx">
-              <div class="post_profile">
-                <img src="./img/icon/profile_img.png" alt="">
-              </div>
-              <div class="content">
-                <div class="user_name_time">
-                  <h5 name="user_nick">
-                    <%=user_id.getUser_nick() %>
-                    <p name="user_id">@<%=user_id.getUser_id() %></p>
-                  </h5>
-                  <h6><i class="far fa-clock"></i>플로깅이나 하세용</h6>
-                </div>
-                <div class = "content_text_bx">
-                  <span class = content_text>오늘 비오려나 플로깅 하러 가야하는데!</span>
-                </div>
-                <div class="post_card_social_data">
-                  <div class="post_social_card">
-                    <i class="fas fa-comment"></i>
-                    <span name="comment_cnt">20</span> <!-- 댓글 수-->
-                  </div>
-                  <div class="post_social_card">
-                    <i class="fas fa-heart"></i>
-                    <span name="like_cnt">1004</span>
-                  </div>
-                  <div class="post_social_card">
-                    <i class="fas fa-share"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- for문 -->
-            <%for(Community c : com){ %>
+              <!-- post 타임라인 출력 시작 -->
+            </div><%for(Community c : com){ %>
               <div class="post_card_bx">
               <div class="post_profile">
                 <img src="./img/icon/profile_img.png" alt="">
@@ -185,22 +156,22 @@ List<Community> com = dao.SelectMember(user_id.getUser_id());
             <%} %>
             <div class="post_card_bx">
               <div class="post_profile">
-                <img src="./img/icon/profile_img.png" alt="">
+                <img src="/gittest/src/main/webapp/folde2/profile/img/icon/profile_img.png" alt="">
               </div>
               <div class="content">
                 <div class="user_name_time">
                   <h5 name="user_nick">
-                    <%=user_id.getUser_nick() %>
-                    <p name="user_id">@<%=user_id.getUser_id() %></p> 
+                    smhrd
+                    <p name="user_id">@smhrd_12345</p> 
                   </h5>
                   <h6><i class="far fa-clock" name="c_date"></i>2 hours</h6>
                 </div>
                 <div class = "content_text_bx">
-                  <span class="content_text">sdwe<span>
+                  <span class="content_text">오늘 동천에서 이만큼 주웠습니다! 뿌듯하네요.</span>
                 </div>
                 <div class="image_post_bx">
-                  <img src="./img/cantrash.jpg" alt="">
-                  <img src="./img/trashduml.jpg" alt="">
+                  <img src="/gittest/src/main/webapp/folde2/profile/img/cantrash.jpg" alt="">
+                  <img src="/gittest/src/main/webapp/folde2/profile/img/trashduml.jpg" alt="">
                 </div>
                 <div class="post_card_social_data">
                   <div class="post_social_card">
@@ -209,23 +180,23 @@ List<Community> com = dao.SelectMember(user_id.getUser_id());
                   </div>
                   <div class="post_social_card">
                     <i class="fas fa-heart"></i>
-                    <span name="like_cnt">10.4k</span>
+                    <span name="like_cnt">0</span>
                   </div>
                   <div class="post_social_card">
-                    <i class="fas fa-share"></i>
+                    <i class="fa-solid fa-map-location-dot"></i>
                   </div>
                 </div>
               </div>
-            </div><!-- post_card_bx끝 -->
+            </div>
             <div class="post_card_bx">
               <div class="post_profile">
-                <img src="./img/icon/profile_img.png" alt="">
+                <img src="/gittest/src/main/webapp/folde2/profile/img/icon/profile_img.png" alt="">
               </div>
               <div class="content">
                 <div class="user_name_time">
                   <h5 name="user_nick">
-                    <%=user_id.getUser_nick() %>
-                    <p name="user_id">@<%=user_id.getUser_id() %></p>
+                    smhrd
+                    <p name="user_id">@smhrd_12345</p>
                   </h5>
                   <h6><i class="far fa-clock" name="c_date"></i>4 hours</h6>
                 </div>
@@ -239,10 +210,10 @@ List<Community> com = dao.SelectMember(user_id.getUser_id());
                   </div>
                   <div class="post_social_card">
                     <i class="fas fa-heart"></i>
-                    <span name="like_cnt">10.4k</span>
+                    <span name="like_cnt">0</span>
                   </div>
                   <div class="post_social_card">
-                    <i class="fas fa-share"></i>
+                    <i class="fa-solid fa-map-location-dot"></i>
                   </div>
                 </div>
               </div>
@@ -330,7 +301,15 @@ List<Community> com = dao.SelectMember(user_id.getUser_id());
           </form>
     </div>
   </div>
-
+<!-- map modal  -->
+  <div class="popup_map">
+    <header>
+      <div class="close"><i class="fa-solid fa-xmark"></i></div>
+    </header>
+    <div class="modal_content">
+      <div class="map" style="width:380px;height:280px;"></div>
+    </div>
+  </div>
 
   <!-- js file section -->
   <script>
@@ -366,7 +345,77 @@ const viewBtn = document.querySelector("#openmodal"),
     });
 
 
+    // 프로필 좋아요 색상 숫자
+    const heartIcons = document.querySelectorAll('.fas.fa-heart');
+    const likeCounts = document.querySelectorAll('[name="like_cnt"]');
+    let isLiked = [];
+
+    for (let i = 0; i < heartIcons.length; i++) {
+    isLiked.push(false); // Initialize all isLiked variables to false
+    heartIcons[i].addEventListener('click', function() {
+    if (!isLiked[i]) {
+        heartIcons[i].style.color = 'red';
+        likeCounts[i].textContent = Number(likeCounts[i].textContent) + 1;
+        isLiked[i] = true;
+      } else {
+        heartIcons[i].style.color = 'rgb(0,0,0,0.2)';
+        likeCounts[i].textContent = Number(likeCounts[i].textContent) - 1;
+        isLiked[i] = false;
+      }
+      });
+    }
+
+
+  //지도 기능
+// Select the popup element
+var popup_map = document.querySelector(".popup_map");
+
+// Select all the map location icon elements
+var mapLocationIcons = document.querySelectorAll(".fa-map-location-dot");
+
+// Add a click event listener to each map location icon
+mapLocationIcons.forEach(function(mapLocationIcon) {
+  mapLocationIcon.addEventListener("click", function() {
+    // Toggle the visibility of the popup
+    popup_map.classList.toggle("show");
+
+    // Create the map
+    var mapContainer = popup_map.querySelector('.map');
+    var mapOption = {
+      center: new kakao.maps.LatLng(37.56675, 126.97870), //위도 경도 수정부분
+      level: 3,
+      mapTypeId : kakao.maps.MapTypeId.ROADMAP
+    }; 
+    var map = new kakao.maps.Map(mapContainer, mapOption);
+    var mapTypeControl = new kakao.maps.MapTypeControl();
+
+    // 지도의 상단 우측에 지도 타입 변경 컨트롤을 추가한다
+    map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
+
+    // Add a marker to the map
+    var marker = new kakao.maps.Marker({
+      position: new kakao.maps.LatLng(37.56675, 126.97870), //마커 생성 위도 경도 수정 부분 
+      draggable: true,
+      map: map
+    });
+
+    // Add a click listener to the popup's close button
+    var close = popup_map.querySelector(".close");
+    close.onclick = function() {
+      // Remove the popup from the page
+      popup_map.classList.remove("show");
+
+      // Remove the map and marker objects
+      marker.setMap(null);
+      map = null;
+    };
+  });
+});
+
+
+
   </script>
+  <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=cc62bb43e9feeb15374bcc3b80292f46"></script>
   <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
   <script src="https://kit.fontawesome.com/369266d994.js" crossorigin="anonymous"></script>
 </body>
