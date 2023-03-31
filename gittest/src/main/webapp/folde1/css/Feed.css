@@ -534,6 +534,13 @@ img .user_profile_img{
 .content .img_post_bx img{
     width: 100%;
 }
+.tags_output{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: blue;
+}
+
+
 .dropdown-comment{
     display: none;
     position: relative;
@@ -563,9 +570,12 @@ img .user_profile_img{
     background-color: #64B617;
 }
 
-.show_comment{
+.show_dropdown_comment{
     display: block;
 }
+
+
+
 .dropdown-comment_list{
     /* display: none; */
     width: 100%;
@@ -605,19 +615,10 @@ img .user_profile_img{
     margin-right: 3px;
     cursor: pointer;
 }
-.show_comment_list{
-    display: block;
-}
 .comment_text{
     padding: inherit;
     padding-bottom: 10px;
     margin-left: 55px;
-}
-.comment_list_show{
-    display: block;
-}
-.hidden{
-    display: none;   
 }
 .comment_list{
     overflow-y: scroll;
@@ -625,6 +626,9 @@ img .user_profile_img{
 }
 .comment_list::-webkit-scrollbar{
     display: none;
+}
+.show_dropdown_comment_list{
+    display: block;
 }
 
 /* widgets */
@@ -673,7 +677,10 @@ img .user_profile_img{
 
 
 /* produt widget */
-
+.swiper {
+    width: 300px;
+    height: 200px;
+  }
 
 /* Weather widget */
 .weather_card{

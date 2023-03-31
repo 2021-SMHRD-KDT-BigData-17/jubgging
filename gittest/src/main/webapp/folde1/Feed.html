@@ -8,11 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
     integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
-/>
-    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
 </head>
 
 <body>
@@ -27,7 +23,7 @@
     </div>
     <div class="sidebarOption">
       <i class="fa-sharp fa-solid fa-magnifying-glass"></i>
-      <a href="/gittest/src/main/webapp/folde2/search.html"><h2>탐색하기</h2></a>
+      <a href="/gittest/src/main/webapp/folde2/search.html"><h2>트렌드</h2></a>
     </div>
     <div class="sidebarOption">
       <i class="fa-solid fa-envelope"></i>
@@ -78,8 +74,8 @@
             <div class="add_map">
               <i class="fa-solid fa-location-dot"></i>
             </div>
-            <div class="add_tage" onclick="dropdown_tage()">
-              <i class="fa-regular fa-hashtag"></i>
+            <div class="add_tage">
+              <i class="fa-regular fa-hashtag" onclick="dropdown_tage()"></i>
             </div>
           </div>
           <div class="post-submit">
@@ -123,79 +119,8 @@
           <div class="content_text" name="post-content">
             <span>a 태그는 링크를 걸어주는 태그로 href, target, rel 속성이 있다. 각 속성에는 다양한 속성값이 있다. id와 class 속성은 body 영역에서 사용할 수 있는데 모든 태그에서 사용할 수 있다. id 속성은 고유한 이름이며, class 속성은 중복해서 이름을 지정할 수 있다.</span>
           </div>
-          <div class="img_post_bx">
-            <img src="/gittest/src/main/webapp/img/AdobeStock_523835731.png" alt="">
-          </div>
-          <div class="post_card_social_data">
-            <div class="post_social_card">
-              <i class="fas fa-comment"></i>
-              <span name="comment_cnt">0</span><!-- 댓글 수-->
-            </div>
-            <div class="post_social_card">
-              <i class="fas fa-heart"></i>
-              <span name="like_cnt">0</span>
-            </div>
-            <div class="post_social_card" >
-              <i class="fa-solid fa-map-location-dot"></i>
-            </div>
-          </div>
-          <div class="dropdown-comment">
-            <form>
-              <input type="text" name="commentInput">
-              <button class="commentBtn" type="submit" value="댓글입력">댓글입력</button>
-            </form>
-          </div>
-          <div class="comment_list">
-            <div class="dropdown-comment_list">
-              <div class="post_profile" style="float: left;">
-                <img src="/gittest/src/main/webapp/folde1/img/129.png" alt="">
-              </div>
-              <div class="user_name_time_comment">
-                <h5 name="user_nick">
-                  admin
-                  <p name="user_id">@admin</p>
-                  <h6><i class="far fa-clock" name="c_date"></i>25 mins</h6>
-                  <i class="fa-solid fa-trash-can"></i>
-                </h5>
-              </div>
-              <div class="comment_text">
-                <span>테스트입니다.</span>
-              </div>
-            </div>
-            <div class="dropdown-comment_list">
-              <div class="post_profile" style="float: left;">
-                <img src="/gittest/src/main/webapp/folde1/img/129.png" alt="">
-              </div>
-              <div class="user_name_time_comment">
-                <h5 name="user_nick">
-                  admin
-                  <p name="user_id">@admin</p>
-                  <h6><i class="far fa-clock" name="c_date"></i>25 mins</h6>
-                  <i class="fa-solid fa-trash-can"></i>
-                </h5>
-              </div>
-              <div class="comment_text">
-                <span>테스트입니다.</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="post_list_box">
-        <div class="content">
-          <div class="post_profile" style="float: left;">
-            <img src="/gittest/src/main/webapp/folde1/img/129.png" alt="">
-          </div>
-          <div class="user_name_time">
-            <h5 name="user_nick">
-              admin
-              <p name="user_id">@admin</p>
-            </h5>
-            <h6><i class="far fa-clock" name="c_date"></i>25 mins</h6>
-            <i class="fa-solid fa-trash-can"></i>
-          </div>
-          <div class="content_text" name="post-content">
-            <span>a 태그는 링크를 걸어주는 태그로 href, target, rel 속성이 있다. 각 속성에는 다양한 속성값이 있다. id와 class 속성은 body 영역에서 사용할 수 있는데 모든 태그에서 사용할 수 있다. id 속성은 고유한 이름이며, class 속성은 중복해서 이름을 지정할 수 있다.</span>
+          <div class="tags_output">
+            <span>#태그가_출력될_자리입니다.</span>
           </div>
           <div class="img_post_bx">
             <img src="/gittest/src/main/webapp/img/AdobeStock_523835731.png" alt="">
@@ -236,22 +161,7 @@
                 <span>테스트입니다.</span>
               </div>
             </div>
-            <div class="dropdown-comment_list">
-              <div class="post_profile" style="float: left;">
-                <img src="/gittest/src/main/webapp/folde1/img/129.png" alt="">
-              </div>
-              <div class="user_name_time_comment">
-                <h5 name="user_nick">
-                  admin
-                  <p name="user_id">@admin</p>
-                  <h6><i class="far fa-clock" name="c_date"></i>25 mins</h6>
-                  <i class="fa-solid fa-trash-can"></i>
-                </h5>
-              </div>
-              <div class="comment_text">
-                <span>테스트입니다.</span>
-              </div>
-            </div>
+            
           </div>
         </div>
       </div>
@@ -266,25 +176,21 @@
       <div class="widgets_header">
         <h2>친환경 상품</h2>
       </div>
-      <div class="wrapper">
-        <div class="item swiper-container">
-          <!-- Additional required wrapper -->
-          <div class="item_wrapper swiper-wrapper">
-            <!-- Slides -->
-            <div class="item_slide swiper-slide">Slide 1</div>
-            
-          </div>
-          <!-- If we need pagination -->
-          <div class="item_pagination swiper-pagination"></div>
-        
-          <!-- If we need navigation buttons -->
-          <div class="item_prev swiper-button-prev"></div>
-          <div class="item_next swiper-button-next"></div>
-        
-          <!-- If we need scrollbar -->
-          <div class="item_scrollbar swiper-scrollbar"></div>
-        </div>
-      </div>  
+            <!-- Slider main container -->
+            <div class="swiper mySwiper">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">Slide 1</div>
+                <div class="swiper-slide">Slide 2</div>
+                <div class="swiper-slide">Slide 3</div>
+                <div class="swiper-slide">Slide 4</div>
+                <div class="swiper-slide">Slide 5</div>
+                <div class="swiper-slide">Slide 6</div>
+                <div class="swiper-slide">Slide 7</div>
+                <div class="swiper-slide">Slide 8</div>
+                <div class="swiper-slide">Slide 9</div>
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
     </div>
     
     <div class="widgets_weather_Container">
@@ -343,6 +249,7 @@
 
 
 
+
 <script>
 
   //사이드 바 안의 로그아웃 메뉴
@@ -361,9 +268,14 @@ function dropdown() {
   
   
   // 댓글창 보이기
+  const commentIcons = document.querySelectorAll(".fa-comment");
 
-
-
+commentIcons.forEach((commentIcon) => {
+  const dropdownComment = commentIcon.nextElementSibling;
+  commentIcon.addEventListener("click", () => {
+    dropdownComment.classList.toggle("show_dropdown_comment");
+  });
+});
 
   // 사이드바 링크 활성화 부분//
   const links = document.querySelectorAll('.sidebarOption a');
@@ -559,6 +471,25 @@ mapLocationIcons.forEach(function(mapLocationIcon) {
     };
   });
 });
+
+
+// 상품 소개 슬라이더
+var swiper = new Swiper(".mySwiper", {
+      spaceBetween: 30,
+      centeredSlides: true,
+      autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
 
 
 </script>
