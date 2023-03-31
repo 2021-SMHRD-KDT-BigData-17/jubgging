@@ -1,5 +1,7 @@
 package com.jubging.domain;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
@@ -33,7 +35,7 @@ public class CommunityDAO {
 	} // insertMember 끝
 
 	
-	// 커뮤니티 타임라인 데이터 불러오기 
+	// 커뮤니티 타임라인 데이터 넣기
 	public Community selectcommunity(Community community) {
 
 		Community com = null;
@@ -47,4 +49,38 @@ public class CommunityDAO {
 		return com;
 	} // selectMember 끝
 
+	public int Insertuplod(Community newPost) {
+		int cnt = 0;
+		try {
+			cnt = sqlSession.insert("insertcommunity", newPost);
+			if (cnt > 0) {
+				System.out.println("DAO에서는 저장 성공");
+				sqlSession.commit();
+			} else {
+				sqlSession.rollback();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		} // finally 끝TODO Auto-generated method stub
+		return 0;
+	}
+	
+	
+	// 프로필 포스트창 타임라인 출력
+	public List<Community> SelectMember(String user_id) {
+		List<Community> cnt = null;
+
+		try {
+			cnt = sqlSession.selectList("com.jubging.darabase.JubgingMapper1.SelectMember", user_id);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+		return cnt;
+
+	}
+	
 }
