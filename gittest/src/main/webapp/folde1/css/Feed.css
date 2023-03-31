@@ -84,6 +84,7 @@ a{
     background-color: whitesmoke;
 }
 .user_info{
+    gap: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -104,7 +105,7 @@ img .user_profile_img{
     padding-left: 5px;
 }
 .user_profile_op i{
-    margin-left: 45px;
+    margin-left: 70px;
 }
 .sidebar_dropdown-content{
     display: none;
@@ -675,9 +676,14 @@ img .user_profile_img{
 
 /* produt widget */
 .swiper {
-    width: 300px;
-    height: 200px;
-  }
+    width: 200px;
+    height: 230px;
+}
+
+.swiper-wrapper .product img{
+    width: 200px;
+    width: 200px;
+}
 
 /* Weather widget */
 .weather_card{
