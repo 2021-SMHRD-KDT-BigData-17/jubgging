@@ -31,6 +31,8 @@ public class CommunityDAO2 {
 		return 0;
 	}
 	
+	
+	// 프로필 포스트창 타임라인 출력
 	public List<Community> SelectMember(String user_id) {
 		List<Community> cnt = null;
 

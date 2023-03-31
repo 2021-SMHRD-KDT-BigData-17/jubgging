@@ -50,7 +50,7 @@ a:hover {
     </div>
     <div class="sidebarOption">
       <i class="fa-solid fa-envelope"></i>
-      <a href="/todayspick.jsp"><h2>Today's Pick!</h2></a>
+      <a href="./todayspick.jsp"><h2>Today's Pick!</h2></a>
     </div>
     <div class="sidebarOption">
       <i class="fa-solid fa-user"></i>
@@ -81,10 +81,10 @@ a:hover {
       <h2>홈</h2>
     </div>
     <div class="postbox">
-      <form action = "CommunirtyCon" method = "post" enctype="multipart/form-data">
+      <form>
         <div class="input_box">
           <div class="postbox_area">
-            <textarea name="c_content" cols="40" rows="5" placeholder="무슨 일이 일어나고 있나요?"></textarea>
+            <textarea name="" cols="40" rows="5" placeholder="무슨 일이 일어나고 있나요?"></textarea>
             <div class="tag"></div>
           </div> 
         </div>     
@@ -105,7 +105,7 @@ a:hover {
             <button class="postbox_btn" type="submit">글쓰기</button>
           </div>
         </div>  
-      <!-- </form> -->
+      </form>
       <div class="tag_wrapper" id="tage_dropdown-content">
         <div class="title">
           <i class="fa-solid fa-tags"></i>
@@ -113,8 +113,8 @@ a:hover {
         </div>
           <div class="tag_content">
             <div class="tag_box">
-              <!-- <form action="CommunirtyCon"> -->
-                <ul><input type="text" name="c_hashtag" placeholder="원하는 태그를 입력 해 주세요"></ul>
+              <form action="">
+                <ul><input type="text" name="" placeholder="원하는 태그를 입력 해 주세요"></ul>
                 <div class="tag_details">
                   <button id="add_postboxTags">태그 추가</button>
                 </div>
@@ -134,10 +134,10 @@ a:hover {
           <div class="user_name_time">
             <h5 name="user_nick">
               <%=user_id.getUser_nick() %>
-              <p name="user_id">@<%=user_id.getUser_id() %></p>
+              <p name="user_id">@<%=user_id.getUser_nick() %></p>
             </h5>
             <h6><i class="far fa-clock" name="c_date"></i>25 mins</h6>
-            <i class="fa-solid fa-trash-can" onclick="deletepostlist()"></i>
+            <i class="fa-solid fa-trash-can"></i>
           </div>
           <div class="content_text" name="post-content">
             <span>a 태그는 링크를 걸어주는 태그로 href, target, rel 속성이 있다. 각 속성에는 다양한 속성값이 있다. id와 class 속성은 body 영역에서 사용할 수 있는데 모든 태그에서 사용할 수 있다. id 속성은 고유한 이름이며, class 속성은 중복해서 이름을 지정할 수 있다.</span>
@@ -147,19 +147,19 @@ a:hover {
           </div>
           <div class="post_card_social_data">
             <div class="post_social_card">
-              <i class="fas fa-comment" onclick="dropdowncoment()"></i>
+              <i class="fas fa-comment"></i>
               <span name="comment_cnt">0</span><!-- 댓글 수-->
             </div>
             <div class="post_social_card">
-              <i class="fas fa-heart" onclick="like()"></i>
+              <i class="fas fa-heart"></i>
               <span name="like_cnt">0</span>
             </div>
             <div class="post_social_card" >
-              <i class="fa-solid fa-map-location-dot" onclick="open_popup_map()"></i>
+              <i class="fa-solid fa-map-location-dot"></i>
             </div>
           </div>
           <div class="dropdown-comment">
-            <form action = "ComUplodCon" method ="post">
+            <form>
               <input type="text" name="commentInput">
               <button class="commentBtn" type="submit" value="댓글입력">댓글입력</button>
             </form>
@@ -171,10 +171,100 @@ a:hover {
               </div>
               <div class="user_name_time_comment">
                 <h5 name="user_nick">
-                  <%=user_id.getUser_nick() %>
-                  <p name="user_id">@<%=user_id.getUser_id() %></p>
+                  admin
+                  <p name="user_id">@admin</p>
                   <h6><i class="far fa-clock" name="c_date"></i>25 mins</h6>
-                  <i class="fa-solid fa-trash-can" onclick="deletecomment()"></i>
+                  <i class="fa-solid fa-trash-can"></i>
+                </h5>
+              </div>
+              <div class="comment_text">
+                <span>테스트입니다.</span>
+              </div>
+            </div>
+            <div class="dropdown-comment_list">
+              <div class="post_profile" style="float: left;">
+                <img src="./img/129.png" alt="">
+              </div>
+              <div class="user_name_time_comment">
+                <h5 name="user_nick">
+                  admin
+                  <p name="user_id">@admin</p>
+                  <h6><i class="far fa-clock" name="c_date"></i>25 mins</h6>
+                  <i class="fa-solid fa-trash-can"></i>
+                </h5>
+              </div>
+              <div class="comment_text">
+                <span>테스트입니다.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="post_list_box">
+        <div class="content">
+          <div class="post_profile" style="float: left;">
+            <img src="./img/129.png" alt="">
+          </div>
+          <div class="user_name_time">
+            <h5 name="user_nick">
+              admin
+              <p name="user_id">@admin</p>
+            </h5>
+            <h6><i class="far fa-clock" name="c_date"></i>25 mins</h6>
+            <i class="fa-solid fa-trash-can"></i>
+          </div>
+          <div class="content_text" name="post-content">
+            <span>a 태그는 링크를 걸어주는 태그로 href, target, rel 속성이 있다. 각 속성에는 다양한 속성값이 있다. id와 class 속성은 body 영역에서 사용할 수 있는데 모든 태그에서 사용할 수 있다. id 속성은 고유한 이름이며, class 속성은 중복해서 이름을 지정할 수 있다.</span>
+          </div>
+          <div class="img_post_bx">
+            <img src="./img/AdobeStock_523835731.png" alt="">
+          </div>
+          <div class="post_card_social_data">
+            <div class="post_social_card">
+              <i class="fas fa-comment"></i>
+              <span name="comment_cnt">0</span><!-- 댓글 수-->
+            </div>
+            <div class="post_social_card">
+              <i class="fas fa-heart"></i>
+              <span name="like_cnt">0</span>
+            </div>
+            <div class="post_social_card" >
+              <i class="fa-solid fa-map-location-dot"></i>
+            </div>
+          </div>
+          <div class="dropdown-comment">
+            <form>
+              <input type="text" name="commentInput">
+              <button class="commentBtn" type="submit" value="댓글입력">댓글입력</button>
+            </form>
+          </div>
+          <div class="comment_list">
+            <div class="dropdown-comment_list">
+              <div class="post_profile" style="float: left;">
+                <img src="./img/129.png" alt="">
+              </div>
+              <div class="user_name_time_comment">
+                <h5 name="user_nick">
+                  admin
+                  <p name="user_id">@admin</p>
+                  <h6><i class="far fa-clock" name="c_date"></i>25 mins</h6>
+                  <i class="fa-solid fa-trash-can"></i>
+                </h5>
+              </div>
+              <div class="comment_text">
+                <span>테스트입니다.</span>
+              </div>
+            </div>
+            <div class="dropdown-comment_list">
+              <div class="post_profile" style="float: left;">
+                <img src="./img/129.png" alt="">
+              </div>
+              <div class="user_name_time_comment">
+                <h5 name="user_nick">
+                  admin
+                  <p name="user_id">@admin</p>
+                  <h6><i class="far fa-clock" name="c_date"></i>25 mins</h6>
+                  <i class="fa-solid fa-trash-can"></i>
                 </h5>
               </div>
               <div class="comment_text">
@@ -191,18 +281,33 @@ a:hover {
 
   <!-- widget section Start -->
   <div class="widgets">
-    <div class="widgets_input">
-      <input type="text" placeholder="Search.." onfocus="this.placeholder=''" onblur="this.placeholder='Search..'" name="search">
-      <button type="submit"><i class="fa-sharp fa-solid fa-magnifying-glass"></i></button>
-    </div>
-    <div class="widgets_treand_Container">
-      <div class="widgets_weather_header">
+    <div class="widgets_product_Container">
+      <div class="widgets_header">
         <h2>친환경 상품</h2>
-      </div> 
+      </div>
+      <div class="wrapper">
+        <div class="item swiper-container">
+          <!-- Additional required wrapper -->
+          <div class="item_wrapper swiper-wrapper">
+            <!-- Slides -->
+            <div class="item_slide swiper-slide">Slide 1</div>
+            
+          </div>
+          <!-- If we need pagination -->
+          <div class="item_pagination swiper-pagination"></div>
+        
+          <!-- If we need navigation buttons -->
+          <div class="item_prev swiper-button-prev"></div>
+          <div class="item_next swiper-button-next"></div>
+        
+          <!-- If we need scrollbar -->
+          <div class="item_scrollbar swiper-scrollbar"></div>
+        </div>
+      </div>  
     </div>
     
     <div class="widgets_weather_Container">
-    <div class="widgets_weather_header">
+    <div class="widgets_header">
       <h2>날씨</h2>
     </div>  
     <div class="weather_card">
@@ -240,6 +345,7 @@ a:hover {
     <div class="close"><i class="fa-solid fa-xmark"></i></div>
   </header>
   <div class="modal_content">
+    <div class="map" style="width:380px;height:280px;"></div>
   </div>
 </div>
 
@@ -249,6 +355,7 @@ a:hover {
   <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=cc62bb43e9feeb15374bcc3b80292f46"></script>
   <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
   <script src="https://kit.fontawesome.com/369266d994.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 
 
 
@@ -272,12 +379,11 @@ function dropdown() {
   }
   
   
-  // 댓글
-  function dropdowncoment() {
-    var dropdownContent = document.querySelector(".dropdown-comment");
-    dropdownContent.classList.toggle("show_comment");
-  
-  }
+  // 댓글창 보이기
+
+
+
+
   // 사이드바 링크 활성화 부분//
   const links = document.querySelectorAll('.sidebarOption a');
 
@@ -293,20 +399,24 @@ function dropdown() {
   
   
   // 좋아요 색깔 , 숫자
-  function like() {
-    const heartIcon = document.querySelector('.fas.fa-heart');
-    const likeCount = document.querySelector('[name="like_cnt"]');
-    const currentColor = heartIcon.style.color;
-  
-    if (currentColor === 'red') {
-      heartIcon.style.color = 'rgb(0,0,0,0.2)';
-      likeCount.textContent = Number(likeCount.textContent) - 1;
-    } else {
-      heartIcon.style.color = 'red';
-      likeCount.textContent = Number(likeCount.textContent) + 1;
+  const heartIcons = document.querySelectorAll('.fas.fa-heart');
+    const likeCounts = document.querySelectorAll('[name="like_cnt"]');
+    let isLiked = [];
+
+    for (let i = 0; i < heartIcons.length; i++) {
+    isLiked.push(false); // Initialize all isLiked variables to false
+    heartIcons[i].addEventListener('click', function() {
+    if (!isLiked[i]) {
+        heartIcons[i].style.color = 'red';
+        likeCounts[i].textContent = Number(likeCounts[i].textContent) + 1;
+        isLiked[i] = true;
+      } else {
+        heartIcons[i].style.color = 'rgb(0,0,0,0.2)';
+        likeCounts[i].textContent = Number(likeCounts[i].textContent) - 1;
+        isLiked[i] = false;
+      }
+      });
     }
-  }
-  
   
   
   
@@ -316,7 +426,7 @@ function dropdown() {
   }
 
 
-// 파일 선택 창 열기
+// 파일 선택 창 열기 및 이미지 프리뷰, 이미지 삭제
 document.querySelector('.add-img').addEventListener('click', function() {
     document.querySelector('input[name="c_img"]').click();
 });
@@ -329,10 +439,19 @@ document.querySelector('input[name="c_img"]').addEventListener('change', functio
         img.src = e.target.result;
         document.querySelector('.postbox_image-container').innerHTML = '';
         document.querySelector('.postbox_image-container').appendChild(img);
+        
+        var icon = document.createElement('i');
+        icon.classList.add('fa-solid', 'fa-xmark');
+        icon.addEventListener('click', function() {
+            document.querySelector('.postbox_image-container').removeChild(img);
+            document.querySelector('.postbox_image-container').removeChild(icon);
+        });
+        
+        document.querySelector('.postbox_image-container').appendChild(icon);
     };
     reader.readAsDataURL(file);
 });
-  
+
   //날씨 정보 기능 
   // Geolocation API에 액세스할 수 있는지를 확인
   if (navigator.geolocation) {
@@ -407,31 +526,59 @@ document.querySelector('input[name="c_img"]').addEventListener('change', functio
     alert("이 브라우저에서는 Geolocation이 지원되지 않습니다.")
   }
   
-  
-  
-  //지도 확인 창
-  function open_popup_map(){
-    var popup = document.querySelector(".popup");
+  //게시물 및 댓글 삭제
+
+
+// user_id 가 맞을때만 삭제되도록 조건을 넣어야 한다.
+
+
+
+
+//지도 확인 기능
+var popup = document.querySelector(".popup");
+
+// Select all the map location icon elements
+var mapLocationIcons = document.querySelectorAll(".fa-map-location-dot");
+
+// Add a click event listener to each map location icon
+mapLocationIcons.forEach(function(mapLocationIcon) {
+  mapLocationIcon.addEventListener("click", function() {
+    // Toggle the visibility of the popup
     popup.classList.toggle("show");
+
+    // Create the map
+    var mapContainer = popup.querySelector('.map');
+    var mapOption = {
+      center: new kakao.maps.LatLng(37.56675, 126.97870), //위도 경도 수정부분
+      level: 3,
+      mapTypeId : kakao.maps.MapTypeId.ROADMAP
+    }; 
+    var map = new kakao.maps.Map(mapContainer, mapOption);
+    var mapTypeControl = new kakao.maps.MapTypeControl();
+
+    // 지도의 상단 우측에 지도 타입 변경 컨트롤을 추가한다
+    map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
+
+    // Add a marker to the map
+    var marker = new kakao.maps.Marker({
+      position: new kakao.maps.LatLng(37.56675, 126.97870), //마커 생성 위도 경도 수정 부분 
+      draggable: true,
+      map: map
+    });
+
+    // Add a click listener to the popup's close button
     var close = popup.querySelector(".close");
     close.onclick = function() {
+      // Remove the popup from the page
       popup.classList.remove("show");
+
+      // Remove the map and marker objects
+      marker.setMap(null);
+      map = null;
     };
-  }
+  });
+});
 
-  
-
-
-  function deletecomment() {
-  var dropdown = document.querySelector(".dropdown-comment_list");
-  dropdown.parentNode.removeChild(dropdown);
-}
-
-function deletepostlist() {
-  var dropdown = document.querySelector(".post_list_box");
-  dropdown.parentNode.removeChild(dropdown);
-}
-// user_id 가 맞을때만 삭제되도록 조건을 넣어야 한다.
 
 </script>
 </body>

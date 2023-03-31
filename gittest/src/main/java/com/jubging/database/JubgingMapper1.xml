@@ -6,6 +6,18 @@
 <!-- namespace : sql탸그 id를 그룹화하기 위한 속성 mapper의 경로를 작성 -->
 <mapper namespace="com.jubging.darabase.JubgingMapper1">
 
+	<!-- <resultMap type="com.jubging.domain.Community" id="Feed">
+	  <result property="c_idx" column="c_idx" />
+	  <result property="c_content" column="c_content" />
+	  <result property="c_likes" column="c_likes"  />
+	  <result property="c_hashtag" column="c_hashtag" />
+	  <result property="lat" column="lat" />
+	  <result property="lng" column="lng" />
+	  <result property="c_date" column="c_date"/>
+	  <result property="user_id" column="user_id" />
+	  <result property="user_nick" column="user_nick" />
+	  <result property="c_img" column="c_img" jdbcType="CLOB" javaType="java.lang.String" />
+	</resultMap> -->
 	<!-- 회원가입 -->
 	<insert id="insertjoin" parameterType="com.jubging.domain.join">
 		insert into	t_user(user_id, user_pw, user_email) values(#{user_id},#{user_pw},#{user_email})
@@ -21,10 +33,10 @@
 		insert into t_community(c_content, c_hashtag, user_id, c_img , c_date)values(#{c_content},#{c_hashtag},#{user_id}, #{c_img},sysdate)
 	</insert>
 	
-	<!-- 타임라인 데이터 불러오기 -->
-	<select id ="selectcommunity" parameterType="com.jubging.domain.Community" resultType="com.jubging.domain.Community">
+<!--  feed 전체 타임라인 데이터 불러오기 
+	<select id ="selectcommunityuplod" parameterType="String" resultType="Feed">
 		select * from t_community
-	</select>
+	</select> -->
 	
 	<!-- 회원 정보 찾기 -->
 	<select id ="selectfind" parameterType="com.jubging.domain.join" resultType="com.jubging.domain.join">
@@ -36,6 +48,4 @@
 		UPDATE t_user SET user_situation = #{user_situation}, user_nick=#{user_nick} WHERE user_id = #{user_id}
 	</update>
 	
-		
-
 </mapper>
