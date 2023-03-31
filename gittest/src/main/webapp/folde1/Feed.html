@@ -61,11 +61,11 @@
       
         <div class="input_box">
           <div class="postbox_area">
-            <textarea name="" cols="40" rows="5" placeholder="무슨 일이 일어나고 있나요?"></textarea>
-            <div class="tag"></div>
+            <textarea name="" cols="40" rows="5" placeholder="무슨 일이 일어나고 있나요?" id="contentInput"></textarea>
+            <div class="tag" id="tagsInput"></div>
           </div> 
         </div>     
-        <div class="postbox_image-container"></div>
+        <div class="postbox_image-container" id="selectedImage"></div>
         <div class="postbox_tag"></div>
         <div class="postbox_footer">
           <div class="footer-icon">
@@ -80,7 +80,7 @@
             </div>
           </div>
           <div class="post-submit">
-            <button class="postbox_btn" type="submit">글쓰기</button>
+            <button class="postbox_btn">글쓰기</button>
           </div>
         </div>  
       
@@ -119,21 +119,21 @@
             <i class="fa-solid fa-trash-can" onclick="delete_postlist()"></i>
           </div>
           <div class="content_text" name="post-content">
-            <span>a 태그는 링크를 걸어주는 태그로 href, target, rel 속성이 있다. 각 속성에는 다양한 속성값이 있다. id와 class 속성은 body 영역에서 사용할 수 있는데 모든 태그에서 사용할 수 있다. id 속성은 고유한 이름이며, class 속성은 중복해서 이름을 지정할 수 있다.</span>
+
           </div>
           <div class="tags_output">
-            <span>#태그가_출력될_자리입니다.</span>
+
           </div>
           <div class="img_post_bx">
-            <img src="/gittest/src/main/webapp/img/AdobeStock_523835731.png" alt="">
+
           </div>
           <div class="post_card_social_data">
-            <div class="post_social_card" onclick="dropdowncommentinput()">
+            <div class="post_social_card">
               <i class="fas fa-comment"></i>
               <span name="comment_cnt">0</span><!-- 댓글 수-->
             </div>
             <div class="post_social_card">
-              <i class="fas fa-heart"></i>
+              <i class="fas fa-heart" ></i>
               <span name="like_cnt">0</span>
             </div>
             <div class="post_social_card" >
@@ -287,6 +287,7 @@ function dropdown() {
 
   //댓글 기능
   // Get the comment input element and the comment list element
+
 const commentInput = document.querySelector('input[name="commentInput"]');
 const commentList = document.querySelector('.comment_list');
 
@@ -348,24 +349,26 @@ commentBtn.addEventListener('click', () => {
   
   
   // 좋아요 색깔 , 숫자
-  const heartIcons = document.querySelectorAll('.fas.fa-heart');
-    const likeCounts = document.querySelectorAll('[name="like_cnt"]');
-    let isLiked = [];
+  function likeFunction() {
+  let heartIcons = document.querySelectorAll('.fas.fa-heart');
+  let likeCounts = document.querySelectorAll('[name="like_cnt"]');
 
-    for (let i = 0; i < heartIcons.length; i++) {
-    isLiked.push(false); // Initialize all isLiked variables to false
-    heartIcons[i].addEventListener('click', function() {
-    if (!isLiked[i]) {
-        heartIcons[i].style.color = 'red';
-        likeCounts[i].textContent = Number(likeCounts[i].textContent) + 1;
-        isLiked[i] = true;
+  document.addEventListener('click', function(event) {
+    if (event.target.classList.contains('fas', 'fa-heart')) {
+      let index = Array.from(heartIcons).indexOf(event.target);
+      heartIcons[index].classList.toggle('liked');
+      if (heartIcons[index].classList.contains('liked')) {
+        heartIcons[index].style.color = 'red';
+        likeCounts[index].textContent = Number(likeCounts[index].textContent) + 1;
       } else {
-        heartIcons[i].style.color = 'rgb(0,0,0,0.2)';
-        likeCounts[i].textContent = Number(likeCounts[i].textContent) - 1;
-        isLiked[i] = false;
+        heartIcons[index].style.color = 'rgb(0,0,0,0.2)';
+        likeCounts[index].textContent = Number(likeCounts[index].textContent) - 1;
       }
-      });
     }
+  });
+}
+
+likeFunction();
   
   
   
@@ -637,6 +640,88 @@ var swiper = new Swiper(".mySwiper", {
         prevEl: ".swiper-button-prev",
       },
     });
+
+//게시글 작성 기능
+var postBoxBtn = document.querySelector('.postbox_btn');
+
+// Add a click event listener to the button
+postBoxBtn.addEventListener('click', function() {
+
+  // Get the tagsInput element
+  var tagsInput = document.querySelector('#tagsInput');
+
+  // Get the tag input and add it to the tagsInput element
+  var tagInput = document.querySelector('#tag_input').trim();
+  tagsInput.innerHTML += `<span class="tag">${tagInput}</span>`;
+
+  // Get the post_list element
+  var postList = document.querySelector('.post_list');
+
+  // Create a new post_list_box element
+  var newPostListBox = document.createElement('div');
+  newPostListBox.className = 'post_list_box';
+
+  // Get the value of the textarea
+  var postContent = document.getElementById('contentInput').value;
+
+  // Add content to the new post_list_box element
+  newPostListBox.innerHTML = `
+  <div class="content">
+          <div class="post_profile" style="float: left;">
+            <img src="/gittest/src/main/webapp/folde1/img/129.png" alt="">
+          </div>
+          <div class="user_name_time">
+            <h5 name="user_nick">
+              admin
+              <p name="user_id">@admin</p>
+            </h5>
+            <h6><i class="far fa-clock" name="c_date"></i>25 mins</h6>
+            <i class="fa-solid fa-trash-can" onclick="delete_postlist()"></i>
+          </div>
+          <div class="content_text" name="post-content">
+            ${postContent}
+          </div>
+          <div class="tags_output">
+            ${tagsInput.innerHTML} 
+          </div>
+          <div class="img_post_bx">
+            
+          </div>
+          <div class="post_card_social_data">
+            <div class="post_social_card" onclick="dropdowncommentinput()">
+              <i class="fas fa-comment"></i>
+              <span name="comment_cnt">0</span><!-- 댓글 수-->
+            </div>
+            <div class="post_social_card" onclick="likeFunction()">
+              <i class="fas fa-heart"></i>
+              <span name="like_cnt">0</span>
+            </div>
+            <div class="post_social_card" >
+              <i class="fa-solid fa-map-location-dot"></i>
+            </div>
+          </div>
+          <div class="dropdown-comment">
+            
+              <input type="text" name="commentInput">
+              <button class="commentBtn">댓글입력</button>
+            
+          </div>
+          <div class="comment_list">
+            
+          </div>
+        </div>
+  `;
+
+  // Append the new post_list_box element to the post_list element
+  postList.appendChild(newPostListBox);
+})
+
+
+
+
+
+
+
 
 
 </script>
