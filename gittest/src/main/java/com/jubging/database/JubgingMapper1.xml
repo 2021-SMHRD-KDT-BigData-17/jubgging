@@ -49,5 +49,4 @@
 		UPDATE t_user SET user_situation = #{user_situation}, user_nick=#{user_nick} WHERE user_id = #{user_id}
 	</update>
 	
-
 </mapper>
