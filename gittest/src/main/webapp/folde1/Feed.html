@@ -58,7 +58,7 @@
       <h2>홈</h2>
     </div>
     <div class="postbox">
-      <form>
+      
         <div class="input_box">
           <div class="postbox_area">
             <textarea name="" cols="40" rows="5" placeholder="무슨 일이 일어나고 있나요?"></textarea>
@@ -66,6 +66,7 @@
           </div> 
         </div>     
         <div class="postbox_image-container"></div>
+        <div class="postbox_tag"></div>
         <div class="postbox_footer">
           <div class="footer-icon">
             <div class="add-img">
@@ -82,7 +83,7 @@
             <button class="postbox_btn" type="submit">글쓰기</button>
           </div>
         </div>  
-      </form>
+      
       <div class="tag_wrapper" id="tage_dropdown-content">
         <div class="title">
           <i class="fa-solid fa-tags"></i>
@@ -90,12 +91,13 @@
         </div>
           <div class="tag_content">
             <div class="tag_box">
-              <form action="">
-                <ul><input type="text" name="" placeholder="원하는 태그를 입력 해 주세요"></ul>
-                <div class="tag_details">
-                  <button id="add_postboxTags">태그 추가</button>
-                </div>
-             </form>
+              
+                <ul><input type="text" name="" placeholder="원하는 태그를 입력 해 주세요" id="tag_input">
+                  <div class="tag_details">
+                    <button id="add_postboxTags">태그 추가</button>
+                  </div>
+                </ul>
+             
             </div>
           </div> 
       </div>   
@@ -114,7 +116,7 @@
               <p name="user_id">@admin</p>
             </h5>
             <h6><i class="far fa-clock" name="c_date"></i>25 mins</h6>
-            <i class="fa-solid fa-trash-can"></i>
+            <i class="fa-solid fa-trash-can" onclick="delete_postlist()"></i>
           </div>
           <div class="content_text" name="post-content">
             <span>a 태그는 링크를 걸어주는 태그로 href, target, rel 속성이 있다. 각 속성에는 다양한 속성값이 있다. id와 class 속성은 body 영역에서 사용할 수 있는데 모든 태그에서 사용할 수 있다. id 속성은 고유한 이름이며, class 속성은 중복해서 이름을 지정할 수 있다.</span>
@@ -126,7 +128,7 @@
             <img src="/gittest/src/main/webapp/img/AdobeStock_523835731.png" alt="">
           </div>
           <div class="post_card_social_data">
-            <div class="post_social_card">
+            <div class="post_social_card" onclick="dropdowncommentinput()">
               <i class="fas fa-comment"></i>
               <span name="comment_cnt">0</span><!-- 댓글 수-->
             </div>
@@ -139,28 +141,12 @@
             </div>
           </div>
           <div class="dropdown-comment">
-            <form>
+            
               <input type="text" name="commentInput">
-              <button class="commentBtn" type="submit" value="댓글입력">댓글입력</button>
-            </form>
+              <button class="commentBtn">댓글입력</button>
+            
           </div>
           <div class="comment_list">
-            <div class="dropdown-comment_list">
-              <div class="post_profile" style="float: left;">
-                <img src="/gittest/src/main/webapp/folde1/img/129.png" alt="">
-              </div>
-              <div class="user_name_time_comment">
-                <h5 name="user_nick">
-                  admin
-                  <p name="user_id">@admin</p>
-                  <h6><i class="far fa-clock" name="c_date"></i>25 mins</h6>
-                  <i class="fa-solid fa-trash-can"></i>
-                </h5>
-              </div>
-              <div class="comment_text">
-                <span>테스트입니다.</span>
-              </div>
-            </div>
             
           </div>
         </div>
@@ -184,10 +170,6 @@
                 <div class="swiper-slide">Slide 3</div>
                 <div class="swiper-slide">Slide 4</div>
                 <div class="swiper-slide">Slide 5</div>
-                <div class="swiper-slide">Slide 6</div>
-                <div class="swiper-slide">Slide 7</div>
-                <div class="swiper-slide">Slide 8</div>
-                <div class="swiper-slide">Slide 9</div>
               </div>
               <div class="swiper-pagination"></div>
             </div>
@@ -268,14 +250,58 @@ function dropdown() {
   
   
   // 댓글창 보이기
-  const commentIcons = document.querySelectorAll(".fa-comment");
+  function dropdowncommentinput() {
+      var dropdownComment = document.querySelector(".dropdown-comment");
+      dropdownComment.classList.add("show_dropdown_comment");
+    }
 
-commentIcons.forEach((commentIcon) => {
-  const dropdownComment = commentIcon.nextElementSibling;
-  commentIcon.addEventListener("click", () => {
-    dropdownComment.classList.toggle("show_dropdown_comment");
-  });
-});
+  //댓글 기능
+  // Get the comment input element and the comment list element
+const commentInput = document.querySelector('input[name="commentInput"]');
+const commentList = document.querySelector('.comment_list');
+
+// Get the comment count element and the initial comment count
+const commentCount = document.querySelector('span[name="comment_cnt"]');
+let count = parseInt(commentCount.innerText);
+
+// Add a click event listener to the comment submit button
+const commentBtn = document.querySelector('.commentBtn');
+commentBtn.addEventListener('click', () => {
+  // Get the comment text from the input element
+  const commentText = commentInput.value;
+  
+  // Create a new comment element
+  const newComment = document.createElement('div');
+  newComment.classList.add('dropdown-comment_list');
+  newComment.innerHTML = `
+    <div class="post_profile" style="float: left;">
+      <img src="/gittest/src/main/webapp/folde1/img/129.png" alt="">
+    </div>
+    <div class="user_name_time_comment">
+      <h5 name="user_nick">
+        admin
+        <p name="user_id">@admin</p>
+        <h6><i class="far fa-clock" name="c_date"></i>now</h6>
+        <i class="fa-solid fa-trash-can" onclick="delete_comment()"></i>
+      </h5>
+    </div>
+    <div class="comment_text">
+      <span>${commentText}</span>
+    </div>
+  `;
+  
+  // Append the new comment to the comment list
+  commentList.appendChild(newComment);
+  
+  // Increase the comment count
+  count++;
+  commentCount.innerText = count;
+  
+  // Clear the comment input
+  commentInput.value = '';
+  
+}); 
+
 
   // 사이드바 링크 활성화 부분//
   const links = document.querySelectorAll('.sidebarOption a');
@@ -317,7 +343,19 @@ commentIcons.forEach((commentIcon) => {
   function dropdown_tage() {
     document.getElementById("tage_dropdown-content").classList.toggle("show_tag");
   }
+  const addBtn = document.getElementById("add_postboxTags");
+  const tagInput = document.getElementById("tag_input");
+  const tagContainer = document.querySelector(".postbox_tag");
 
+  addBtn.addEventListener("click", function() {
+    const tagValue = tagInput.value.trim(); // 입력한 값의 앞뒤 공백 제거
+    if (tagValue) { // 입력값이 있을 때만 실행
+      const tag = document.createElement("span"); // 새로운 span 태그 생성
+      tag.textContent = tagValue; // span 태그의 텍스트 콘텐츠에 입력한 값을 할당
+      tagContainer.appendChild(tag); // 생성한 span 태그를 tagContainer에 추가
+      tagInput.value = ""; // 입력필드 초기화
+    }
+  });
 
 // 파일 선택 창 열기 및 이미지 프리뷰, 이미지 삭제
 document.querySelector('.add-img').addEventListener('click', function() {
@@ -420,15 +458,93 @@ document.querySelector('input[name="c_img"]').addEventListener('change', functio
   }
   
   //게시물 및 댓글 삭제
+  function delete_comment() {
+  const dropdownCommentList = document.querySelector('.dropdown-comment_list');
+  dropdownCommentList.remove();
+
+  const commentCnt = document.querySelector('[name="comment_cnt"]');
+  const commentCntValue = parseInt(commentCnt.textContent);
+  commentCnt.textContent = commentCntValue - 1;
+
+  if (commentCntValue === 1) {
+    commentCnt.textContent = 0;
+  } else if (commentCntValue === 0) {
+    commentCnt.textContent = 1;
+  }
+}
+
+const trashCan = document.querySelector('.fa-trash-can');
+trashCan.addEventListener('click', delete_comment);
 
 
-// user_id 가 맞을때만 삭제되도록 조건을 넣어야 한다.
+function delete_postlist() {
+  const dropdownCommentList = document.querySelector('.post_list_box');
+  dropdownCommentList.remove();
+}
 
-
+const delete_list = document.querySelector('.fa-trash-can');
+delete_list.addEventListener('click', delete_postlist);
 
 
 //지도 확인 기능
 var popup = document.querySelector(".popup");
+
+// Select all the map location icon elements
+var mapLocationIcons = document.querySelectorAll(".fa-location-dot");
+
+// Add a click event listener to each map location icon
+mapLocationIcons.forEach(function(mapLocationIcon) {
+  mapLocationIcon.addEventListener("click", function() {
+    // Get the user's current location using geolocation
+    navigator.geolocation.getCurrentPosition(function(position) {
+      // Toggle the visibility of the popup
+      popup.classList.toggle("show");
+
+      // Create the map centered on the user's location
+      var mapContainer = popup.querySelector('.map');
+      var mapOption = {
+        center: new kakao.maps.LatLng(position.coords.latitude, position.coords.longitude),
+        level: 3,
+        mapTypeId : kakao.maps.MapTypeId.ROADMAP
+      }; 
+      var map = new kakao.maps.Map(mapContainer, mapOption);
+      var mapTypeControl = new kakao.maps.MapTypeControl();
+
+      // Add a marker to the map at the user's location
+      var marker = new kakao.maps.Marker({
+        position: new kakao.maps.LatLng(position.coords.latitude, position.coords.longitude),
+        draggable: true,
+        map: map
+      });
+
+      // 지도의 상단 우측에 지도 타입 변경 컨트롤을 추가한다
+      map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
+
+      // Add a click listener to the popup's close button
+      var close = popup.querySelector(".close");
+      close.onclick = function() {
+        // Remove the popup from the page
+        popup.classList.remove("show");
+
+        // Remove the map and marker objects
+        marker.setMap(null);
+        map = null;
+      };
+    }, function(error) {
+      // Handle geolocation errors
+      console.error(error);
+      if (popup.classList.contains("show")) {
+        popup.classList.remove("show");
+      }
+      alert("위치정보를 찾을 수 없습니다.");
+    });
+  });
+});
+
+
+//게시물에 있는 지도 확인 부분
+// Select the popup element
+var popup_map = document.querySelector(".popup");
 
 // Select all the map location icon elements
 var mapLocationIcons = document.querySelectorAll(".fa-map-location-dot");
@@ -437,10 +553,10 @@ var mapLocationIcons = document.querySelectorAll(".fa-map-location-dot");
 mapLocationIcons.forEach(function(mapLocationIcon) {
   mapLocationIcon.addEventListener("click", function() {
     // Toggle the visibility of the popup
-    popup.classList.toggle("show");
+    popup_map.classList.toggle("show");
 
     // Create the map
-    var mapContainer = popup.querySelector('.map');
+    var mapContainer = popup_map.querySelector('.map');
     var mapOption = {
       center: new kakao.maps.LatLng(37.56675, 126.97870), //위도 경도 수정부분
       level: 3,
@@ -460,10 +576,10 @@ mapLocationIcons.forEach(function(mapLocationIcon) {
     });
 
     // Add a click listener to the popup's close button
-    var close = popup.querySelector(".close");
+    var close = popup_map.querySelector(".close");
     close.onclick = function() {
       // Remove the popup from the page
-      popup.classList.remove("show");
+      popup_map.classList.remove("show");
 
       // Remove the map and marker objects
       marker.setMap(null);
@@ -471,6 +587,7 @@ mapLocationIcons.forEach(function(mapLocationIcon) {
     };
   });
 });
+
 
 
 // 상품 소개 슬라이더

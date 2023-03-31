@@ -286,7 +286,7 @@ img .user_profile_img{
     font-size: 15px;
 }
 .tag_content ul{
-    width: 80%;
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     padding: 7px;
@@ -302,9 +302,6 @@ img .user_profile_img{
     font-size: 15px;
 }
 .tag_wrapper .tag_details{
-    margin-top: 15px;
-    position: absolute;
-    right: 35px;
     justify-content: flex-end;
 }
 .tag_details button{
@@ -554,7 +551,7 @@ img .user_profile_img{
     padding-left: 10px;
     font-size: 15px;
     outline: none;
-    width: 377px;
+    width: 400px;
     height: 35px;
 
 }
