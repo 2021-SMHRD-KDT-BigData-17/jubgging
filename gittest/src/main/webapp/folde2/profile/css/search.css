@@ -87,7 +87,7 @@ a{
  transition: color 100ms ease-out;   
 }
 
-.active{
+.sidebar_active{
     color: rgb(100, 182, 23);
 }
 .default{
@@ -438,19 +438,41 @@ section .follow_bx .trend_for_you .trend_bx .rate .interest {
   }
 
 /* 슬라이드 */
-#slideshow {
+.slideshow-container {
+    max-width: 300px;
     position: relative;
+    margin: auto;
   }
   
-  #slideshow img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
+  .slide {
+    display: flex; /* 슬라이드 내부의 요소를 가운데 정렬하기 위해 Flexbox 레이아웃 사용 */
+    justify-content: center; /* 가로 중앙 정렬 */
+    align-items: center; /* 세로 중앙 정렬 */
   }
   
-  #slideshow img.active {
-    opacity: 1;
+  .slide img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .dot-container {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .dot {
+    display: inline-block;
+    margin: 0 5px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #bbb;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .active,
+  .dot:hover {
+    background-color: #717171;
   }
   

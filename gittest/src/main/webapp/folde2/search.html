@@ -127,13 +127,41 @@
       <div class="widgets_header">
         <h2>친환경 상품</h2>
       </div>   
-      <div id="slideshow">
-        <img src="/gittest/src/main/webapp/folde1/img/image_1619527405937_2500-removebg-preview.png" alt="Image 1">
-        <img src="image2.jpg" alt="Image 2">
-        <img src="image3.jpg" alt="Image 3">
-        <img src="image4.jpg" alt="Image 4">
-        <img src="image5.jpg" alt="Image 5">
+      <div class="slideshow-container">
+        <div class="slide">
+          <a href="https://cueclyp.com/product/C214TTUP02ZZF" target="_blank">
+            <img src="/gittest/src/main/webapp/folde1/img/image_1619527405937_2500-removebg-preview.png">
+          </a>
+        </div>
+        <div class="slide">
+          <a href="https://www.neogift.kr/front/f_goods/f_Goods_Detail.asp?g_code=56928&cat_1=K&cat_2=468">
+            <img src="/gittest/src/main/webapp/folde1/img/제목 없음-1.png">
+          </a>
+        </div>
+        <div class="slide">
+          <a href="https://cueclyp.com/product/C228BPRE01BKF" target="_blank">
+            <img src="/gittest/src/main/webapp/folde1/img/image_1662602533288_2500-removebg-preview.png">
+          </a>
+        </div>
+        <div class="slide">
+          <a href="https://cueclyp.com/product/C232CAUP02ZZF-17" target="_blank">
+            <img src="/gittest/src/main/webapp/folde1/img/image_1678424977558_2500-removebg-preview.png">
+          </a>
+        </div>
+        <div class="slide">
+          <a href="https://cueclyp.com/product/C214WAUP02ZZF-725" target="_blank">
+            <img src="/gittest/src/main/webapp/folde1/img/image_1680053440516_1000-removebg-preview.png">
+          </a>
+        </div>
       </div>
+      <div class="dot-container">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(4)"></span>
+        <span class="dot" onclick="currentSlide(5)"></span>
+      </div>
+      
             
       
 
@@ -289,20 +317,46 @@
 
       links.forEach(link => {
         if (link.href === currentUrl) {
-          link.classList.add('active');
+          link.classList.add('sidebar_active');
       } else {
           link.classList.add('default');
       }
     });
 
-const images = document.querySelectorAll('#slideshow img');
-let index = 0;
 
-setInterval(() => {
-  images[index].classList.remove('active');
-  index = (index + 1) % images.length;
-  images[index].classList.add('active');
-}, 3000);
+  var slideIndex = 1;
+	showSlides(slideIndex);
+
+	function plusSlides(n) {
+		showSlides(slideIndex += n);
+	}
+
+	function currentSlide(n) {
+		showSlides(slideIndex = n);
+	}
+
+	function showSlides(n) {
+    var i;
+    var slides = document.getElementsByClassName("slide");
+    var dots = document.getElementsByClassName("dot");
+    if (n > slides.length) {
+        slideIndex = 1;
+    }
+    if (n < 1) {
+        slideIndex = slides.length;
+    }
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex-1].style.display = "block";
+    dots[slideIndex-1].className += " active";
+    setTimeout(function() {
+        showSlides(slideIndex += 1);
+    }, 5000); // 3초마다 슬라이드 전환
+}
 
 
 

@@ -45,7 +45,7 @@
         </div>
       </div>
     </div>
-    <div class="sidebar_dropdown-content" id="dropdown-content">
+    <div class="sidebar_dropdown-content" id="dropdown-content" onclick="logout()">
       <p>로그아웃</p>
     </div>
   </div>
@@ -305,9 +305,18 @@
 
   <!-- js file section -->
   <script>
-    function dropdown() {
-    document.getElementById("dropdown-content").classList.toggle("show");
-    }
+     function dropdown() {
+    var dropdownContent = document.getElementById("dropdown-content");
+    dropdownContent.classList.toggle("show");
+  }
+  
+  
+  
+  function logout() {
+    var dropdownContent = document.getElementById("dropdown-content");
+    dropdownContent.classList.remove("show");
+    // '로그아웃' 삭제 수행
+  }
 
     // 프로필 세팅 모달창
 
