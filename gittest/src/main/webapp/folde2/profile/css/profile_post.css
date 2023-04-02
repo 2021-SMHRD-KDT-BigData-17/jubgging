@@ -26,7 +26,7 @@
 
 body{
     display: flex;
-    height: 100vh;
+    height: 85vh; 
     max-width: 1300px;
     margin-left: auto;
     margin-right: auto;
@@ -53,7 +53,6 @@ a{
     margin-top: 20px;
     padding-left: 20px;
     padding-right: 20px;
-    height: 85vh; 
 }
 .sidebarOption_logo >img{
     
@@ -172,7 +171,7 @@ section .profile_post_follow_bx {
     position: relative;
     top: 18px;
     width: 100%;
-    height: 80%;
+    height: 95%;
     /* border: 1px solid #000; */
     display: flex;
     justify-content: center;
@@ -450,8 +449,8 @@ section .profile_post_follow_bx .post_follow_bx .post li a:hover {
 
 section .profile_post_follow_bx .post_follow_bx .post .post_main_bx {
     width: 100%;
-    height: 90%;
-    /* border: 1px solid #000; */
+    height: 89.1%;
+    border-radius: 0 0 10px 10px;
     overflow: auto;
     /* justify-content: center; */
 

@@ -25,7 +25,7 @@
 
 body{
     display: flex;
-    height: 100vh;
+    height: 86vh;
     max-width: 1300px;
     margin-left: auto;
     margin-right: auto;
@@ -48,10 +48,10 @@ a{
 .sidebar{
     border-right: 1px solid whitesmoke;
     flex: 0.23;
-    min-width: 250px;
+    min-width: 280px;
     margin-top: 20px;
     padding-left: 20px;
-    padding-right: 20px; 
+    padding-right: 20px;
 }
 .sidebarOption_logo >img{
     
@@ -79,13 +79,8 @@ a{
  transition: color 100ms ease-out;   
 }
 
-.sidebarOption .color{
-    color: rgb(100, 182, 23);
-}
-
 .active{
     color: rgb(100, 182, 23);
-    font-weight: 700;
 }
 .default{
     color: black;
@@ -111,9 +106,8 @@ a{
     align-items: center;
     cursor: pointer;
 }
-img .user_profile_img{
-    border-radius: 50px;
-    margin-right: 10px;
+.user_profile_img{
+    border-radius: 50%;
 }
 .name .user_nick{
     font-size: 15px;
@@ -126,7 +120,7 @@ img .user_profile_img{
     padding-left: 5px;
 }
 .user_profile_op i{
-    margin-left: 45px;
+    margin-left: 25px;
 }
 .sidebar_dropdown-content{
     display: none;
@@ -178,7 +172,7 @@ section .profile_post_follow_bx {
     position: relative;
     top: 18px;
     width: 100%;
-    height: 80%;
+    height: 93%;
     /* border: 1px solid #000; */
     display: flex;
     justify-content: center;
@@ -455,8 +449,9 @@ section .profile_post_follow_bx .post_follow_bx .post li a:hover {
 
 section .profile_post_follow_bx .post_follow_bx .post .post_main_bx {
     width: 100%;
-    height: 90%;
-    /* border: 1px solid #000; */
+    height: 89%;
+    border-radius: 0 0 10px 10px;
+    /* border-r: 1px solid #000; */
     overflow: auto;
     /* justify-content: center; */
 
@@ -466,7 +461,7 @@ section .profile_post_follow_bx .post_follow_bx .post .post_main_bx::-webkit-scr
     width: 5px;
     background: rgb(0, 0, 0, 0.1);
     border-radius: 20px;
-    visibility: hidden;   
+    display: none;  
 }
   
 section .profile_post_follow_bx .post_follow_bx .post .post_main_bx::-webkit-scrollbar-thumb {
