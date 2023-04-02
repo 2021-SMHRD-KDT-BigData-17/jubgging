@@ -483,7 +483,7 @@ a{
     color: #000;
     font-size: 12px;
     font-weight: 500;
-    margin-left: 130px;
+    margin-left: 120px;
     
 
 }
@@ -496,6 +496,7 @@ a{
 }
 .content .user_name_time >i{
     cursor: pointer;
+    margin-left: 5px;
 }
 .content_text span{
     margin-bottom: 5px;
