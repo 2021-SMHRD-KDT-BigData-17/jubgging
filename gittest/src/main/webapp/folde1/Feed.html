@@ -19,26 +19,26 @@
     </div>
     <div class="sidebarOption">
       <i class="fa-solid fa-house-chimney"></i>
-      <a href="/gittest/src/main/webapp/folde1/Feed.html"><h2>홈</h2></a>
+      <a href="/gittest/src/main/webapp/folde1/Feed.html"><h2>HOME</h2></a>
     </div>
     <div class="sidebarOption">
       <i class="fa-sharp fa-solid fa-magnifying-glass"></i>
-      <a href="/gittest/src/main/webapp/folde2/search.html"><h2>트렌드</h2></a>
+      <a href="/gittest/src/main/webapp/folde2/search.html"><h2>TREND</h2></a>
     </div>
     <div class="sidebarOption">
       <i class="fa-solid fa-envelope"></i>
-      <a href="/gittest/src/main/webapp/folde2/todayspick.html"><h2>Today's Pick!</h2></a>
+      <a href="/gittest/src/main/webapp/folde2/todayspick.html"><h2>TODAY'S PICK</h2></a>
     </div>
     <div class="sidebarOption">
       <i class="fa-solid fa-user"></i>
-      <a href="/gittest/src/main/webapp/folde2/profile_post.html"><h2>프로필</h2></a>
+      <a href="/gittest/src/main/webapp/folde2/profile_post.html"><h2>PROFILE</h2></a>
     </div>
     <div class="profile_btn" onclick="dropdown()">
       <div class="user_info">
-        <img src="/gittest/src/main/webapp/folde1/img/129.png" class="user_profile_img" style="width: 55px; height: 55px;">
+        <img src="/gittest/src/main/webapp/folde2/profile/img/icon/profile_img.png" class="user_profile_img" style="width: 55px; height: 55px;">
         <div class="name">
-          <p class="user_nick">admin</p>
-          <p class="user_id">@admin</p>
+          <p class="user_nick">smhrd</p>
+          <p class="user_id">@smhrd_12345</p>
         </div>
         <div class="user_profile_op">
           <i class="fa-solid fa-angles-down"></i>          
@@ -61,7 +61,7 @@
       
         <div class="input_box">
           <div class="postbox_area">
-            <textarea name="" cols="40" rows="5" placeholder="무슨 일이 일어나고 있나요?" id="contentInput"></textarea>
+            <textarea name="" cols="40" rows="3" placeholder="무슨 일이 일어나고 있나요?" id="contentInput"></textarea>
             <div class="tag" id="tagsInput"></div>
           </div> 
         </div>     
@@ -108,29 +108,28 @@
       <div class="post_list_box">
         <div class="content">
           <div class="post_profile" style="float: left;">
-            <img src="/gittest/src/main/webapp/folde1/img/129.png" alt="">
+            <img src="/gittest/src/main/webapp/folde2/profile/img/icon/profile_img.png" alt="">
           </div>
           <div class="user_name_time">
             <h5 name="user_nick">
-              admin
-              <p name="user_id">@admin</p>
+              smhrd
+              <p name="user_id">@smhrd_12345</p>
             </h5>
             <h6><i class="far fa-clock" name="c_date"></i>25 mins</h6>
             <i class="fa-solid fa-trash-can" onclick="delete_postlist()"></i>
           </div>
           <div class="content_text" name="post-content">
-
+            <span>오늘 비오려나 플로깅 하러 가야하는데!
+            </span> 
           </div>
           <div class="tags_output">
-
           </div>
           <div class="img_post_bx">
-
           </div>
           <div class="post_card_social_data">
             <div class="post_social_card">
               <i class="fas fa-comment"></i>
-              <span name="comment_cnt">0</span><!-- 댓글 수-->
+              <span name="comment_cnt">20</span><!-- 댓글 수-->
             </div>
             <div class="post_social_card">
               <i class="fas fa-heart" ></i>
@@ -148,6 +147,126 @@
           </div>
           <div class="comment_list">
             
+          </div>
+        </div>
+      </div>
+      <div class="post_list_box">
+        <div class="content">
+          <div class="post_profile" style="float: left;">
+            <img src="/gittest/src/main/webapp/folde2/profile/img/icon/profile_img.png" alt="">
+          </div>
+          <div class="user_name_time">
+            <h5 name="user_nick">
+              smhrd
+              <p name="user_id">@smhrd_12345</p>
+            </h5>
+            <h6><i class="far fa-clock" name="c_date"></i>2 hours</h6>
+            <i class="fa-solid fa-trash-can"></i>
+          </div>
+          <div class="content_text" name="post-content">
+            <span>오늘 동천에서 이만큼 주웠습니다! 뿌듯하네요.</span> 
+          </div>
+          <div class="tags_output">
+          </div>
+          <div class="img_post_bx">
+            <img src="/gittest/src/main/webapp/folde2/profile/img/cantrash.jpg" alt="">
+            <img src="/gittest/src/main/webapp/folde2/profile/img/trashduml.jpg" alt="">
+          </div>
+          <div class="post_card_social_data">
+            <div class="post_social_card" onclick="dropdowncommentinput()">
+              <i class="fas fa-comment"></i>
+              <span name="comment_cnt">120</span><!-- 댓글 수-->
+            </div>
+            <div class="post_social_card">
+              <i class="fas fa-heart" ></i>
+              <span name="like_cnt">0</span>
+            </div>
+            <div class="post_social_card" >
+              <i class="fa-solid fa-map-location-dot" onclick="map_post()"></i>
+            </div>
+          </div>
+          <div class="dropdown-comment">
+            
+              <input type="text" name="commentInput">
+              <button class="commentBtn">댓글입력</button>
+            
+          </div>
+          <div class="comment_list">
+            
+          </div>
+        </div>
+      </div>
+      <div class="post_list_box">
+        <div class="content">
+          <div class="post_profile" style="float: left;">
+            <img src="/gittest/src/main/webapp/folde2/profile/img/icon/profile_img.png" alt="">
+          </div>
+          <div class="user_name_time">
+            <h5 name="user_nick">
+              smhrd
+              <p name="user_id">@smhrd_12345</p>
+            </h5>
+            <h6><i class="far fa-clock" name="c_date"></i>4 hours</h6>
+            <i class="fa-solid fa-trash-can" onclick="delete_postlist()"></i>
+          </div>
+          <div class="content_text" name="post-content">
+            <span>플로깅이란? 2016년 스웨덴에서부터 시작됐는데 '이삭을 줍는다'라는 뜻의 스웨덴어 '플로카 업(plocka upp)'과 '뛰다'라는 뜻의 영어 단어 '조깅(jogging)'을 합친 말이다. 최근 환경과 그 실천운동에 관심이 높아지면서 생긴 것으로, 운동을 하면서 쓰레기를 줍자는 말이다.</span>
+          </span> 
+          </div>
+          <div class="tags_output">
+          </div>
+          <div class="img_post_bx">
+          </div>
+          <div class="post_card_social_data">
+            <div class="post_social_card">
+              <i class="fas fa-comment"></i>
+              <span name="comment_cnt">2</span><!-- 댓글 수-->
+            </div>
+            <div class="post_social_card">
+              <i class="fas fa-heart" ></i>
+              <span name="like_cnt">0</span>
+            </div>
+            <div class="post_social_card" >
+              <i class="fa-solid fa-map-location-dot"></i>
+            </div>
+          </div>
+          <div class="dropdown-comment">
+            
+              <input type="text" name="commentInput">
+              <button class="commentBtn">댓글입력</button>
+            
+          </div>
+          <div class="comment_list">
+            <div class="dropdown-comment_list">
+              <div class="post_profile">
+                <img src="/gittest/src/main/webapp/folde2/profile/img/profile_3.png" alt="">
+              </div>
+              <div class="user_name_time_comment">
+                <h5 name="user_nick">
+                  earthlover
+                  <p name="user_id">@earthlove_125</p>
+                  <h6><i class="far fa-clock" name="c_date"></i>1 mins</h6>
+                </h5>
+              </div>
+              <div class="comment_text">
+                <span>처음 알았어요!</span>
+              </div>
+            </div>
+            <div class="dropdown-comment_list">
+              <div class="post_profile">
+                <img src="/gittest/src/main/webapp/folde2/profile/img/profile_2.png" alt="">
+              </div>
+              <div class="user_name_time_comment">
+                <h5 name="user_nick">
+                  plogger
+                  <p name="user_id">@plogger_1004</p>
+                  <h6><i class="far fa-clock" name="c_date"></i>1 mins</h6>
+                </h5>
+              </div>
+              <div class="comment_text">
+                <span>유익해요!</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -237,9 +356,33 @@
   </div>    
   </div>
   <!-- widget section end -->
+  <section>
+    <div id='wrap'>
+        <footer>
+          <nav>
+              <a href='#' target='_blank'>Blog</a> |
+              <a href='https://github.com/2021-SMHRD-KDT-BigData-17/jubging' target='_blank'>Github</a>
+          </nav>
+          <p>
+              <span>팀 : 떡잎방범대</span><br/>
+              <span>이메일 : leaf0000@gmail.com</span><br/>
+              <span>Copyright 2023. cocoder. All Rights Reserved.</span>
+          </p>
+      </footer>
+    </div>
+    </section>
   
 <!-- map popup section Start -->
 <div class="popup">
+  <header>
+    <div class="close"><i class="fa-solid fa-xmark"></i></div>
+  </header>
+  <div class="modal_content">
+    <div class="map" style="width:380px;height:280px;"></div>
+  </div>
+</div>
+
+<div class="popup_map">
   <header>
     <div class="close"><i class="fa-solid fa-xmark"></i></div>
   </header>
@@ -278,61 +421,6 @@ function dropdown() {
     // '로그아웃' 삭제 수행
   }
   
-  
-  // 댓글창 보이기
-  function dropdowncommentinput() {
-      var dropdownComment = document.querySelector(".dropdown-comment");
-      dropdownComment.classList.add("show_dropdown_comment");
-    }
-
-  //댓글 기능
-  // Get the comment input element and the comment list element
-
-const commentInput = document.querySelector('input[name="commentInput"]');
-const commentList = document.querySelector('.comment_list');
-
-// Get the comment count element and the initial comment count
-const commentCount = document.querySelector('span[name="comment_cnt"]');
-let count = parseInt(commentCount.innerText);
-
-// Add a click event listener to the comment submit button
-const commentBtn = document.querySelector('.commentBtn');
-commentBtn.addEventListener('click', () => {
-  // Get the comment text from the input element
-  const commentText = commentInput.value;
-  
-  // Create a new comment element
-  const newComment = document.createElement('div');
-  newComment.classList.add('dropdown-comment_list');
-  newComment.innerHTML = `
-    <div class="post_profile" style="float: left;">
-      <img src="/gittest/src/main/webapp/folde1/img/129.png" alt="">
-    </div>
-    <div class="user_name_time_comment">
-      <h5 name="user_nick">
-        admin
-        <p name="user_id">@admin</p>
-        <h6><i class="far fa-clock" name="c_date"></i>now</h6>
-        <i class="fa-solid fa-trash-can" onclick="delete_comment()"></i>
-      </h5>
-    </div>
-    <div class="comment_text">
-      <span>${commentText}</span>
-    </div>
-  `;
-  
-  // Append the new comment to the comment list
-  commentList.appendChild(newComment);
-  
-  // Increase the comment count
-  count++;
-  commentCount.innerText = count;
-  
-  // Clear the comment input
-  commentInput.value = '';
-  
-}); 
-
 
   // 사이드바 링크 활성화 부분//
   const links = document.querySelectorAll('.sidebarOption a');
@@ -347,28 +435,6 @@ commentBtn.addEventListener('click', () => {
     }
   }); 
   
-  
-  // 좋아요 색깔 , 숫자
-  function likeFunction() {
-  let heartIcons = document.querySelectorAll('.fas.fa-heart');
-  let likeCounts = document.querySelectorAll('[name="like_cnt"]');
-
-  document.addEventListener('click', function(event) {
-    if (event.target.classList.contains('fas', 'fa-heart')) {
-      let index = Array.from(heartIcons).indexOf(event.target);
-      heartIcons[index].classList.toggle('liked');
-      if (heartIcons[index].classList.contains('liked')) {
-        heartIcons[index].style.color = 'red';
-        likeCounts[index].textContent = Number(likeCounts[index].textContent) + 1;
-      } else {
-        heartIcons[index].style.color = 'rgb(0,0,0,0.2)';
-        likeCounts[index].textContent = Number(likeCounts[index].textContent) - 1;
-      }
-    }
-  });
-}
-
-likeFunction();
   
   
   
@@ -490,25 +556,35 @@ document.querySelector('input[name="c_img"]').addEventListener('change', functio
     alert("이 브라우저에서는 Geolocation이 지원되지 않습니다.")
   }
   
-  //게시물 및 댓글 삭제
-  function delete_comment() {
-  const dropdownCommentList = document.querySelector('.dropdown-comment_list');
-  dropdownCommentList.remove();
+  // 댓글창 보이기
+  
 
-  const commentCnt = document.querySelector('[name="comment_cnt"]');
-  const commentCntValue = parseInt(commentCnt.textContent);
-  commentCnt.textContent = commentCntValue - 1;
 
-  if (commentCntValue === 1) {
-    commentCnt.textContent = 0;
-  } else if (commentCntValue === 0) {
-    commentCnt.textContent = 1;
-  }
-}
+// 좋아요 색깔 , 숫자
+const heartIcons = document.querySelectorAll('.fas.fa-heart');
+    const likeCounts = document.querySelectorAll('[name="like_cnt"]');
+    let isLiked = [];
 
-const trashCan = document.querySelector('.fa-trash-can');
-trashCan.addEventListener('click', delete_comment);
+    for (let i = 0; i < heartIcons.length; i++) {
+    isLiked.push(false); // Initialize all isLiked variables to false
+    heartIcons[i].addEventListener('click', function() {
+    if (!isLiked[i]) {
+        heartIcons[i].style.color = 'red';
+        likeCounts[i].textContent = Number(likeCounts[i].textContent) + 1;
+        isLiked[i] = true;
+      } else {
+        heartIcons[i].style.color = 'rgb(0,0,0,0.2)';
+        likeCounts[i].textContent = Number(likeCounts[i].textContent) - 1;
+        isLiked[i] = false;
+      }
+      });
+    }
+;
+  
+  
+   
 
+  //게시물  삭제
 
 function delete_postlist() {
   const dropdownCommentList = document.querySelector('.post_list_box');
@@ -517,6 +593,9 @@ function delete_postlist() {
 
 const delete_list = document.querySelector('.fa-trash-can');
 delete_list.addEventListener('click', delete_postlist);
+
+
+
 
 
 //지도 확인 기능
@@ -576,8 +655,8 @@ mapLocationIcons.forEach(function(mapLocationIcon) {
 
 
 //게시물에 있는 지도 확인 부분
-// Select the popup element
-var popup_map = document.querySelector(".popup");
+
+var popup_map = document.querySelector(".popup_map");
 
 // Select all the map location icon elements
 var mapLocationIcons = document.querySelectorAll(".fa-map-location-dot");
@@ -641,14 +720,22 @@ var swiper = new Swiper(".mySwiper", {
       },
     });
 
-//게시글 작성 기능
+//게시글 생성과 글 및 태그 이미지 반영 부분
 var postBoxBtn = document.querySelector('.postbox_btn');
 
+// Get the postbox_tag element
+var postboxTag = document.querySelector('.postbox_tag');
+// Get the postbox_image-container element
+var postboximg = document.querySelector('.postbox_image-container');
+// Get the tags_output element
+var tagsOutput = document.querySelector('.tags_output');
+// Get the img_post_bx element
+var imgOutput = document.querySelector('.img_post_bx');
 // Add a click event listener to the button
 postBoxBtn.addEventListener('click', function() {
 
-  // Get the post_list element
-  var postList = document.querySelector('.post_list');
+    // Get the post_list element
+    var postList = document.querySelector('.post_list');
 
   // Create a new post_list_box element
   var newPostListBox = document.createElement('div');
@@ -656,40 +743,52 @@ postBoxBtn.addEventListener('click', function() {
 
   // Get the value of the textarea
   var postContent = document.getElementById('contentInput').value;
+  document.getElementById('contentInput').value = '';
+  var postTags = postboxTag.innerHTML;
+  postboxTag.innerHTML=" "
+  var postimg = postboximg.innerHTML;
+  postboximg.innerHTML=" "
+  postimg = postimg.replace('<i class="fa-solid fa-xmark"></i>', '');
 
+  // Get the current date and time
+var now = new Date();
+
+// Format the date and time as a string
+var dateString = now.toLocaleDateString();
+var timeString = now.toLocaleTimeString();
   // Add content to the new post_list_box element
   newPostListBox.innerHTML = `
   <div class="content">
           <div class="post_profile" style="float: left;">
-            <img src="/gittest/src/main/webapp/folde1/img/129.png" alt="">
+            <img src="/gittest/src/main/webapp/folde2/profile/img/icon/profile_img.png" alt="">
           </div>
           <div class="user_name_time">
             <h5 name="user_nick">
-              admin
-              <p name="user_id">@admin</p>
+              smhrd
+              <p name="user_id">@smhrd_12345</p>
             </h5>
-            <h6><i class="far fa-clock" name="c_date"></i>25 mins</h6>
+            <h6><i class="far fa-clock" name="c_date"></i>${dateString} ${timeString}</h6>
             <i class="fa-solid fa-trash-can" onclick="delete_postlist()"></i>
           </div>
           <div class="content_text" name="post-content">
             ${postContent}
           </div>
           <div class="tags_output">
-
+            <span>${postTags}</span>
           </div>
-          <div class="img_post_bx">
-            
+          <div class="img_post_bx_post">
+            <span>${postimg}<span>
           </div>
           <div class="post_card_social_data">
-            <div class="post_social_card" onclick="dropdowncommentinput()">
-              <i class="fas fa-comment"></i>
+            <div class="post_social_card">
+              <i class="fas fa-comment"  onclick="dropdowncommentinput()"></i>
               <span name="comment_cnt">0</span><!-- 댓글 수-->
             </div>
-            <div class="post_social_card" onclick="likeFunction()">
+            <div class="post_social_card"">
               <i class="fas fa-heart"></i>
               <span name="like_cnt">0</span>
             </div>
-            <div class="post_social_card" >
+            <div class="post_social_card">
               <i class="fa-solid fa-map-location-dot"></i>
             </div>
           </div>
