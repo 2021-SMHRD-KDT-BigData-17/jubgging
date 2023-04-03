@@ -20,17 +20,21 @@ import com.jubging.domain.join;
 
 
 @MultipartConfig(
-	    location = "D:\\upimg", // 업로드 된 파일이 저장될 위치
+	    location = "D:\\", // 업로드 된 파일이 저장될 위치
 	    fileSizeThreshold = 1024 * 1024, // 업로드 된 파일이 저장될 임계값 (1MB)
 	    maxFileSize = 1024 * 1024 * 5, // 업로드 가능한 파일의 최대 크기 (5MB)
 	    maxRequestSize = 1024 * 1024 * 10 // 요청 데이터의 최대 크기 (10MB)
 	)
+
 public class CommunirtyCon extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
 		request.setCharacterEncoding("UTF-8");
+		HttpSession session = request.getSession();
+		join userid = (join) session.getAttribute("user_id");
+		String user_id = userid.getUser_id();
 
 		// 파라미터 수집 (c_content,c_hashtag,user_id)
 		String c_content = request.getParameter("c_content");
@@ -38,10 +42,6 @@ public class CommunirtyCon extends HttpServlet {
 		String c_img = null;
 		String c_date = null;
 		
-		HttpSession session = request.getSession();
-		join userid = (join) session.getAttribute("user_id");
-		
-		String user_id = userid.getUser_id();
 		
 		// 이미지 처리
 		

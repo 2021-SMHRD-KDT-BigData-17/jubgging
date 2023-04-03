@@ -6,18 +6,12 @@
 <!-- namespace : sql탸그 id를 그룹화하기 위한 속성 mapper의 경로를 작성 -->
 <mapper namespace="com.jubging.darabase.JubgingMapper1">
 
-	<!-- <resultMap type="com.jubging.domain.Community" id="Feed">
-	  <result property="c_idx" column="c_idx" />
-	  <result property="c_content" column="c_content" />
-	  <result property="c_likes" column="c_likes"  />
-	  <result property="c_hashtag" column="c_hashtag" />
-	  <result property="lat" column="lat" />
-	  <result property="lng" column="lng" />
-	  <result property="c_date" column="c_date"/>
-	  <result property="user_id" column="user_id" />
-	  <result property="user_nick" column="user_nick" />
-	  <result property="c_img" column="c_img" jdbcType="CLOB" javaType="java.lang.String" />
-	</resultMap> -->
+	 <resultMap type="com.jubging.domain.Jgnam" id="bulletinboard_jeannam">
+	  <result property="jb_idx" column="jb_idx" />
+	  <result property="jb_name" column="jb_name" />
+	  <result property="jb_ringk" column="jb_ringk"/>
+	</resultMap>
+	
 	<!-- 회원가입 -->
 	<insert id="insertjoin" parameterType="com.jubging.domain.join">
 		insert into	t_user(user_id, user_pw, user_email) values(#{user_id},#{user_pw},#{user_email})
@@ -38,6 +32,16 @@
 		select * from t_community
 	</select> -->
 	
+	<!-- 전남 산책로 불러오기 -->
+	<select id ="Selectjn" resultType="com.jubging.domain.Jgnam">
+		select * from t_jeonnam order by jn_idx asc
+	</select>
+	
+	<!-- 전북 산책로 불러오기 -->
+	<select id ="Selectjb" resultType="com.jubging.domain.jgbuk">
+		select * from t_jeonbuk order by jb_idx asc
+	</select>
+	
 	<!-- 회원 정보 찾기 -->
 	<select id ="selectfind" parameterType="com.jubging.domain.join" resultType="com.jubging.domain.join">
 		select * from t_user where user_email =#{user_email}
@@ -45,7 +49,7 @@
 	
 	<!-- 상테 메시지 저장 -->
 	<update id="insertsituation" parameterType="com.jubging.domain.Profile">
-		UPDATE t_user SET user_situation = #{user_situation}, user_nick=#{user_nick} WHERE user_id = #{user_id}
+		UPDATE t_user SET user_situation = #{user_situation}, user_nick=#{user_nick}, user_img=#{user_img} WHERE user_id = #{user_id}
 	</update>
 	
 </mapper>

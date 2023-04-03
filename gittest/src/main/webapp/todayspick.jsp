@@ -21,61 +21,61 @@
       <div class="card-wrapper swiper-wrapper">
         <div class="card swiper-slide">
           <div class="image-box">
-            <a href="./bulletinboard_jeannam.jsp"><img src="./img/forest.jpg" alt=""></a>
+            <a href="./bulletinboard_jeannam.jsp"><img src="./img/dongcheon.jpg" alt=""></a>
           </div>
           <div class="profile_details">
-            <img src="./img/jeannam2.jpg" alt="">
+            <img src="./img/badge.png" alt="">
             <div class="name_region">
-              <h3 class="name">봉화산 둘레길</h3>
-              <h4 class="region">순천</h4>
+              <h3 class="name">동천</h3>
+              <h4 class="region">전라남도 순천</h4>
             </div>
           </div>
         </div>
         <div class="card swiper-slide">
           <div class="image-box">
-            <a href="./bulletinboard_jeanbuk.jsp"><img src="./img/forest.jpg" alt=""></a>
+            <a href="./bulletinboard_jeannam.jsp"><img src="./img/bonghwa.jpg" alt=""></a>
           </div>
           <div class="profile_details">
-            <img src="./img/jeannam2.jpg" alt="">
+            <img src="./img/badge.png" alt="">
             <div class="name_region">
               <h3 class="name">봉화산 둘레길</h3>
-              <h4 class="region">순천</h4>
+              <h4 class="region">전라남도 순천</h4>
             </div>
           </div>
         </div>
         <div class="card swiper-slide">
           <div class="image-box">
-            <img src="./img/forest.jpg" alt="">
+            <a href="./bulletinboard_jeannam.jsp"><img src="./img/jogyesan.jpg" alt=""></a>
           </div>
           <div class="profile_details">
-            <img src="./img/jeannam2.jpg" alt="">
+            <img src="./img/badge.png" alt="">
             <div class="name_region">
-              <h3 class="name">봉화산 둘레길</h3>
-              <h4 class="region">순천</h4>
+              <h3 class="name">조계산 등산로</h3>
+              <h4 class="region">전라남도 순천</h4>
             </div>
           </div>
         </div>
         <div class="card swiper-slide">
           <div class="image-box">
-            <img src="./img/forest.jpg" alt="">
+            <a href="./bulletinboard_jeanbuk.jsp"><img src="./img/waterfogload.jpg" alt=""></a>
           </div>
           <div class="profile_details">
-            <img src="./img/jeannam2.jpg" alt="">
+            <img src="./img/badge.png" alt="">
             <div class="name_region">
-              <h3 class="name">봉화산 둘레길</h3>
-              <h4 class="region">순천</h4>
+              <h3 class="name">옥정호 물안개길</h3>
+              <h4 class="region">전라북도 임실</h4>
             </div>
           </div>
         </div>
         <div class="card swiper-slide">
           <div class="image-box">
-            <img src="./img/forest.jpg" alt="">
+            <a href="./bulletinboard_jeanbuk.jsp"><img src="./img/mysan.jpg" alt=""></a>
           </div>
           <div class="profile_details">
-            <img src="./img/jeannam2.jpg" alt="">
+            <img src="./img/badge.png" alt="">
             <div class="name_region">
-              <h3 class="name">봉화산 둘레길</h3>
-              <h4 class="region">순천</h4>
+              <h3 class="name">마이산 도립공원</h3>
+              <h4 class="region">전라북도 진안</h4>
             </div>
           </div>
         </div>

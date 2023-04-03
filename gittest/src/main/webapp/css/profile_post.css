@@ -8,14 +8,30 @@
     font-family: 'Poppins', sans-serif;
 }
 
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'TheJamsil5Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil5Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+
+
 body{
     display: flex;
-    height: 100vh;
+    height: 85vh;
     max-width: 1300px;
     margin-left: auto;
     margin-right: auto;
     padding: 0 10px;
-    background-color: white;
+    
 }
 a{
     text-decoration: none;
@@ -33,7 +49,7 @@ a{
 .sidebar{
     border-right: 1px solid whitesmoke;
     flex: 0.23;
-    min-width: 250px;
+    min-width: 280px;
     margin-top: 20px;
     padding-left: 20px;
     padding-right: 20px; 
@@ -52,9 +68,10 @@ a{
 .sidebarOption h2{
     padding: 20px;
     font-weight: 400;
-    font-size: 19px;
+    font-size: 17px;
     margin-right: 20px;
     letter-spacing: -1px;
+    font-family: 'TheJamsil5Bold';
 }
 .sidebarOption:hover{
  border-radius: 10px;
@@ -105,7 +122,7 @@ img .user_profile_img{
     padding-left: 5px;
 }
 .user_profile_op i{
-    margin-left: 45px;
+    margin-left: 25px;
 }
 .sidebar_dropdown-content{
     display: none;
@@ -210,7 +227,7 @@ section .profile_post_follow_bx .profile_bx .profile_card h6 {
 section .profile_post_follow_bx .profile_bx .profile_card address {
     display: flex;
     align-items: center;
-    margin-top: 8px;
+    margin-top: 3px;
 }
 
 section .profile_post_follow_bx .profile_bx .profile_card address a {
@@ -538,6 +555,7 @@ section .profile_post_follow_bx .post_follow_bx .post .post_main_bx .post_card_b
     font-size: 14px;
     color: #222;
     margin-top: 10px;
+    font-family: 'Pretendard-Regular';
 }
 
 section .profile_post_follow_bx .post_follow_bx .post .post_main_bx .post_card_bx .content .post_card_social_data{
@@ -566,6 +584,7 @@ section .profile_post_follow_bx .post_follow_bx .post .post_main_bx .post_card_b
    color:rgb(0,0,0,0.2);
    margin-right: 5px;
    font-size: 14px;
+   cursor: pointer;
 }
 
 section .profile_post_follow_bx .post_follow_bx .post .post_main_bx .post_card_bx .content .post_card_social_data .post_social_card span{
@@ -574,7 +593,7 @@ section .profile_post_follow_bx .post_follow_bx .post .post_main_bx .post_card_b
 }
 
 section .profile_post_follow_bx .post_follow_bx .post .post_main_bx .post_card_bx .content .post_card_social_data .post_social_card:nth-child(2) i{
-   color:red;
+   color:rgb(0,0,0,0.2);
     
 }
 
@@ -602,7 +621,7 @@ section .profile_post_follow_bx .post_follow_bx .tag_bx .trend_for_you {
    background: #fff;
    border: 2px solid #eaeaea;
    /* box-shadow: 0px 0px 10px rgb(0, 0, 0, 0.1); */
-   border-radius: 5px;
+   border-radius: 8px;
    padding-bottom: 10px;
 }
 
@@ -629,7 +648,6 @@ section .profile_post_follow_bx .post_follow_bx .tag_bx .trend_for_you .trend_bx
 }
 
 section .profile_post_follow_bx .post_follow_bx .tag_bx .trend_for_you .trend_bx li {
-    list-style-type: none;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -641,9 +659,11 @@ section .profile_post_follow_bx .post_follow_bx .tag_bx .trend_for_you .trend_bx
 section .profile_post_follow_bx .post_follow_bx .tag_bx .trend_for_you .trend_bx li a {
     text-decoration: none;
     font-size: 13px;
-    font-weight: 600;
+    font-weight: 100;
     color: #000;
+    font-family: 'TheJamsil5Bold';
 }
+
 
 section .profile_post_follow_bx .post_follow_bx .tag_bx .trend_for_you .trend_bx li a p {
     text-decoration: none;
@@ -1032,3 +1052,118 @@ input[type=file]::-webkit-file-upload-button{
     font-size: 14px;
     margin-top: 10px;
 }
+
+
+/* map modal */
+.popup_map{
+    position: absolute;
+    left: 50%;
+    background: #fff;
+    padding: 25px;
+    border-radius: 15px;
+    top: -150%;
+    max-width: 430px;
+    width: 100%;
+    opacity: 0;
+    pointer-events: none;
+    box-shadow: 0px 10px 15px rgba(0,0,0,0.1);
+    transform: translate(-50%, -50%) scale(1.2);
+    transition: top 0s 0.2s ease-in-out,
+                opacity 0.2s 0s ease-in-out,
+                transform 0.2s 0s ease-in-out;
+}
+.popup_map.show{
+    top: 50%;
+    opacity: 1;
+    pointer-events: auto;
+    transform:translate(-50%, -50%) scale(1);
+    transition: top 0s 0s ease-in-out,
+                opacity 0.2s 0s ease-in-out,
+                transform 0.2s 0s ease-in-out;
+}
+.popup_map :is(header){
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+header span{
+    font-size: 21px;
+    font-weight: 600;
+}
+header .close{
+    display: flex;
+    align-items: center;
+    border-radius: 50%;
+    justify-content: center;
+    transition: all 0.3s ease-in-out;
+}
+header .close{
+    color: #878787;
+    font-size: 17px;
+    background: #f2f3fb;
+    height: 33px;
+    width: 33px;
+    cursor: pointer;
+}
+header .close:hover{
+    background: #ebedf9;
+}
+.popup_map .modal_content{
+    margin:  10px 0 0 0;
+}
+
+
+/* footer */
+
+#wrap {
+    min-height: 100vh;
+    position: relative;
+    width: 100%; 
+    height: 100%;
+    background-color: #f2f2f2;
+    display:contents;
+  }
+  
+  section:nth-child(2) {
+    padding-bottom: 30px;
+  }
+  
+  footer {
+    padding-left: 120px;
+    width: 100%;
+    height: 46px;
+    bottom: 0px;
+    position: absolute;
+    border-top: 1px solid #c4c4c4;
+    padding-top: 7px;
+    padding-bottom: 75px;
+    color: #808080;
+    font-size: 11px;
+    left: 0;
+}
+
+ footer nav a{
+    margin-bottom: 3px;
+ }
+  
+  footer a {
+    display: inline-block;
+    margin: 0 20px 10px 20px;
+    color: #808080; font-size: 11px;
+  }
+  
+  footer a:visited {
+    color: #808080;
+  }
+  
+  footer p {
+    margin-top: 0; 
+    margin-bottom: 0;
+    width: 300px;   
+    height: 20px;
+  }
+  
+  footer p span {
+    display: inline-block;
+    margin-left: 20px;
+  }

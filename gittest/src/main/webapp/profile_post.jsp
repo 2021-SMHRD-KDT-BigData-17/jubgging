@@ -1,3 +1,7 @@
+<%@page import="java.io.FileOutputStream"%>
+<%@page import="java.io.ByteArrayInputStream"%>
+<%@page import="javax.imageio.ImageIO"%>
+<%@page import="java.util.Base64"%>
 <%@page import="java.util.List"%>
 <%@page import="com.jubging.domain.CommunityDAO2"%>
 <%@page import="com.jubging.domain.Community"%>
@@ -6,12 +10,13 @@
     pageEncoding="UTF-8"%>
 <%
 join user_id = (join) session.getAttribute("user_id");
+%>
 
-
+<%
 CommunityDAO2 dao = new CommunityDAO2();
 List<Community> com = dao.SelectMember(user_id.getUser_id());
-
 %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,11 +38,11 @@ List<Community> com = dao.SelectMember(user_id.getUser_id());
     </div>
     <div class="sidebarOption">
       <i class="fa-solid fa-house-chimney"></i>
-      <a href="./Feed.jsp"><h2>홈</h2></a>
+      <a href="./Feed.jsp"><h2>HOME</h2></a>
     </div>
     <div class="sidebarOption">
       <i class="fa-sharp fa-solid fa-magnifying-glass"></i>
-      <a href="./search.jsp"><h2>트렌드</h2></a>
+      <a href="./search.jsp"><h2>TREND</h2></a>
     </div>
     <div class="sidebarOption">
       <i class="fa-solid fa-envelope"></i>
@@ -45,14 +50,32 @@ List<Community> com = dao.SelectMember(user_id.getUser_id());
     </div>
     <div class="sidebarOption">
       <i class="fa-solid fa-user"></i>
-      <a href="./profile_post.jsp"><h2>프로필</h2></a>
+      <a href="./profile_post.jsp"><h2>PROFILE</h2></a>
     </div>
     <div class="profile_btn" onclick="dropdown()">
       <div class="user_info">
-        <img src="./img/129.png" class="user_profile_img" style="width: 55px; height: 55px;">
+<% 
+if(user_id.getUser_img() != null){
+	byte[] imageData = Base64.getDecoder().decode(user_id.getUser_img());
+	
+	// 바이트 배열을 파일로 저장
+	String imageFileName = "user_img_" + user_id.getUser_id() + ".jpg";
+	String imagePath = request.getServletContext().getRealPath("/img/") + "user_img_" + user_id.getUser_id() + ".jpg"; // 이미지 파일 경로
+     FileOutputStream fos = new FileOutputStream(imagePath);
+     fos.write(imageData);
+     fos.close();
+     
+     String imageUrl = request.getContextPath() + "/img/user_img_" + user_id.getUser_id() + ".jpg";
+	
+%>
+          <img src="<%= imageUrl %>" alt="" class="user_profile_img" style="width: 55px; height: 55px;">
+<%} else{%>
+          <img src="./img/icon/profile_img.png" alt="" class="user_profile_img" style="width: 55px; height: 55px;">
+<%} %>
+        
         <div class="name">
-          <p class="user_nick"><%=user_id.getUser_nick() %></p>
-          <p class="user_id">@<%=user_id.getUser_id() %></p>
+          <p class="user_nick"><%= user_id.getUser_nick() %></p>
+          <p class="user_id">@<%= user_id.getUser_id() %></p>
         </div>
         <div class="user_profile_op">
           <i class="fa-solid fa-angles-down"></i>
@@ -73,9 +96,26 @@ List<Community> com = dao.SelectMember(user_id.getUser_id());
     <div class="profile_post_follow_bx">
       <div class="profile_bx">
         <div class="profile_card">
+              <% 
+if(user_id.getUser_img() != null){
+	byte[] imageData = Base64.getDecoder().decode(user_id.getUser_img());
+	
+	// 바이트 배열을 파일로 저장
+	String imageFileName = "user_img_" + user_id.getUser_id() + ".jpg";
+	String imagePath = request.getServletContext().getRealPath("/img/") + "user_img_" + user_id.getUser_id() + ".jpg"; // 이미지 파일 경로
+     FileOutputStream fos = new FileOutputStream(imagePath);
+     fos.write(imageData);
+     fos.close();
+     
+     String imageUrl = request.getContextPath() + "/img/user_img_" + user_id.getUser_id() + ".jpg";
+	
+%>
+          <img src="<%= imageUrl %>" alt="" class="profile_img">
+<%} else{%>
           <img src="./img/icon/profile_img.png" alt="" class="profile_img">
-          <h5 name="user_nick"><%=user_id.getUser_nick() %></h5>
-          <h6 name="usesr_id">@<%=user_id.getUser_id() %></h6>
+<%} %>
+          <h5 name="user_nick"><%= user_id.getUser_nick() %></h5>
+          <h6 name="usesr_id">@<%= user_id.getUser_id() %></h6>
           <address>
             <a href="#">
               <i class="fa-solid fa-location-dot"></i>
@@ -85,7 +125,7 @@ List<Community> com = dao.SelectMember(user_id.getUser_id());
               <i class="fa-solid fa-earth-asia"></i>
             </a>
           </address>
-          <p><%=user_id.getUser_situation() %></p>
+          <p><%= user_id.getUser_situation() %></p>
         </div>
         <div class="activity_bx">
           <div class="activity_card_bx">
@@ -110,18 +150,33 @@ List<Community> com = dao.SelectMember(user_id.getUser_id());
         <div class="post">
           <nav>
             <ul>
-              <li><a class = "postnav" href="./profile_post.jsp">Post</a></li>
-              <li><a class = "likenav" href="./profile_like.jsp">Like</a></li>
+              <li><a class = "postnav" href="./profile_post.jsp">POST</a></li>
+              <li><a class = "likenav" href="./profile_like.jsp">LIKE</a></li>
             </ul>
             <i class="fas fa-ellipsis-h"></i>
           </nav>
           <div class="post_main_bx">
-            <div class="post_card_bx">
-              <!-- post 타임라인 출력 시작 -->
-            </div><%for(Community c : com){ %>
+                      <%for(Community c : com){ %>
               <div class="post_card_bx">
               <div class="post_profile">
-                <img src="./img/icon/profile_img.png" alt="">
+              <% 
+if(user_id.getUser_img() != null){
+	byte[] imageData = Base64.getDecoder().decode(user_id.getUser_img());
+	
+	// 바이트 배열을 파일로 저장
+	String imageFileName = "user_img_" + user_id.getUser_id() + ".jpg";
+	String imagePath = request.getServletContext().getRealPath("/img/") + "user_img_" + user_id.getUser_id() + ".jpg"; // 이미지 파일 경로
+     FileOutputStream fos = new FileOutputStream(imagePath);
+     fos.write(imageData);
+     fos.close();
+     
+     String imageUrl = request.getContextPath() + "/img/user_img_" + user_id.getUser_id() + ".jpg";
+	
+%>
+          <img src="<%= imageUrl %>" alt="" class="profile_img">
+<%} else{%>
+          <img src="./img/icon/profile_img.png" alt="" class="profile_img">
+<%} %>
               </div>
               <div class="content">
                 <div class="user_name_time">
@@ -154,15 +209,82 @@ List<Community> com = dao.SelectMember(user_id.getUser_id());
               </div>
             </div><!-- post_card_bx끝 -->
             <%} %>
+          
             <div class="post_card_bx">
+            
               <div class="post_profile">
-                <img src="/gittest/src/main/webapp/folde2/profile/img/icon/profile_img.png" alt="">
+              <% 
+if(user_id.getUser_img() != null){
+	byte[] imageData = Base64.getDecoder().decode(user_id.getUser_img());
+	
+	// 바이트 배열을 파일로 저장
+	String imageFileName = "user_img_" + user_id.getUser_id() + ".jpg";
+	String imagePath = request.getServletContext().getRealPath("/img/") + "user_img_" + user_id.getUser_id() + ".jpg"; // 이미지 파일 경로
+     FileOutputStream fos = new FileOutputStream(imagePath);
+     fos.write(imageData);
+     fos.close();
+     
+     String imageUrl = request.getContextPath() + "/img/user_img_" + user_id.getUser_id() + ".jpg";
+	
+%>
+          <img src="<%= imageUrl %>" alt="" class="profile_img">
+<%} else{%>
+          <img src="./img/icon/profile_img.png" alt="" class="profile_img">
+<%} %>
               </div>
               <div class="content">
                 <div class="user_name_time">
                   <h5 name="user_nick">
-                    smhrd
-                    <p name="user_id">@smhrd_12345</p> 
+                    <%= user_id.getUser_nick() %>
+                    <p name="user_id">@<%= user_id.getUser_id() %></p>
+                  </h5>
+                  <h6><i class="far fa-clock" name="c_date"></i>25 mins</h6>
+                </div>
+                <div class = "content_text_bx">
+                  <span class = content_text>오늘 비오려나 플로깅 하러 가야하는데!</span>
+                </div>
+                <div class="post_card_social_data">
+                  <div class="post_social_card">
+                    <i class="fas fa-comment"></i>
+                    <span name="comment_cnt">20</span><!-- 댓글 수-->
+                  </div>
+                  <div class="post_social_card">
+                    <i class="fas fa-heart"></i>
+                    <span name="like_cnt">0</span>
+                  </div>
+                  <div class="post_social_card">
+                    <i class="fa-solid fa-map-location-dot"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="post_card_bx">
+              <div class="post_profile">
+              <% 
+if(user_id.getUser_img() != null){
+	byte[] imageData = Base64.getDecoder().decode(user_id.getUser_img());
+	
+	// 바이트 배열을 파일로 저장
+	String imageFileName = "user_img_" + user_id.getUser_id() + ".jpg";
+	String imagePath = request.getServletContext().getRealPath("/img/") + "user_img_" + user_id.getUser_id() + ".jpg"; // 이미지 파일 경로
+     FileOutputStream fos = new FileOutputStream(imagePath);
+     fos.write(imageData);
+     fos.close();
+     
+     String imageUrl = request.getContextPath() + "/img/user_img_" + user_id.getUser_id() + ".jpg";
+	
+%>
+          <img src="<%= imageUrl %>" alt="" class="profile_img">
+<%} else{%>
+          <img src="./img/icon/profile_img.png" alt="" class="profile_img">
+<%} %>
+              </div>
+              <div class="content">
+                <div class="user_name_time">
+                  <h5 name="user_nick">
+                    <%= user_id.getUser_nick() %>
+                    <p name="user_id">@<%= user_id.getUser_id() %></p> 
                   </h5>
                   <h6><i class="far fa-clock" name="c_date"></i>2 hours</h6>
                 </div>
@@ -170,8 +292,8 @@ List<Community> com = dao.SelectMember(user_id.getUser_id());
                   <span class="content_text">오늘 동천에서 이만큼 주웠습니다! 뿌듯하네요.</span>
                 </div>
                 <div class="image_post_bx">
-                  <img src="/gittest/src/main/webapp/folde2/profile/img/cantrash.jpg" alt="">
-                  <img src="/gittest/src/main/webapp/folde2/profile/img/trashduml.jpg" alt="">
+                  <img src="./img/cantrash.jpg" alt="">
+                  <img src="./img/trashduml.jpg" alt="">
                 </div>
                 <div class="post_card_social_data">
                   <div class="post_social_card">
@@ -190,13 +312,30 @@ List<Community> com = dao.SelectMember(user_id.getUser_id());
             </div>
             <div class="post_card_bx">
               <div class="post_profile">
-                <img src="/gittest/src/main/webapp/folde2/profile/img/icon/profile_img.png" alt="">
+              <% 
+if(user_id.getUser_img() != null){
+	byte[] imageData = Base64.getDecoder().decode(user_id.getUser_img());
+	
+	// 바이트 배열을 파일로 저장
+	String imageFileName = "user_img_" + user_id.getUser_id() + ".jpg";
+	String imagePath = request.getServletContext().getRealPath("/img/") + "user_img_" + user_id.getUser_id() + ".jpg"; // 이미지 파일 경로
+     FileOutputStream fos = new FileOutputStream(imagePath);
+     fos.write(imageData);
+     fos.close();
+     
+     String imageUrl = request.getContextPath() + "/img/user_img_" + user_id.getUser_id() + ".jpg";
+	
+%>
+          <img src="<%= imageUrl %>" alt="" class="profile_img">
+<%} else{%>
+          <img src="./img/icon/profile_img.png" alt="" class="profile_img">
+<%} %>
               </div>
               <div class="content">
                 <div class="user_name_time">
                   <h5 name="user_nick">
-                    smhrd
-                    <p name="user_id">@smhrd_12345</p>
+                    <%= user_id.getUser_nick() %>
+                    <p name="user_id">@<%= user_id.getUser_id() %></p>
                   </h5>
                   <h6><i class="far fa-clock" name="c_date"></i>4 hours</h6>
                 </div>
@@ -227,21 +366,21 @@ List<Community> com = dao.SelectMember(user_id.getUser_id());
           </nav>
           <div class="trend_bx">
             <div class="rate">
-              <li><a href="#">#today weather <br><p>937k posts</p></a><i class="fas fa-chevron-down"></i></li>
+              <li><a href="#">#today weather <br><p>93.7k posts</p></a><i class="fas fa-chevron-down"></i></li>
               <div class="interest">
                 <button class="smile"><i class="fas fa-smile"></i> Interested</button>
                 <button class="frown"><i class="fas fa-frown"></i> Not Interested</button>
               </div>
             </div>
             <div class="rate">
-              <li><a href="#">#plogging <br><p>1.37k posts</p></a><i class="fas fa-chevron-down"></i></li>
+              <li><a href="#">#plogging <br><p>13.7k posts</p></a><i class="fas fa-chevron-down"></i></li>
               <div class="interest">
                 <button class="smile"><i class="fas fa-smile"></i> Interested</button>
                 <button class="frown"><i class="fas fa-frown"></i> Not Interested</button>
               </div>
             </div>
             <div class="rate">
-              <li><a href="#">#dongcheon <br><p>3.2k posts</p></a><i class="fas fa-chevron-down"></i></li>
+              <li><a href="#">#dongcheon <br><p>8.2k posts</p></a><i class="fas fa-chevron-down"></i></li>
               <div class="interest">
                 <button class="smile"><i class="fas fa-smile"></i> Interested</button>
                 <button class="frown"><i class="fas fa-frown"></i> Not Interested</button>
@@ -261,45 +400,76 @@ List<Community> com = dao.SelectMember(user_id.getUser_id());
                 <button class="frown"><i class="fas fa-frown"></i> Not Interested</button>
               </div>
             </div>
-            <a href="/gittest/src/main/webapp/folde2/search.html"><button class="see_more">SEE MORE</button></a>
+            <a href="./search.jsp"><button class="see_more">SEE MORE</button></a>
           </div>          
         </div> 
       </div>
     </div>
   </section>
+  <section>
+  <div id='wrap'>
+      <footer>
+        <nav>
+            <a href='#' target='_blank'>Blog</a> |
+            <a href='https://github.com/2021-SMHRD-KDT-BigData-17/jubging' target='_blank'>Github</a>
+        </nav>
+        <p>
+            <span>팀 : 떡잎방범대</span><br/>
+            <span>이메일 : leaf0000@gmail.com</span><br/>
+            <span> &copy; 2023 Jubging. All Rights Reserved.</span>
+        </p>
+    </footer>
+  </div>
+  </section>
 
   <!-- Profile setting modal -->
- 
   <div class="popup">
     <header>
       <div class="close"><i class="fa-solid fa-xmark"></i></div>
     </header>
+    <form action="saveCon" method = "post" enctype="multipart/form-data">
     <div class="content">
         <div class="profile-text">
           <div class="imgbox">
-            <img src="./img/icon/profile_img.png" alt="">
+            <% 
+if(user_id.getUser_img() != null){
+	byte[] imageData = Base64.getDecoder().decode(user_id.getUser_img());
+	
+	// 바이트 배열을 파일로 저장
+	String imageFileName = "user_img_" + user_id.getUser_id() + ".jpg";
+	String imagePath = request.getServletContext().getRealPath("/img/") + "user_img_" + user_id.getUser_id() + ".jpg"; // 이미지 파일 경로
+     FileOutputStream fos = new FileOutputStream(imagePath);
+     fos.write(imageData);
+     fos.close();
+     
+     String imageUrl = request.getContextPath() + "/img/user_img_" + user_id.getUser_id() + ".jpg";
+	
+%>
+          <img src="<%= imageUrl %>" alt="" class="profile_img">
+<%} else{%>
+          <img src="./img/icon/profile_img.png" alt="" class="profile_img">
+<%} %>
           </div>
             <div class="upload">
                 <div class="round">
-                  <input type="file">
+                  <input type="file" name = "user_img" accept="image/*">
                   <i class="fas fa-camera" style="color:#fff"></i>
               </div>
             </div>
             <div class="text">
                 <span class="name"><%=user_id.getUser_nick() %></span>
                 <span class="profile_content">
-                    <%=user_id.getUser_situation() %>
+                    <%= user_id.getUser_situation() %>
                 </span>
             </div>
         </div>
-        <form action="saveCon">
             <textarea class ="nickarea" name = "user_nick" placeholder="닉네임을 입력하세요"></textarea>
             <textarea class ="profilearea" name = "user_situation" placeholder="프로필 내용을 입력하세요"></textarea>
             <div class="button">
                 <button class="save" type="sumbit">저장</button>
             </div>
-          </form>
     </div>
+          </form>
   </div>
 <!-- map modal  -->
   <div class="popup_map">

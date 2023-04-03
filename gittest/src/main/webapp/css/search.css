@@ -1,5 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
 
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'TheJamsil5Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil5Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
 * {
     margin: 0;
     padding: 0;
@@ -7,9 +30,10 @@
     font-family: 'Poppins', sans-serif;
 }
 
+
 body{
     display: flex;
-    height: 100vh;
+    height: 85vh;
     max-width: 1300px;
     margin-left: auto;
     margin-right: auto;
@@ -32,10 +56,11 @@ a{
 .sidebar{
     border-right: 1px solid whitesmoke;
     flex: 0.23;
-    min-width: 250px;
+    min-width: 280px;
     margin-top: 20px;
     padding-left: 20px;
     padding-right: 20px; 
+    
 }
 .sidebarOption_logo >img{
     
@@ -51,9 +76,10 @@ a{
 .sidebarOption h2{
     padding: 20px;
     font-weight: 400;
-    font-size: 20px;
+    font-size: 17px;
     margin-right: 20px;
     letter-spacing: -1px;
+    font-family: 'TheJamsil5Bold';
 }
 .sidebarOption:hover{
  border-radius: 10px;
@@ -104,7 +130,7 @@ img .user_profile_img{
     padding-left: 5px;
 }
 .user_profile_op i{
-    margin-left: 45px;
+    margin-left: 25px;
 }
 .sidebar_dropdown-content{
     display: none;
@@ -120,41 +146,41 @@ img .user_profile_img{
 .show {display: block;}
 
 
-
-
 /* search content */
 
 section .profile_header{
     width: 100%;
-    height: 8%;
+    height: 2%;
+    margin-top:2px;
 }
 
 section .follow_bx .trend_for_you{
     
     width: 500px;
-    height: 700px;
+    height: 600px;
     margin-left: 20px;
     background: #fff;
-    box-shadow: 0px 0px 30px rgb(0,0,0,0.1);
-    border-radius: 5px;
+    border: 1px solid #eaeaea;
+    border-radius: 9px;
     flex: 1.5;
     overflow-y: scroll;
     -ms-overflow-style: none;
     scrollbar-width: none;
+    
 }
 
 section .follow_bx .trend_for_you::-webkit-scrollbar{
     width: 5px;
-    background: rgb(0, 0, 0, 0.1);
     border-radius: 20px;
-    visibility: hidden;   
+    visibility: hidden;
+    display: none;   
 }
 
 section .follow_bx .trend_for_you::-webkit-scrollbar-thumb{
     width: 5px;
-    background: rgb(0, 0, 0, 0.1);
     border-radius: 20px;
-    visibility: hidden;   
+    visibility: hidden;
+    display: none;   
 }
 
 
@@ -171,7 +197,8 @@ section .follow_bx .trend_for_you nav{
     align-items: center;
     background-color: #64B617;
     border-radius: 8px 8px 0px;
-    border-bottom: 1px solid rgb(0,0,0,0.1);
+    border-bottom: 1px solid #eaeaea;
+    
 
 }
 
@@ -182,13 +209,14 @@ section .follow_bx .trend_for_you nav h6{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    font-family: 'TheJamsil5Bold';
 }
 
 section .follow_bx .trend_for_you .trend_bx li{
 
     width: 100%;
     height: auto;
-    padding: 15px 15px 15px 15px;   
+    padding: 20px 15px 20px 15px;   
     margin-right: 10px;
     margin-top:10px;
     border-bottom: 1px solid #98a5b1;
@@ -196,7 +224,8 @@ section .follow_bx .trend_for_you .trend_bx li{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 5px 0px ;
+    padding: 7px 0px ;
+    
 }
 
 section .follow_bx .trend_for_you .trend_bx li a{
@@ -204,11 +233,13 @@ section .follow_bx .trend_for_you .trend_bx li a{
     font-size: 15px;
     font-weight: 600;
     color: #000;
+    margin-bottom: 10px;
+    font-family: 'Pretendard-Regular';
 }
 
 section .follow_bx .trend_for_you .trend_bx li a p{
     text-decoration: none;
-    font-size: 10px;
+    font-size: 13px;
     font-weight: 500;
     color: rgb(0,0,0, 0.4);
 }
@@ -218,8 +249,8 @@ section .follow_bx .trend_for_you .trend_bx li i{
 }
 
 section .follow_bx .trend_for_you .trend_bx .rate{
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 15px;
+    margin-right: 15px;
 }
 
 section .follow_bx .trend_for_you .trend_bx .rate button{
@@ -250,60 +281,31 @@ section .follow_bx .trend_for_you .trend_bx .rate .interest {
     flex: 0.2;
     min-width: fit-content;
     overflow-y: scroll;
+    height: 85vh;
 }
-.widgets_input{
-    display: flex;
-    align-items: center;
-    background-color: #d3d3d3;
-    padding: 10px;
-    border-radius: 10px;
-    margin-top: 10px;
-    margin-left: 20px;
-}
-.widgets_input input{
-    border: none;
-    background-color: #d3d3d3;
-    outline: none;
-    color: white;
-    width: 80%;
-    height: 20px;
-    margin-right: 20px;
-    margin-left: 40px;
 
-}
-.widgets_input button{
-    background: none;
-    border: none;
-    outline: none;
-    cursor: pointer;
-}
-.widgets_input button i{
-    color: white;
-    margin-right: 15px;
-}
-.widgets_input input::placeholder{
-	color: white;
-}
-.widgets_treand_Container{
+.widgets_product_Container{
     margin-top: 15px;
     margin-left: 20px;
     padding: 0 0 20px 0; 
-    border: 1px solid whitesmoke;
+    border: 1px solid #eaeaea;
     border-radius: 10px;
 }
-.widgets_treand_Container h2{
+.widgets_product_Container h2{
     font-size: 20px;
-    font-weight: 600;
+    font-weight: 400;
+    font-family: 'GmarketSansMedium';
 }
 .widgets_weather_Container h2{
     font-size: 20px;
-    font-weight: 600;
+    font-weight: 400;
+    font-family: 'GmarketSansMedium';
 }
 .widgets_weather_Container{
     margin-top: 15px;
     margin-left: 20px;
     padding: 0 0 20px 0; 
-    border: 1px solid whitesmoke;
+    border: 1px solid #eaeaea;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     border-top-right-radius: 10px;
@@ -312,12 +314,23 @@ section .follow_bx .trend_for_you .trend_bx .rate .interest {
 .widgets::-webkit-scrollbar{
     display: none;
 }
-.widgets_weather_header{
+.widgets_header{
     padding: 10px;
     color: #fff;
     background-color: #64B617;
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
+}
+
+/* produt widget */
+.swiper {
+    width: 200px;
+    height: 230px;
+}
+
+.swiper-wrapper .product img{
+    width: 200px;
+    width: 200px;
 }
 
 /* Weather widget */
@@ -383,3 +396,58 @@ section .follow_bx .trend_for_you .trend_bx .rate .interest {
     font-size: 14px;
     margin-top: 10px;
 }
+
+/* footer */
+
+#wrap {
+    min-height: 100vh;
+    position: relative;
+    width: 100%; 
+    height: 100%;
+    background-color: #f2f2f2;
+    display:contents;
+  }
+  
+  section:nth-child(2) {
+    padding-bottom: 30px;
+  }
+  
+  footer {
+    padding-left: 120px;
+    width: 100%;
+    height: 46px;
+    bottom: 0px;
+    position: absolute;
+    border-top: 1px solid #c4c4c4;
+    padding-top: 7px;
+    padding-bottom: 75px;
+    color: #808080;
+    font-size: 11px;
+    left: 0;
+}
+
+ footer nav a{
+    margin-bottom: 3px;
+ }
+  
+  footer a {
+    display: inline-block;
+    margin: 0 20px 10px 20px;
+    color: #808080; font-size: 11px;
+  }
+  
+  footer a:visited {
+    color: #808080;
+  }
+  
+  footer p {
+    margin-top: 0; 
+    margin-bottom: 0;
+    width: 300px;   
+    height: 20px;
+  }
+  
+  footer p span {
+    display: inline-block;
+    margin-left: 20px;
+  }

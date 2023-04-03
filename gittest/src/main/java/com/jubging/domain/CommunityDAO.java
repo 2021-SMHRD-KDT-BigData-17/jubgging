@@ -49,6 +49,8 @@ public class CommunityDAO {
 		return com;
 	} // selectMember 끝
 
+	
+	// 커뮤니티 업로드 
 	public int Insertuplod(Community newPost) {
 		int cnt = 0;
 		try {

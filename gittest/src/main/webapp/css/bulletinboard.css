@@ -5,9 +5,30 @@
     font-family: 'Poppins', sans-serif;
 }
 
+@font-face {
+    font-family: 'OTWelcomeRA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/OTWelcomeRA.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'TheJamsil5Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil5Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GongGothicMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10@1.0/GongGothicMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body{
     display: flex;
-    height: 100vh;
+    height: 85vh; 
     max-width: 1300px;
     margin-left: auto;
     margin-right: auto;
@@ -30,10 +51,11 @@ a{
 .sidebar{
     border-right: 1px solid whitesmoke;
     flex: 0.23;
-    min-width: 250px;
+    min-width: 280px;
     margin-top: 20px;
     padding-left: 20px;
-    padding-right: 20px; 
+    padding-right: 20px;
+    
 }
 .sidebarOption_logo >img{
     
@@ -49,10 +71,18 @@ a{
 .sidebarOption h2{
     padding: 20px;
     font-weight: 400;
-    font-size: 19px;
+    font-size: 17px;
     margin-right: 20px;
     letter-spacing: -1px;
+    font-family: 'TheJamsil5Bold';
+    
 }
+
+.sidebarOption .trendBtn{
+    color:#64B617;
+
+}
+
 .sidebarOption:hover{
  border-radius: 10px;
  background-color: whitesmoke;
@@ -102,7 +132,7 @@ img .user_profile_img{
     padding-left: 5px;
 }
 .user_profile_op i{
-    margin-left: 45px;
+    margin-left: 25px;
 }
 .sidebar_dropdown-content{
     display: none;
@@ -117,21 +147,35 @@ img .user_profile_img{
 }
 .show {display: block;}
 
+/* 게시판 섹션 */
 
 .section{
     width: 100%
 }
 
 .bulletinboard_header{
-    background: #98a5b1;
-    width:700px;
-    height: 110px;
+    justify-content: center;
+    background-image: linear-gradient(to top, #c1dfc4 0%, #deecdd 100%);
+    width:980px;
+    height: 130px;
+    margin-left: 5px;
+    
 }
 
-/* 게시판 섹션 */
+.bulletinboard_header .header_text h2{
+    font-family: 'TheJamsil5Bold';
+    font-weight: 200;
+    padding: 69px 0px 0px 36px;
+    font-size: 40px;
+    color:#6d6666;
+    border:1px solids #eee;
+    font-family: 'GongGothicMedium';
+    
+}
 
 table {
     border-collapse:collapse;
+    margin-left: 3px;
 
 }
 
@@ -145,7 +189,7 @@ a{
 }
 
 .board_list_wrap{
-    padding: 27px;
+    margin: 3px;
 }
 
 .board_list{
@@ -224,6 +268,12 @@ a{
     background:#64B617;
 }
 
+.board_list_wrap .paging a.num:hover{
+    border: 1px solid #64B617;
+    font-weight: 600;
+    color:#fff;
+    background:#64B617;
+}
 
 .board_list_wrap .paging a.num:hover{
     border: 1px solid #64B617;
@@ -240,3 +290,59 @@ a{
     background: #64B617;
     color:#fff;
 }
+
+/* footer */
+
+#wrap {
+    min-height: 100vh;
+    position: relative;
+    width: 100%; 
+    height: 100%;
+    background-color: #f2f2f2;
+    display:contents;
+  }
+  
+  section:nth-child(2) {
+    padding-bottom: 30px;
+  }
+  
+  footer {
+    padding-left: 120px;
+    width: 100%;
+    height: 46px;
+    bottom: 0px;
+    position: absolute;
+    border-top: 1px solid #c4c4c4;
+    padding-top: 7px;
+    padding-bottom: 75px;
+    color: #808080;
+    font-size: 11px;
+    left: 0;
+}
+
+ footer nav a{
+    margin-bottom: 3px;
+ }
+  
+  footer a {
+    display: inline-block;
+    margin: 0 20px 10px 20px;
+    color: #808080; font-size: 11px;
+  }
+  
+  footer a:visited {
+    color: #808080;
+  }
+  
+  footer p {
+    margin-top: 0; 
+    margin-bottom: 0;
+    width: 300px;   
+    height: 20px;
+  }
+  
+  footer p span {
+    display: inline-block;
+    margin-left: 20px;
+  }
+
