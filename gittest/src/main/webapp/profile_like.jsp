@@ -196,8 +196,8 @@ if(user_id.getUser_img() != null){
               <div class="content">
                 <div class="user_name_time">
                   <h5 name="user_nick">
-                    earthlover
-                    <p name="user_id">@earthlove_125</p>
+                    earth
+                    <p name="user_id">@earth_12</p>
                   </h5>
                   <h6><i class="far fa-clock" name="c_date"></i>2 hours</h6>
                 </div>

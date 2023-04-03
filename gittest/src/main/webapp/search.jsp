@@ -19,49 +19,50 @@ List<Community> com = dao.SelectMember(user_id.getUser_id());
 <html lang="en">
 
 <head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="./css/search.css">
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-	integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
-	crossorigin="anonymous" referrerpolicy="no-referrer" />
-<link rel="stylesheet" href="./css/swiper-bundle.min.css" />
-<title>::Jubging:: - Trands</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/search.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <title>::Jubging:: - Trands</title>
 
 </head>
 
 <body>
-	<!-- sidebar section Start -->
-	<div class="sidebar">
-		<div class="sidebarOption_logo">
-			<img src="./img/homelogo.png">
-		</div>
-		<div class="sidebarOption">
-			<i class="fa-solid fa-house-chimney"></i> <a href="./Feed.jsp">
-				<h2>HOME</h2>
-			</a>
-		</div>
-		<div class="sidebarOption">
-			<i class="fa-sharp fa-solid fa-magnifying-glass"></i> <a
-				href="./search.jsp">
-				<h2>TREND</h2>
-			</a>
-		</div>
-		<div class="sidebarOption">
-			<i class="fa-solid fa-envelope"></i> <a href="./todayspick.jsp">
-				<h2>TODAY'S PICK</h2>
-			</a>
-		</div>
-		<div class="sidebarOption">
-			<i class="fa-solid fa-user"></i> <a href="./profile_post.jsp">
-				<h2>PROFILE</h2>
-			</a>
-		</div>
-		<div class="profile_btn" onclick="dropdown()">
-			<div class="user_info">
-			<% 
+  <!-- sidebar section Start -->
+  <div class="sidebar">
+    <div class="sidebarOption_logo">
+      <img src="./img/homelogo.png">
+    </div>
+    <div class="sidebarOption">
+      <i class="fa-solid fa-house-chimney"></i>
+      <a href="./Feed.jsp">
+        <h2>HOME</h2>
+      </a>
+    </div>
+    <div class="sidebarOption">
+      <i class="fa-sharp fa-solid fa-magnifying-glass"></i>
+      <a href="./search.jsp">
+        <h2>TREND</h2>
+      </a>
+    </div>
+    <div class="sidebarOption">
+      <i class="fa-solid fa-envelope"></i>
+      <a href="./todayspick.jsp">
+        <h2>TODAY'S PICK</h2>
+      </a>
+    </div>
+    <div class="sidebarOption">
+      <i class="fa-solid fa-user"></i>
+      <a href="./profile_post.jsp">
+        <h2>PROFILE</h2>
+      </a>
+    </div>
+    <div class="profile_btn" onclick="dropdown()">
+      <div class="user_info"><% 
 if(user_id.getUser_img() != null){
 	byte[] imageData = Base64.getDecoder().decode(user_id.getUser_img());
 	
@@ -79,216 +80,196 @@ if(user_id.getUser_img() != null){
 <%} else{%>
           <img src="./img/icon/profile_img.png" alt="" class="user_profile_img" style="width: 55px; height: 55px;">
 <%} %>
-				<div class="name">
-					<p class="user_nick"><%=user_id.getUser_nick()%></p>
-					<p class="user_id">
-						@<%=user_id.getUser_id()%></p>
-				</div>
-				<div class="user_profile_op">
-					<i class="fa-solid fa-angles-down"></i>
-				</div>
-			</div>
-		</div>
-		<div class="sidebar_dropdown-content" id="dropdown-content">
-			<a href="LogoutCon"><p onclick="logout()">로그아웃</p></a>
-		</div>
-	</div>
-	<!-- sidebar section end -->
-	<section>
-		<div class="profile_header"></div>
-		<div class="follow_bx">
-			<div class="trend_for_you">
-				<nav>
-					<h6>Trands for you</h6>
-				</nav>
-				<div class="trend_bx">
-					<div class="rate">
-						<li><a href="#">#todayweather <br>
-								<p>93.7k posts</p>
-						</a></li>
-						<div class="interest">
-							<button class="smile">
-								<i class="fas fa-smile"></i> Interested
-							</button>
-							<button class="frown">
-								<i class="fas fa-frown"></i> Not Interested
-							</button>
-						</div>
-					</div>
-					<div class="rate">
-						<li><a href="#">#plogging <br>
-								<p>13.7k posts</p>
-						</a></li>
-						<div class="interest">
-							<button class="smile">
-								<i class="fas fa-smile"></i> Interested
-							</button>
-							<button class="frown">
-								<i class="fas fa-frown"></i> Not Interested
-							</button>
-						</div>
-					</div>
-					<div class="rate">
-						<li><a href="#">#dongcheon<br>
-								<p>8.2k posts</p>
-						</a></li>
-						<div class="interest">
-							<button class="smile">
-								<i class="fas fa-smile"></i> Interested
-							</button>
-							<button class="frown">
-								<i class="fas fa-frown"></i> Not Interested
-							</button>
-						</div>
-					</div>
-					<div class="rate">
-						<li><a href="#">#분리수거 <br>
-								<p>7.1k posts</p>
-						</a></li>
-						<div class="interest">
-							<button class="smile">
-								<i class="fas fa-smile"></i> Interested
-							</button>
-							<button class="frown">
-								<i class="fas fa-frown"></i> Not Interested
-							</button>
-						</div>
-					</div>
-					<div class="rate">
-						<li><a href="#">#떡잎마을 방범대 <br>
-								<p>3.1k posts</p>
-						</a></li>
-						<div class="interest">
-							<button class="smile">
-								<i class="fas fa-smile"></i> Interested
-							</button>
-							<button class="frown">
-								<i class="fas fa-frown"></i> Not Interested
-							</button>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		</div>
-	</section>
-	<section>
-  <div id='wrap'>
-      <footer>
-        <nav>
-            <a href='#' target='_blank'>Blog</a> |
-            <a href='https://github.com/2021-SMHRD-KDT-BigData-17/jubging' target='_blank'>Github</a>
-        </nav>
-        <p>
-            <span>팀 : 떡잎방범대</span><br/>
-            <span>이메일 : leaf0000@gmail.com</span><br/>
-            <span> &copy; 2023 Jubging. All Rights Reserved.</span>
-        </p>
-    </footer>
+        <div class="name">
+          <p class="user_nick"><%= user_id.getUser_nick() %></p>
+          <p class="user_id">@<%= user_id.getUser_id() %></p>
+        </div>
+        <div class="user_profile_op">
+          <i class="fa-solid fa-angles-down"></i>
+        </div>
+      </div>
+    </div>
+    <div class="sidebar_dropdown-content" id="dropdown-content" onclick="logout()">
+      <a href="LogoutCon"><p onclick="logout()">로그아웃</p></a>
+    </div>
   </div>
+  <!-- sidebar section end -->
+  <section>
+    <div class="profile_header"></div>
+    <div class="follow_bx">
+      <div class="trend_for_you">
+        <nav>
+          <h6>Trands for you</h6>
+        </nav>
+        <div class="trend_bx">
+          <div class="rate">
+            <li><a href="#">#todayweather <br>
+                <p>108 posts</p>
+              </a></li>
+            <div class="interest">
+              <button class="smile"><i class="fas fa-smile"></i> Interested</button>
+              <button class="frown"><i class="fas fa-frown"></i> Not Interested</button>
+            </div>
+          </div>
+          <div class="rate">
+            <li><a href="#">#plogging <br>
+                <p>67 posts</p>
+              </a></li>
+            <div class="interest">
+              <button class="smile"><i class="fas fa-smile"></i> Interested</button>
+              <button class="frown"><i class="fas fa-frown"></i> Not Interested</button>
+            </div>
+          </div>
+          <div class="rate">
+            <li><a href="#">#dongcheon<br>
+                <p>34 posts</p>
+              </a></li>
+            <div class="interest">
+              <button class="smile"><i class="fas fa-smile"></i> Interested</button>
+              <button class="frown"><i class="fas fa-frown"></i> Not Interested</button>
+            </div>
+          </div>
+          <div class="rate">
+            <li><a href="#">#분리수거 <br>
+                <p>27 posts</p>
+              </a></li>
+            <div class="interest">
+              <button class="smile"><i class="fas fa-smile"></i> Interested</button>
+              <button class="frown"><i class="fas fa-frown"></i> Not Interested</button>
+            </div>
+          </div>
+          <div class="rate">
+            <li><a href="#">#떡잎마을 방범대 <br>
+                <p>14 posts</p>
+              </a></li>
+            <div class="interest">
+              <button class="smile"><i class="fas fa-smile"></i> Interested</button>
+              <button class="frown"><i class="fas fa-frown"></i> Not Interested</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
   </section>
 
+  <!-- 위젯 -->
+  <div class="widgets">
 
-		<!-- 위젯 -->
+    <div class="widgets_product_Container">
+      <div class="widgets_header">
+        <h2>친환경 상품</h2>
+      </div>   
+      <div class="slideshow-container">
+        <div class="slide">
+          <a href="https://cueclyp.com/product/C214TTUP02ZZF" target="_blank">
+            <img src="./img/image_1619527405937_2500-removebg-preview.png">
+          </a>
+        </div>
+        <div class="slide">
+          <a href="https://www.neogift.kr/front/f_goods/f_Goods_Detail.asp?g_code=56928&cat_1=K&cat_2=468">
+            <img src="./img/제목 없음-1.png">
+          </a>
+        </div>
+        <div class="slide">
+          <a href="https://cueclyp.com/product/C228BPRE01BKF" target="_blank">
+            <img src="./img/image_1662602533288_2500-removebg-preview.png">
+          </a>
+        </div>
+        <div class="slide">
+          <a href="https://cueclyp.com/product/C232CAUP02ZZF-17" target="_blank">
+            <img src="./img/image_1678424977558_2500-removebg-preview.png">
+          </a>
+        </div>
+        <div class="slide">
+          <a href="https://cueclyp.com/product/C214WAUP02ZZF-725" target="_blank">
+            <img src="./img/image_1680053440516_1000-removebg-preview.png">
+          </a>
+        </div>
+      </div>
+      <div class="dot-container">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(4)"></span>
+        <span class="dot" onclick="currentSlide(5)"></span>
+      </div>
+      
+            
+      
 
-		<div class="widgets">
+    </div>
+    <div class="widgets_weather_Container">
+      <div class="widgets_header">
+        <h2>날씨</h2>
+      </div>
+      <div class="weather_card">
+        <div class="error">
+          <p>위치정보를 찾을 수 없습니다.</p>
+        </div>
+        <div class="weather">
+          <img src="./img/icon/1530391_clouds_sun_sunny_weather.png"
+            class="weather-icon">
+          <h1 class="temp"></h1>
+          <h2 class="city_result"></h2>
+          <div class="details">
+            <div class="col">
+              <img src="./img/icon/cloud_forecast_rain_humidity_weather_icon_228446.png"
+                alt="">
+              <div class="col_text">
+                <p class="humidity"></p>
+                <p>습도</p>
+              </div>
+              <div class="col">
+                <img src="./img/icon/wind_icon-icons.com_64274.png" alt="">
+                <div class="col_text">
+                  <p class="windy_speed"></p>
+                  <p>풍속</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>  
+  <section>
+    <div id='wrap'>
+      <footer>
+        <nav>
+          <a href='#' target='_blank'>Blog</a> |
+          <a href='https://github.com/2021-SMHRD-KDT-BigData-17/jubging' target='_blank'>Github</a>
+        </nav>
+        <p>
+          <span>팀 : 떡잎방범대</span><br />
+          <span>이메일 : leaf0000@gmail.com</span><br />
+          <span> &copy; 2023 Jubging. All Rights Reserved.</span>
+        </p>
+      </footer>
+    </div>
+  </section>
 
-			<div class="widgets_product_Container">
-				<div class="widgets_header">
-					<h2>친환경 상품</h2>
-				</div>
-				<div class="swiper mySwiper">
-					<div class="swiper-wrapper">
-						<div class="swiper-slide">
-							<div class="product">
-								<a href="https://cueclyp.com/product/C214WAUP02ZZF-725"> <img
-									src="./img/image_1680053440516_1000-removebg-preview.png"
-									alt="">
-								</a>
-							</div>
-						</div>
-						<div class="swiper-slide">
-							<div class="product">
-								<a
-									href="https://www.neogift.kr/front/f_goods/f_Goods_Detail.asp?g_code=56928&cat_1=K&cat_2=468">
-									<img src="./img/제목 없음-1.png" alt="">
-								</a>
-							</div>
-						</div>
-						<div class="swiper-slide">
-							<div class="product">
-								<a href="https://cueclyp.com/product/C232CAUP02ZZF-17"> <img
-									src="./img/image_1678424977558_2500-removebg-preview.png"
-									alt="">
-								</a>
-							</div>
-						</div>
-						<div class="swiper-slide">
-							<div class="product">
-								<a href="https://cueclyp.com/product/C214TTUP02ZZF"> <img
-									src="./img/image_1619527405937_2500-removebg-preview.png"
-									alt="">
-								</a>
-							</div>
-						</div>
-						<div class="swiper-slide">
-							<div class="product">
-								<a href="https://cueclyp.com/product/C228BPRE01BKF"> <img
-									src="./img/image_1662602533288_2500-removebg-preview.png"
-									alt="">
-								</a>
-							</div>
-						</div>
-					</div>
-					<div class="swiper-pagination"></div>
-				</div>
-			</div>
+  <!-- js file section -->
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="https://kit.fontawesome.com/369266d994.js" crossorigin="anonymous"></script>
 
-			<div class="widgets_weather_Container">
-				<div class="widgets_header">
-					<h2>날씨</h2>
-				</div>
-				<div class="weather_card">
-					<div class="error">
-						<p>위치정보를 찾을 수 없습니다.</p>
-					</div>
-					<div class="weather">
-						<img src="./img/icon/1530391_clouds_sun_sunny_weather.png"
-							class="weather-icon">
-						<h1 class="temp"></h1>
-						<h2 class="city_result"></h2>
-						<div class="details">
-							<div class="col">
-								<img
-									src="./img/icon/cloud_forecast_rain_humidity_weather_icon_228446.png"
-									alt="">
-								<div class="col_text">
-									<p class="humidity"></p>
-									<p>습도</p>
-								</div>
-								<div class="col">
-									<img src="./img/icon/wind_icon-icons.com_64274.png" alt="">
-									<div class="col_text">
-										<p class="windy_speed"></p>
-										<p>풍속</p>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
 
-	</section>
+<script>
+  function dropdown() {
+    var dropdownContent = document.getElementById("dropdown-content");
+    dropdownContent.classList.toggle("show");
+  }
+  
+  
+  
+  function logout() {
+    var dropdownContent = document.getElementById("dropdown-content");
+    dropdownContent.classList.remove("show");
+    // '로그아웃' 삭제 수행
+  }
 
-	<!-- js file section -->
-	<script>
-    function dropdown() {
-      document.getElementById("dropdown-content").classList.toggle("show");
-    }
 
-    //날씨 정보 기능 
+//날씨 정보 기능 
     // Geolocation API에 액세스할 수 있는지를 확인
     if (navigator.geolocation) {
       //위치 정보를 얻기
@@ -357,7 +338,9 @@ if(user_id.getUser_img() != null){
 
     } else {
       alert("이 브라우저에서는 Geolocation이 지원되지 않습니다.")
-    }
+  }
+
+
 
     // 사이드바 활성화 기능
 
@@ -365,38 +348,52 @@ if(user_id.getUser_img() != null){
 
     const currentUrl = window.location.href;
 
-    links.forEach(link => {
-      if (link.href === currentUrl) {
-        link.classList.add('active');
+      links.forEach(link => {
+        if (link.href === currentUrl) {
+          link.classList.add('sidebar_active');
       } else {
-        link.classList.add('default');
+          link.classList.add('default');
       }
     });
- // 상품 소개 슬라이더
-    var swiper = new Swiper(".mySwiper", {
-      spaceBetween: 30,
-      centeredSlides: true,
-      autoplay: {
-        delay: 4000,
-        disableOnInteraction: false,
-      },
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-      },
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
-    });
 
 
-  </script>
-	<script
-		src="/gittest/src/main/webapp/folde2/profile/js/swiper-bundle.min.js"></script>
-	<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-	<script src="https://kit.fontawesome.com/369266d994.js"
-		crossorigin="anonymous"></script>
+  var slideIndex = 1;
+	showSlides(slideIndex);
+
+	function plusSlides(n) {
+		showSlides(slideIndex += n);
+	}
+
+	function currentSlide(n) {
+		showSlides(slideIndex = n);
+	}
+
+	function showSlides(n) {
+    var i;
+    var slides = document.getElementsByClassName("slide");
+    var dots = document.getElementsByClassName("dot");
+    if (n > slides.length) {
+        slideIndex = 1;
+    }
+    if (n < 1) {
+        slideIndex = slides.length;
+    }
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex-1].style.display = "block";
+    dots[slideIndex-1].className += " active";
+    setTimeout(function() {
+        showSlides(slideIndex += 1);
+    }, 5000); // 3초마다 슬라이드 전환
+}
+
+
+</script>
+  
 </body>
 
 </html>

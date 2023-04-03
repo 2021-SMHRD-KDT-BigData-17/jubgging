@@ -33,7 +33,7 @@
 
 body{
     display: flex;
-    height: 85vh;
+    height: 86vh;
     max-width: 1300px;
     margin-left: auto;
     margin-right: auto;
@@ -59,8 +59,7 @@ a{
     min-width: 280px;
     margin-top: 20px;
     padding-left: 20px;
-    padding-right: 20px; 
-    
+    padding-right: 20px;
 }
 .sidebarOption_logo >img{
     
@@ -70,7 +69,7 @@ a{
 .sidebarOption i{
     padding: 10px 0 0 0;
     line-height: 50px;
-    color: rgb(100, 182, 23);
+    color:rgb(100, 182, 23);
     
 }
 .sidebarOption h2{
@@ -88,7 +87,7 @@ a{
  transition: color 100ms ease-out;   
 }
 
-.active{
+.sidebar_active{
     color: rgb(100, 182, 23);
 }
 .default{
@@ -115,9 +114,8 @@ a{
     align-items: center;
     cursor: pointer;
 }
-img .user_profile_img{
-    border-radius: 50px;
-    margin-right: 10px;
+.user_profile_img{
+    border-radius: 50%;
 }
 .name .user_nick{
     font-size: 15px;
@@ -275,15 +273,12 @@ section .follow_bx .trend_for_you .trend_bx .rate .interest {
     height: 0;
     overflow: hidden;
 }
-
 /* widgets */
 .widgets{
     flex: 0.2;
     min-width: fit-content;
     overflow-y: scroll;
-    height: 85vh;
 }
-
 .widgets_product_Container{
     margin-top: 15px;
     margin-left: 20px;
@@ -293,12 +288,12 @@ section .follow_bx .trend_for_you .trend_bx .rate .interest {
 }
 .widgets_product_Container h2{
     font-size: 20px;
-    font-weight: 400;
+    font-weight: 600;
     font-family: 'GmarketSansMedium';
 }
 .widgets_weather_Container h2{
     font-size: 20px;
-    font-weight: 400;
+    font-weight: 600;
     font-family: 'GmarketSansMedium';
 }
 .widgets_weather_Container{
@@ -320,19 +315,9 @@ section .follow_bx .trend_for_you .trend_bx .rate .interest {
     background-color: #64B617;
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
+    margin-bottom: 20px;
 }
-
-/* produt widget */
-.swiper {
-    width: 200px;
-    height: 230px;
-}
-
-.swiper-wrapper .product img{
-    width: 200px;
-    width: 200px;
-}
-
+       
 /* Weather widget */
 .weather_card{
     width: 100%;
@@ -379,7 +364,7 @@ section .follow_bx .trend_for_you .trend_bx .rate .interest {
 .col_text .humidity , .windy_speed{
     font-weight: 600;
     font-size: 20px;
-    margin-left: 8px   ;
+    margin-left: 8px;
 }
 .col_text span{
     font-size: 18px;
@@ -451,3 +436,43 @@ section .follow_bx .trend_for_you .trend_bx .rate .interest {
     display: inline-block;
     margin-left: 20px;
   }
+
+/* 슬라이드 */
+.slideshow-container {
+    max-width: 300px;
+    position: relative;
+    margin: auto;
+  }
+  
+  .slide {
+    display: flex; /* 슬라이드 내부의 요소를 가운데 정렬하기 위해 Flexbox 레이아웃 사용 */
+    justify-content: center; /* 가로 중앙 정렬 */
+    align-items: center; /* 세로 중앙 정렬 */
+  }
+  
+  .slide img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .dot-container {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .dot {
+    display: inline-block;
+    margin: 0 5px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #bbb;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .active,
+  .dot:hover {
+    background-color: #717171;
+  }
+  
