@@ -173,9 +173,9 @@
             <img src="/gittest/src/main/webapp/folde2/profile/img/trashduml.jpg" alt="">
           </div>
           <div class="post_card_social_data">
-            <div class="post_social_card" onclick="dropdowncommentinput()">
-              <i class="fas fa-comment"></i>
-              <span name="comment_cnt">120</span><!-- 댓글 수-->
+            <div class="post_social_card" >
+              <i class="fas fa-comment" onclick="dropdowncommentinput()"></i>
+              <span id="comment_cnt">0</span><!-- 댓글 수-->
             </div>
             <div class="post_social_card">
               <i class="fas fa-heart" ></i>
@@ -185,13 +185,13 @@
               <i class="fa-solid fa-map-location-dot"></i>
             </div>
           </div>
-          <div class="dropdown-comment">
+          <div class="dropdown-comment" id="commnet_input">
             
-              <input type="text" name="commentInput">
+              <input type="text" id="commentInput">
               <button class="commentBtn">댓글입력</button>
             
           </div>
-          <div class="comment_list">
+          <div class="comment_list" id="new_comment_list">
             
           </div>
         </div>
@@ -246,6 +246,7 @@
                   earthlover
                   <p name="user_id">@earthlove_125</p>
                   <h6><i class="far fa-clock" name="c_date"></i>1 mins</h6>
+                  <i class="fa-solid fa-trash-can"></i>
                 </h5>
               </div>
               <div class="comment_text">
@@ -261,6 +262,7 @@
                   plogger
                   <p name="user_id">@plogger_1004</p>
                   <h6><i class="far fa-clock" name="c_date"></i>1 mins</h6>
+                  <i class="fa-solid fa-trash-can"></i>
                 </h5>
               </div>
               <div class="comment_text">
@@ -557,7 +559,76 @@ document.querySelector('input[name="c_img"]').addEventListener('change', functio
   }
   
   // 댓글창 보이기
-  
+  function dropdowncommentinput() {
+  var dropdown = document.getElementById("commnet_input");
+  if (dropdown.style.display === "none") {
+    dropdown.style.display = "block";
+  } else {
+    dropdown.style.display = "none";
+  }
+}
+
+
+$(document).ready(function() {
+  $(".commentBtn").click(function() {
+    // 입력된 댓글 텍스트를 가져옴
+    var commentText = $("#commentInput").val();
+
+    // 댓글 텍스트가 비어있는지 체크
+    if (commentText === "") {
+      alert("댓글을 입력해주세요.");
+      return;
+    }
+
+    // 현재 날짜와 시간을 가져옴
+    var now = new Date();
+    var year = now.getFullYear().toString().slice(-2);
+    var month = (now.getMonth() + 1).toString().padStart(2, '0');
+    var day = now.getDate().toString().padStart(2, '0');
+    var hour = now.getHours().toString().padStart(2, '0');
+    var minute = now.getMinutes().toString().padStart(2, '0');
+
+    // 날짜와 시간을 표시할 형식을 지정
+    var dateFormat = year + "/" + month + "/" + day;
+    var timeFormat = hour + ":" + minute;
+
+    // 댓글 정보를 담는 HTML 코드 생성
+    var commentHTML = '<div class="dropdown-comment_list">' +
+                      '<div class="post_profile">' +
+                      '<img src="/gittest/src/main/webapp/folde2/profile/img/profile_3.png" alt="">' +
+                      '</div>' +
+                      '<div class="user_name_time_comment">' +
+                      '<h5 name="user_nick">earthlover<p name="user_id">@earthlove_125</p><h6><i class="far fa-clock" name="c_date"></i>' + dateFormat + " " + timeFormat + '</h6></h5>' +
+                      '<i class="fa-solid fa-trash-can" id="deletecomment"></i></div>'+
+                      '<div class="comment_text">' +
+                      '<span>' + commentText + '</span>' +
+                      '</div>' +
+                      '</div>';
+
+    // #new_comment_list 아이디를 가진 요소에 새로운 댓글 추가
+    $("#new_comment_list").append(commentHTML);
+
+    // 입력 필드 초기화
+    $("#commentInput").val("");
+
+    // 댓글 수 증가
+    var commentCnt = parseInt($("#comment_cnt").text());
+    $("#comment_cnt").text(commentCnt + 1);
+
+    // 삭제 버튼 클릭 이벤트 추가
+    $("#deletecomment").last().click(function() {
+      // 댓글 수 감소
+      var commentCnt = parseInt($("#comment_cnt").text());
+      $("#comment_cnt").text(commentCnt - 1);
+      
+      // 가장 가까운 .dropdown-comment_list 요소 삭제
+      $(this).closest(".dropdown-comment_list").remove();
+    });
+  });
+});
+
+
+
 
 
 // 좋아요 색깔 , 숫자

@@ -656,7 +656,7 @@ a{
     color: #000;
     font-size: 12px;
     font-weight: 600;
-    margin-left: 200px;
+    margin-left: 90px;
 }
 .user_name_time_comment h6 i{
     font-size: 12px;
@@ -677,9 +677,6 @@ a{
 }
 .comment_list::-webkit-scrollbar{
     display: none;
-}
-.show_dropdown_comment_list{
-    display: block;
 }
 .dropdown-comment_list .post_profile{
     float: left;
