@@ -163,75 +163,37 @@ if(user_id.getUser_img() != null){
 				</tbody>
 			</table>
 			<div class="paging">
-				<%
-				if (currentPage > 1) {
-				%>
+				<%	if (currentPage > 1) {	%>
 				<a href="?page=<%=currentPage - 1%>">이전</a>
-				<%
-				} else {
-				%>
+				<%	} else { %>
 				<a href="">이전</a> <a href="">1</a>
-				<%
-				}
-				%>
-				<%
-				int startPage = Math.max(currentPage - 5, 1);
+				<%	}	%>
+				<%	int startPage = Math.max(currentPage - 5, 1);
 				int endPage = Math.min(startPage + 9, totalPages);
-				if (startPage > 1) {
-				%>
+				if (startPage > 1) {	%>
 				<a href="?page=1">1</a>
-				<%
-				if (startPage > 2) {
-				%>
+				<%	if (startPage > 2) {	%>
 				<span>...</span>
-				<%
-				}
-				%>
-				<%
-				}
-				%>
-				<%
-				for (int i = startPage; i <= endPage; i++) {
-				%>
-				<%
-				if (i == currentPage) {
-				%>
+				<%	}	%>
+				<%	}	%>
+				<%	for (int i = startPage; i <= endPage; i++) {	%>
+				<%	if (i == currentPage) {	%>
 				<strong><%=i%></strong>
-				<%
-				} else {
-				%>
+				<%	} else {	%>
 				<a href="?page=<%=i%>"><%=i%></a>
-				<%
-				}
-				%>
-				<%
-				}
-				%>
-				<%
-				if (endPage < totalPages) {
-				%>
-				<%
-				if (endPage < totalPages - 1) {
-				%>
+				<%	}	%>
+				<%	}	%>
+				<%	if (endPage < totalPages) {	%>
+				<%	if (endPage < totalPages - 1) {	%>
 				<span>...</span>
-				<%
-				}
-				%>
+				<%	}	%>
 				<a href="?page=<%=totalPages%>"><%=totalPages%></a>
-				<%
-				}
-				%>
-				<%
-				if (currentPage < totalPages) {
-				%>
+				<%	}	%>
+				<%	if (currentPage < totalPages) {	%>
 				<a href="?page=<%=currentPage + 1%>">다음</a>
-				<%
-				} else {
-				%>
+				<%} else {%>
 				<a href=""><%=currentPage%></a> <a href="">다음</a>
-				<%
-				}
-				%>
+				<%}	%>
 			</div>
 		</div>
 	</section>

@@ -266,35 +266,35 @@ if(user_id.getUser_img() != null){
           </nav>
           <div class="trend_bx">
             <div class="rate">
-              <li><a href="#">#today weather <br><p>93.7k posts</p></a><i class="fas fa-chevron-down"></i></li>
+              <li><a href="#">#today weather <br><p>108 posts</p></a><i class="fas fa-chevron-down"></i></li>
               <div class="interest">
                 <button class="smile"><i class="fas fa-smile"></i> Interested</button>
                 <button class="frown"><i class="fas fa-frown"></i> Not Interested</button>
               </div>
             </div>
             <div class="rate">
-              <li><a href="#">#plogging <br><p>13.7k posts</p></a><i class="fas fa-chevron-down"></i></li>
+              <li><a href="#">#plogging <br><p>67 posts</p></a><i class="fas fa-chevron-down"></i></li>
               <div class="interest">
                 <button class="smile"><i class="fas fa-smile"></i> Interested</button>
                 <button class="frown"><i class="fas fa-frown"></i> Not Interested</button>
               </div>
             </div>
             <div class="rate">
-              <li><a href="#">#dongcheon <br><p>8.2k posts</p></a><i class="fas fa-chevron-down"></i></li>
+              <li><a href="#">#dongcheon <br><p>34 posts</p></a><i class="fas fa-chevron-down"></i></li>
               <div class="interest">
                 <button class="smile"><i class="fas fa-smile"></i> Interested</button>
                 <button class="frown"><i class="fas fa-frown"></i> Not Interested</button>
               </div>
             </div>
             <div class="rate">
-              <li><a href="#">#분리수거 <br><p>7.1k posts</p></a><i class="fas fa-chevron-down"></i></li>
+              <li><a href="#">#분리수거 <br><p>27 posts</p></a><i class="fas fa-chevron-down"></i></li>
               <div class="interest">
                 <button class="smile"><i class="fas fa-smile"></i> Interested</button>
                 <button class="frown"><i class="fas fa-frown"></i> Not Interested</button>
               </div>
-            </div>
+            </div> 
             <div class="rate">
-              <li><a href="#">#떡잎마을 방범대 <br><p>3.1k posts</p></a><i class="fas fa-chevron-down"></i></li>
+              <li><a href="#">#떡잎마을 방범대 <br><p>14 posts</p></a><i class="fas fa-chevron-down"></i></li>
               <div class="interest">
                 <button class="smile"><i class="fas fa-smile"></i> Interested</button>
                 <button class="frown"><i class="fas fa-frown"></i> Not Interested</button>
